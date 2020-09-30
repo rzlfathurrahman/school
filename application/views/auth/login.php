@@ -1,28 +1,107 @@
-<h1><?php echo lang('login_heading');?></h1>
-<p><?php echo lang('login_subheading');?></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>
+    <?php if ($this->uri->segment(2) == 'login' ): ?>
+      <?= lang('login_heading');?>
+    <?php elseif($this->uri->segment(2) == 'forgot_password') : ?>
+      <?=lang('forgot_password_heading');?>
+    <?php elseif($this->uri->segment(2) == 'create_user'): ?>
+      <?= lang('create_user_heading');?>
+    <?php endif; ?>
+      
+  </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->  
+  <link rel="icon" type="image/png" href="<?= base_url('assets/login/') ?>images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/login/') ?>vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/login/') ?>fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/login/') ?>fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/login/') ?>vendor/animate/animate.css">
+<!--===============================================================================================-->  
+  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/login/') ?>vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/login/') ?>vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/login/') ?>vendor/select2/select2.min.css">
+<!--===============================================================================================-->  
+  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/login/') ?>vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/login/') ?>css/util.css">
+  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/login/') ?>css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+  <div class="limiter">
+    <div class="container-login100" style="background-image: url('<?= base_url('assets/login/') ?>images/bg-01.jpg');">
+      <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+        <form class="login100-form validate-form" action="<?= base_url('auth/login') ?>" method="post">
+          <span class="login100-form-title p-b-49">
+            <?= lang('login_heading');?>
+          </span>
 
-<div id="infoMessage"><?php echo $message;?></div>
+          <!-- tampilkan pesan jika login gagal -->
+          <?php if (!empty($message)) : ?>
+            <div class="alert alert-secondary" role="alert">
+              <strong><?= $message ?></strong>
+            </div>
+          <?php endif; ?>
+          <?= $this->session->flashdata('pesan'); ?>
 
-<?php echo form_open("auth/login");?>
+          <div class="wrap-input100 validate-input m-b-23" data-validate = "Username / Email wajib diisi !">
+            <span class="label-input100">Username</span>
+            <input class="input100" type="email"  name="identity" autofocus="" placeholder="Masukan Email">
+            <span class="focus-input100" data-symbol="&#xf206;"></span>
+          </div>
 
-  <p>
-    <?php echo lang('login_identity_label', 'identity');?>
-    <?php echo form_input($identity);?>
-  </p>
+          <div class="wrap-input100 validate-input" data-validate="Password wajib diisi !">
+            <span class="label-input100">Password</span>
+            <input class="input100" type="password" name="password" placeholder="Masukan password">
+            <span class="focus-input100" data-symbol="&#xf190;"></span>
+          </div>
+          
+          <div class="text-right p-t-8 p-b-31">
+            <a href="forgot_password">
+              <?= lang('login_forgot_password');?>
+            </a>
+          </div>
+          
+          <div class="container-login100-form-btn">
+            <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
+              <button type="submit" class="login100-form-btn">
+                Login
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
 
-  <p>
-    <?php echo lang('login_password_label', 'password');?>
-    <?php echo form_input($password);?>
-  </p>
+  <div id="dropDownSelect1"></div>
+<!--===============================================================================================-->
+  <script src="<?= base_url('assets/login/') ?>vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+  <script src="<?= base_url('assets/login/') ?>vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+  <script src="<?= base_url('assets/login/') ?>vendor/bootstrap/js/popper.js"></script>
+  <script src="<?= base_url('assets/login/') ?>vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+  <script src="<?= base_url('assets/login/') ?>vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+  <script src="<?= base_url('assets/login/') ?>vendor/daterangepicker/moment.min.js"></script>
+  <script src="<?= base_url('assets/login/') ?>vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+  <script src="<?= base_url('assets/login/') ?>vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+  <script src="<?= base_url('assets/login/') ?>js/main.js"></script>
 
-  <p>
-    <?php echo lang('login_remember_label', 'remember');?>
-    <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?>
-  </p>
-
-
-  <p><?php echo form_submit('submit', lang('login_submit_btn'));?></p>
-
-<?php echo form_close();?>
-
-<p><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></p>
+</body>
+</html>
