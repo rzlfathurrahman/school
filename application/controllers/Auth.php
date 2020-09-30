@@ -55,7 +55,16 @@ class Auth extends CI_Controller
 				$this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
 			}
 
+			// siapkan data user yang aktif
+			$data['user'] = $this->session->userdata();
+			$emailUserActive = $data['user']['email'];
+			$data['user'] = $this->db->get('users',['email' => $emailUserActive])->result_array();
+			$data['halaman'] = 'admin/dashboard';
+
+			$this->load->view('templates/admin/header',$data); 
+			$this->load->view('templates/admin/sidebar'); 
 			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'index', $this->data);
+			$this->load->view('templates/admin/footer'); 
 		}
 	}
 
