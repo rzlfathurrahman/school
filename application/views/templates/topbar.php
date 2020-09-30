@@ -1,6 +1,6 @@
 <!-- LOADER -->
     <div id="preloader">
-        <img class="preloader" src="<?= base_url('assets/')  ?>images/loader.gif" alt="">
+        <img class="preloader" src="<?= base_url('assets/user/')  ?>images/loader.gif" alt="">
     </div><!-- end loader -->
     <!-- END LOADER -->
 
@@ -58,7 +58,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <div class="logo-normal">
-                            <a class="navbar-brand" href="index.html"><img src="<?= base_url('assets/')  ?>images/logo.png" alt=""></a>
+                            <a class="navbar-brand" href="index.html"><img src="<?= base_url('assets/user/')  ?>images/logo.png" alt=""></a>
                         </div>
                     </div>
 
@@ -87,7 +87,7 @@
                                                 <div class="col-md-6 col-sm-6">
                                                     <div class="menu-widget text-center">
                                                         <div class="image-wrap entry">
-                                                            <img src="<?= base_url('assets/')  ?>upload/course_01.jpg" alt="" class="img-responsive">
+                                                            <img src="<?= base_url('assets/user/')  ?>upload/course_01.jpg" alt="" class="img-responsive">
                                                             <div class="magnifier">
                                                                  <a href="#" title=""><i class="flaticon-add"></i></a>
                                                             </div>
