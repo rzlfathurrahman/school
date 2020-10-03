@@ -13120,6 +13120,15 @@ input:focus {
         display: block;
         font-size: 10.5px;
         padding: 2px 6px 0; }
+    .sidebar .user-info span.status {
+      border-radius: 3px;
+      margin: auto;
+      text-align: center; }
+      .sidebar .user-info span.status:after {
+        content: "";
+        display: block;
+        font-size: 10.5px;
+        padding: 2px 6px 0; }
   .sidebar .nav {
     display: block;
     padding: 10px 0px 10px 20px; }
