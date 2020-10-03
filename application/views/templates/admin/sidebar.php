@@ -28,8 +28,14 @@
           <div class="user-info">
             <img src="<?= base_url(); ?>assets/admin/images/face.jpg" alt="">
             <p class="name"><?= $user[0]['username']  ?></p>
-            <p class="designation">Manager</p>
-            <span class="online"></span>
+            <p class="designation">
+              <?= $user[0]['email']  ?>
+            </p>
+            <div class="container-fluid d-flex justify-content-center"> 
+              <?php foreach ($user_groups as $user_group): ?>
+                <span class="status mx-1 bg-success p-1"><?= $user_group->name;  ?></span>
+              <?php endforeach; ?>
+            </div>
           </div>
 
           <ul class="nav">
