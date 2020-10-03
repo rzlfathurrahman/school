@@ -57,9 +57,20 @@ class Auth extends CI_Controller
 
 			// siapkan data user yang aktif
 			$data['user'] = $this->session->userdata();
-			$emailUserActive = $data['user']['email'];
-			$data['user'] = $this->db->get('users',['email' => $emailUserActive])->result_array();
+			$id_user_aktif = $data['user']['user_id'];
+
+	
+			// ambil data user aktif
+			$data['user'] = $this->ion_auth->user()->result_array();
+
+			// dapatkan grup user saat ini
+			$data['user_groups'] = $this->ion_auth->get_users_groups()->result();
+
+			// info halaman aktif 
 			$data['halaman'] = 'admin/dashboard';
+
+			// judul web
+			$data['judul'] = 'Dashboard ';
 
 			$this->load->view('templates/admin/header',$data); 
 			$this->load->view('templates/admin/sidebar'); 
