@@ -27,7 +27,7 @@
         <nav class=" sidebar sidebar-offcanvas" id="sidebar">
           <div class="user-info">
             <img src="<?= base_url(); ?>assets/admin/images/face.jpg" alt="">
-            <p class="name"><?= $user['nama']; ?></p>
+            <p class="name"><?= $user[0]['username']  ?></p>
             <p class="designation">Manager</p>
             <span class="online"></span>
           </div>
@@ -42,61 +42,6 @@
               <a class="nav-link" href="<?= base_url(); ?>dashboard">
                 <img src="<?= base_url(); ?>assets/admin/images/icons/1.png" alt="">
                 <span class="menu-title">Dashboard</span>
-              </a>
-            </li>
-
-            <?php if ($halaman == "admin/produk"): ?>
-            <li class="nav-item active">
-            <?php else: ?>
-            <li class="nav-item">
-            <?php endif; ?>
-              <a class="nav-link" href="<?= base_url(); ?>produk">
-                <img src="<?= base_url(); ?>assets/admin/images/file-icons/64/005-database.png" alt="">
-                <span class="menu-title">Produk</span>
-              </a>
-            </li>
-
-            <?php if ($halaman == "admin/kategori"): ?>
-            <li class="nav-item active">
-            <?php else: ?>
-            <li class="nav-item">
-            <?php endif; ?>
-              <a class="nav-link" href="<?= base_url(); ?>kategori">
-                <img src="<?= base_url(); ?>assets/admin/images/file-icons/64/003-interface.png" alt="">
-                <span class="menu-title">kategori Produk</span>
-              </a>
-            </li>
-
-            <?php if ($halaman == "admin/invoice"): ?>
-            <li class="nav-item active">
-            <?php else: ?>
-            <li class="nav-item">
-            <?php endif; ?>
-              <a class="nav-link" href="<?= base_url(); ?>invoice">
-                <img src="<?= base_url(); ?>assets/admin/images/icons/005-forms.png" alt="">
-                <span class="menu-title">Invoice</span>
-              </a>
-            </li>
-
-            <?php if ($halaman == "admin/contact"): ?>
-            <li class="nav-item active">
-            <?php else: ?>
-            <li class="nav-item">
-            <?php endif; ?>
-              <a class="nav-link" href="<?= base_url(); ?>admin/contact">
-                <img src="<?= base_url(); ?>assets/admin/images/icons/006-letter.png" alt="">
-                <span class="menu-title">Contact</span>
-              </a>
-            </li>
-
-            <?php if ($halaman == "admin/users"): ?>
-            <li class="nav-item active">
-            <?php else: ?>
-            <li class="nav-item">
-            <?php endif; ?>
-              <a class="nav-link" href="<?= base_url(); ?>users">
-                <img src="<?= base_url(); ?>assets/admin/images/icons/10.png" alt="">
-                <span class="menu-title">Users</span>
               </a>
             </li>
 
