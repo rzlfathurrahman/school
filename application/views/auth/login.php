@@ -47,9 +47,7 @@
 
           <!-- tampilkan pesan jika login gagal -->
           <?php if (!empty($message)) : ?>
-            <div class="alert alert-secondary" role="alert">
               <strong><?= $message ?></strong>
-            </div>
           <?php endif; ?>
           <?= $this->session->flashdata('pesan'); ?>
 
