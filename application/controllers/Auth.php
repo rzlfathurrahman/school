@@ -58,7 +58,6 @@ class Auth extends CI_Controller
 			// siapkan data user yang aktif
 			$data['user'] = $this->session->userdata();
 			$id_user_aktif = $data['user']['user_id'];
-
 	
 			// ambil data user aktif
 			$data['user'] = $this->ion_auth->user()->result_array();
