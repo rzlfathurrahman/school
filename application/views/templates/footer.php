@@ -64,7 +64,7 @@
             </div><!-- end container -->
         </footer><!-- end footer -->
 
-        <div class="copyrights">
+        <div class="copyrights" id="copyrights">
             <div class="container">
                 <div class="clearfix">
                     <div class="pull-left">
