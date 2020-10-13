@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col-md-4 hidden-sm hidden-xs">
                 <div class="custom-module">
-                    <img src="<?= base_url('assets/user/')  ?>upload/device_01.png" alt="" class="img-responsive wow slideInLeft">
+                    <img src="<?= base_url('assets/frontend/')  ?>upload/device_01.png" alt="" class="img-responsive wow slideInLeft">
                 </div><!-- end module -->
             </div><!-- end col -->
             <div class="col-md-8">
@@ -87,7 +87,7 @@
             <div class="caro-item">
                 <div class="course-box">
                     <div class="image-wrap entry">
-                        <img src="<?= base_url('assets/user/')  ?>upload/course_01.jpg" alt="" class="img-responsive">
+                        <img src="<?= base_url('assets/frontend/')  ?>upload/course_01.jpg" alt="" class="img-responsive">
                         <div class="magnifier">
                              <a href="#" title=""><i class="flaticon-add"></i></a>
                         </div>
@@ -119,7 +119,7 @@
             <div class="caro-item">
                 <div class="course-box">
                     <div class="image-wrap entry">
-                        <img src="<?= base_url('assets/user/')  ?>upload/course_02.jpg" alt="" class="img-responsive">
+                        <img src="<?= base_url('assets/frontend/')  ?>upload/course_02.jpg" alt="" class="img-responsive">
                         <div class="magnifier">
                              <a href="#" title=""><i class="flaticon-add"></i></a>
                         </div>
@@ -127,7 +127,7 @@
                     <div class="course-details">
                         <h4>
                             <small>Design</small>
-                            <a href="#" title="">Designing Game UI Assets in Adobe Illustrator</a>
+                            <a href="#" title="">Designing Game UI Assets frontend Adobe Illustrator</a>
                         </h4>
                         <p>Curabitur condimentum velit non odio mattis tristique. Nam vitae orci aliquam. </p>
                     </div><!-- end details -->
@@ -151,7 +151,7 @@
             <div class="caro-item">
                 <div class="course-box">
                     <div class="image-wrap entry">
-                        <img src="<?= base_url('assets/user/')  ?>upload/course_03.jpg" alt="" class="img-responsive">
+                        <img src="<?= base_url('assets/frontend/')  ?>upload/course_03.jpg" alt="" class="img-responsive">
                         <div class="magnifier">
                              <a href="#" title=""><i class="flaticon-add"></i></a>
                         </div>
@@ -183,7 +183,7 @@
             <div class="caro-item">
                 <div class="course-box">
                     <div class="image-wrap entry">
-                        <img src="<?= base_url('assets/user/')  ?>upload/course_04.jpg" alt="" class="img-responsive">
+                        <img src="<?= base_url('assets/frontend/')  ?>upload/course_04.jpg" alt="" class="img-responsive">
                         <div class="magnifier">
                              <a href="#" title=""><i class="flaticon-add"></i></a>
                         </div>
@@ -215,7 +215,7 @@
             <div class="caro-item">
                 <div class="course-box">
                     <div class="image-wrap entry">
-                        <img src="<?= base_url('assets/user/')  ?>upload/course_01.jpg" alt="" class="img-responsive">
+                        <img src="<?= base_url('assets/frontend/')  ?>upload/course_01.jpg" alt="" class="img-responsive">
                         <div class="magnifier">
                              <a href="#" title=""><i class="flaticon-add"></i></a>
                         </div>
@@ -360,7 +360,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="box testimonial">
-                    <p class="testiname"><strong><img src="<?= base_url('assets/user/')  ?>upload/testimonial_01.png" alt="" class="img-circle"> Jenny LUXURY</strong></p>
+                    <p class="testiname"><strong><img src="<?= base_url('assets/frontend/')  ?>upload/testimonial_01.png" alt="" class="img-circle"> Jenny LUXURY</strong></p>
                     <p>Quisque porttitor eros quis leo pulvinar, at hendrerit sapien iaculis. Donec consectetur accumsan arcu, sit amet fringilla ex ultricies.</p>
                     <div class="rating">
                         <i class="fa fa-star"></i>
@@ -374,7 +374,7 @@
 
             <div class="col-md-4">
                 <div class="box testimonial">
-                    <p class="testiname"><strong><img src="<?= base_url('assets/user/')  ?>upload/testimonial_02.png" alt="" class="img-circle"> Martin LEO</strong></p>
+                    <p class="testiname"><strong><img src="<?= base_url('assets/frontend/')  ?>upload/testimonial_02.png" alt="" class="img-circle"> Martin LEO</strong></p>
                     <p>Quisque porttitor eros quis leo pulvinar, at hendrerit sapien iaculis. Donec consectetur accumsan arcu, sit amet fringilla ex ultricies.</p>
                     <div class="rating">
                         <i class="fa fa-star"></i>
@@ -388,7 +388,7 @@
 
             <div class="col-md-4">
                 <div class="box testimonial">
-                    <p class="testiname"><strong><img src="<?= base_url('assets/user/')  ?>upload/testimonial_03.png" alt="" class="img-circle"> John DOE</strong></p>
+                    <p class="testiname"><strong><img src="<?= base_url('assets/frontend/')  ?>upload/testimonial_03.png" alt="" class="img-circle"> John DOE</strong></p>
                     <p>Quisque porttitor eros quis leo pulvinar, at hendrerit sapien iaculis. Donec consectetur accumsan arcu, sit amet fringilla ex ultricies.</p>
                     <div class="rating">
                         <i class="fa fa-star"></i>
@@ -414,7 +414,7 @@
             <div class="col-lg-4 col-md-12">
                 <div class="blog-box">
                     <div class="image-wrap entry">
-                        <img src="<?= base_url('assets/user/')  ?>upload/blog_01.jpeg" alt="" class="img-responsive">
+                        <img src="<?= base_url('assets/frontend/')  ?>upload/blog_01.jpeg" alt="" class="img-responsive">
                         <div class="magnifier">
                              <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
                         </div>
@@ -438,7 +438,7 @@
             <div class="col-lg-4 col-md-12">
                 <div class="blog-box">
                     <div class="image-wrap entry">
-                        <img src="<?= base_url('assets/user/')  ?>upload/blog_02.jpeg" alt="" class="img-responsive">
+                        <img src="<?= base_url('assets/frontend/')  ?>upload/blog_02.jpeg" alt="" class="img-responsive">
                         <div class="magnifier">
                              <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
                         </div>
@@ -462,7 +462,7 @@
             <div class="col-lg-4 col-md-12">
                 <div class="blog-box">
                     <div class="image-wrap entry">
-                        <img src="<?= base_url('assets/user/')  ?>upload/blog_03.jpeg" alt="" class="img-responsive">
+                        <img src="<?= base_url('assets/frontend/')  ?>upload/blog_03.jpeg" alt="" class="img-responsive">
                         <div class="magnifier">
                              <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
                         </div>
