@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="<?= base_url('assets/frontend/')  ?>style.css">
 
     <!-- material icons -->
-    <link rel="stylesheet" href="<?= base_url('assets/frontend/css/material-icons.css')  ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/frontend/login/css/material-icons.css')  ?>">
     <!-- Navigation Bottom -->
     <style>
         /*
