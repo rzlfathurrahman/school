@@ -17,22 +17,22 @@
     <meta name="author" content="">
     
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="<?= base_url('assets/user/')  ?>images/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="<?= base_url('assets/user/')  ?>images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="<?= base_url('assets/frontend/')  ?>images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="<?= base_url('assets/frontend/')  ?>images/apple-touch-icon.png">
 
 	<!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i" rel="stylesheet"> 
 	
     <!-- Custom & Default Styles -->
-	<link rel="stylesheet" href="<?= base_url('assets/user/')  ?>css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?= base_url('assets/user/')  ?>css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?= base_url('assets/user/')  ?>css/carousel.css">
-    <link rel="stylesheet" href="<?= base_url('assets/user/')  ?>css/animate.css">
-    <link rel="stylesheet" href="<?= base_url('assets/user/')  ?>style.css">
+	<link rel="stylesheet" href="<?= base_url('assets/frontend/')  ?>css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= base_url('assets/frontend/')  ?>css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?= base_url('assets/frontend/')  ?>css/carousel.css">
+    <link rel="stylesheet" href="<?= base_url('assets/frontend/')  ?>css/animate.css">
+    <link rel="stylesheet" href="<?= base_url('assets/frontend/')  ?>style.css">
 
     <!-- material icons -->
-    <link rel="stylesheet" href="<?= base_url('assets/login/css/material-icons.css')  ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/frontend/css/material-icons.css')  ?>">
     <!-- Navigation Bottom -->
     <style>
         /*
