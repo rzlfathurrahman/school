@@ -2,8 +2,8 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class=" text-center navbar-brand-wrapper">
-        <a class="navbar-brand brand-logo" href="<?= base_url('admin/dashboard'); ?>"><img src="<?= base_url(); ?>assets/admin/images/logo_star_black.png" /></a>
-        <a class="navbar-brand brand-logo-mini" href="<?= base_url('admin/dashboard'); ?>"><img src="<?= base_url(); ?>assets/admin/images/logo_star_mini.jpg" alt=""></a>
+        <a class="navbar-brand brand-logo" href="<?= base_url('admin/dashboard'); ?>"><img src="<?= base_url(); ?>assets/backend/images/logo_star_black.png" /></a>
+        <a class="navbar-brand brand-logo-mini" href="<?= base_url('admin/dashboard'); ?>"><img src="<?= base_url(); ?>assets/backend/images/logo_star_mini.jpg" alt=""></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
         <button class="navbar-toggler navbar-toggler d-none d-lg-block navbar-dark align-self-center mr-3" type="button" data-toggle="minimize">
@@ -11,7 +11,7 @@
         </button>
         <ul class="navbar-nav ml-lg-auto d-flex align-items-center flex-row">
           <li class="nav-item">
-            <a class="nav-link profile-pic" href="#"><img class="rounded-circle" src="<?= base_url(); ?>assets/admin/images/face.jpg" alt=""></a>
+            <a class="nav-link profile-pic" href="#"><img class="rounded-circle" src="<?= base_url(); ?>assets/backend/images/face.jpg" alt=""></a>
           </li>
         </ul>
         <button class="navbar-toggler navbar-dark navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
@@ -26,7 +26,7 @@
         <!-- partial:partials/_sidebar.html -->
         <nav class=" sidebar sidebar-offcanvas" id="sidebar">
           <div class="user-info">
-            <img src="<?= base_url(); ?>assets/admin/images/face.jpg" alt="">
+            <img src="<?= base_url(); ?>assets/backend/images/face.jpg" alt="">
             <p class="name"><?= $user[0]['username']  ?></p>
             <p class="designation">
               <?= $user[0]['email']  ?>
@@ -46,14 +46,14 @@
             <li class="nav-item">
             <?php endif; ?>
               <a class="nav-link" href="<?= base_url(); ?>dashboard">
-                <img src="<?= base_url(); ?>assets/admin/images/icons/1.png" alt="">
+                <img src="<?= base_url(); ?>assets/backend/images/icons/1.png" alt="">
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
 
             <li class="nav-item">
               <a href="#modalLogout" class="nav-link" data-toggle="modal" data-target="#modalLogout">
-                <img src="<?= base_url(); ?>assets/admin/images/icons/003-outbox.png" alt="">
+                <img src="<?= base_url(); ?>assets/backend/images/icons/003-outbox.png" alt="">
                 <span class="menu-title">Logout</span>
               </a>
             </li>
