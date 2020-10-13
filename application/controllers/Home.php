@@ -8,7 +8,7 @@ class Home extends CI_Controller {
 	{
 		$this->load->view('templates/frontend/header');
 		$this->load->view('templates/frontend/topbar');
-		$this->load->view('welcome_message');
+		$this->load->view('frontend/home');
 		$this->load->view('templates/frontend/footer');
 	}
 }
