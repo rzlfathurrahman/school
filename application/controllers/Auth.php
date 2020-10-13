@@ -71,10 +71,10 @@ class Auth extends CI_Controller
 			// judul web
 			$data['judul'] = 'Dashboard ';
 
-			$this->load->view('templates/admin/header',$data); 
-			$this->load->view('templates/admin/sidebar'); 
+			$this->load->view('templates/backend/header',$data); 
+			$this->load->view('templates/backend/sidebar'); 
 			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'index', $this->data);
-			$this->load->view('templates/admin/footer'); 
+			$this->load->view('templates/backend/footer'); 
 		}
 	}
 
