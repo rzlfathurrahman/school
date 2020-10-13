@@ -12,7 +12,7 @@
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane-o"></i></button>
                                     </div>
                                 </form>
-                                <img src="<?= base_url('assets/user/')  ?>images/payments.png" alt="" class="img-responsive">
+                                <img src="<?= base_url('assets/frontend/')  ?>images/payments.png" alt="" class="img-responsive">
                             </div><!-- end newsletter -->
                         </div><!-- end widget -->
                     </div><!-- end col -->
@@ -69,7 +69,7 @@
                 <div class="clearfix">
                     <div class="pull-left">
                         <div class="cop-logo">
-                            <a href="#"><img src="<?= base_url('assets/user/')  ?>images/logo.png" alt=""></a>
+                            <a href="#"><img src="<?= base_url('assets/frontend/')  ?>images/logo.png" alt=""></a>
                         </div>
                     </div>
 
@@ -86,13 +86,13 @@
     </div><!-- end wrapper -->
 
     <!-- jQuery Files -->
-    <script src="<?= base_url('assets/user/')  ?>js/jquery.min.js"></script>
-    <script src="<?= base_url('assets/user/')  ?>js/bootstrap.min.js"></script>
-    <script src="<?= base_url('assets/user/')  ?>js/carousel.js"></script>
-    <script src="<?= base_url('assets/user/')  ?>js/animate.js"></script>
-    <script src="<?= base_url('assets/user/')  ?>js/custom.js"></script>
+    <script src="<?= base_url('assets/frontend/')  ?>js/jquery.min.js"></script>
+    <script src="<?= base_url('assets/frontend/')  ?>js/bootstrap.min.js"></script>
+    <script src="<?= base_url('assets/frontend/')  ?>js/carousel.js"></script>
+    <script src="<?= base_url('assets/frontend/')  ?>js/animate.js"></script>
+    <script src="<?= base_url('assets/frontend/')  ?>js/custom.js"></script>
     <!-- VIDEO BG PLUGINS -->
-    <script src="<?= base_url('assets/user/')  ?>js/videobg.js"></script>
+    <script src="<?= base_url('assets/frontend/')  ?>js/videobg.js"></script>
 
 </body>
 </html>
