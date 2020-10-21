@@ -97,7 +97,7 @@ $lang['edit_user_validation_password_confirm_label'] = 'Konfirmasi Kata Sandi';
 
 // Create Group
 $lang['create_group_title']                  = 'Buat Grup';
-$lang['create_group_heading']                = 'Buat Grupp';
+$lang['create_group_heading']                = 'Buat Grup';
 $lang['create_group_subheading']             = 'Silakan masukan detail Grup di bawah ini.';
 $lang['create_group_name_label']             = 'Nama Grup:';
 $lang['create_group_desc_label']             = 'Deskripsi:';
