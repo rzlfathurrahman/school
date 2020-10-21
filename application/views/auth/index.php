@@ -8,15 +8,18 @@
   		<div id="infoMessage"><?= $message;?></div>
 
   		<table id="dataTable" cellpadding=0 class="table table-bordered table-hover" cellspacing=10>
-  			<tr class="bg-primary text-white">
-          <th>#</th>
-  				<th><?= lang('index_fname_th');?></th>
-  				<th><?= lang('index_lname_th');?></th>
-  				<th><?= lang('index_email_th');?></th>
-  				<th><?= lang('index_groups_th');?></th>
-  				<th><?= lang('index_status_th');?></th>
-  				<th><?= lang('index_action_th');?></th>
-  			</tr>
+        <thead>
+    			<tr class="bg-primary text-white">
+            <th>#</th>
+    				<th><?= lang('index_fname_th');?></th>
+    				<th><?= lang('index_lname_th');?></th>
+    				<th><?= lang('index_email_th');?></th>
+    				<th><?= lang('index_groups_th');?></th>
+    				<th><?= lang('index_status_th');?></th>
+    				<th><?= lang('index_action_th');?></th>
+    			</tr>
+        </thead>
+        <tbody>
   			<?php $no = 1; foreach ($users as $user):?>
   				<tr>
             <td><?= $no++  ?></td>    
@@ -32,6 +35,7 @@
   					<td><?= anchor("auth/edit_user/".$user->id, 'Edit') ;?></td>
   				</tr>
   			<?php endforeach;?>
+        </tbody>
   		</table>
 
   		<p><?= anchor('auth/create_user', lang('index_create_user_link'))?> | <?= anchor('auth/create_group', lang('index_create_group_link'))?></p>
