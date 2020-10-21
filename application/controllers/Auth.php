@@ -539,48 +539,56 @@ class Auth extends CI_Controller
 				'id' => 'first_name',
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('first_name'),
+				'class' => 'form-control'
 			];
 			$this->data['last_name'] = [
 				'name' => 'last_name',
 				'id' => 'last_name',
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('last_name'),
+				'class' => 'form-control'
 			];
 			$this->data['identity'] = [
 				'name' => 'identity',
 				'id' => 'identity',
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('identity'),
+				'class' => 'form-control'
 			];
 			$this->data['email'] = [
 				'name' => 'email',
 				'id' => 'email',
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('email'),
+				'class' => 'form-control'
 			];
 			$this->data['company'] = [
 				'name' => 'company',
 				'id' => 'company',
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('company'),
+				'class' => 'form-control'
 			];
 			$this->data['phone'] = [
 				'name' => 'phone',
 				'id' => 'phone',
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('phone'),
+				'class' => 'form-control'
 			];
 			$this->data['password'] = [
 				'name' => 'password',
 				'id' => 'password',
 				'type' => 'password',
 				'value' => $this->form_validation->set_value('password'),
+				'class' => 'form-control'
 			];
 			$this->data['password_confirm'] = [
 				'name' => 'password_confirm',
 				'id' => 'password_confirm',
 				'type' => 'password',
 				'value' => $this->form_validation->set_value('password_confirm'),
+				'class' => 'form-control'
 			];
 
 			// siapkan data user yang aktif
