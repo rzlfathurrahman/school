@@ -583,7 +583,26 @@ class Auth extends CI_Controller
 				'value' => $this->form_validation->set_value('password_confirm'),
 			];
 
+			// siapkan data user yang aktif
+			$data['user'] = $this->session->userdata();
+			$id_user_aktif = $data['user']['user_id'];
+			
+			// ambil data user aktif
+			$data['user'] = $this->ion_auth->user()->result_array();
+
+			// dapatkan grup user saat ini
+			$data['user_groups'] = $this->ion_auth->get_users_groups()->result();
+
+			// info halaman aktif 
+			$data['halaman'] = 'daftar_user';
+
+			// judul web
+			$data['judul'] = 'Dashboard ';
+
+			$this->load->view('templates/backend/header',$data);
+			$this->load->view('templates/backend/sidebar');
 			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'create_user', $this->data);
+			$this->load->view('templates/backend/footer');
 		}
 	}
 	/**
@@ -779,15 +798,36 @@ class Auth extends CI_Controller
 			'id'    => 'group_name',
 			'type'  => 'text',
 			'value' => $this->form_validation->set_value('group_name'),
+			'class' => 'form-control'
 		];
 		$this->data['description'] = [
 			'name'  => 'description',
 			'id'    => 'description',
 			'type'  => 'text',
 			'value' => $this->form_validation->set_value('description'),
+			'class' => 'form-control'
 		];
 
+		// siapkan data user yang aktif
+		$data['user'] = $this->session->userdata();
+		$id_user_aktif = $data['user']['user_id'];
+		
+		// ambil data user aktif
+		$data['user'] = $this->ion_auth->user()->result_array();
+
+		// dapatkan grup user saat ini
+		$data['user_groups'] = $this->ion_auth->get_users_groups()->result();
+
+		// info halaman aktif 
+		$data['halaman'] = 'tambah_grup';
+
+		// judul web
+		$data['judul'] = 'Tambah Grup';
+
+		$this->load->view('templates/backend/header',$data);
+		$this->load->view('templates/backend/sidebar');
 		$this->_render_page('auth/create_group', $this->data);
+		$this->load->view('templates/backend/footer');
 		
 	}
 
