@@ -7,7 +7,7 @@
 
   		<div id="infoMessage"><?= $message;?></div>
 
-  		<table cellpadding=0 class="table table-bordered table-hover" cellspacing=10>
+  		<table id="dataTable" cellpadding=0 class="table table-bordered table-hover" cellspacing=10>
   			<tr class="bg-primary text-white">
           <th>#</th>
   				<th><?= lang('index_fname_th');?></th>
