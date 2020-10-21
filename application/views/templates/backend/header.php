@@ -11,5 +11,8 @@
   <link rel="stylesheet" href="<?= base_url(); ?>assets/backend/node_modules/flag-icon-css/css/flag-icon.min.css" />
   <link rel="stylesheet" href="<?= base_url(); ?>assets/backend/css/style.css" />
   <link rel="shortcut icon" href="<?= base_url(); ?>assets/backend/images/favicon.png" />
+
+  <link rel="stylesheet" type="text/css" href="<?= base_url()  ?>assets/DataTables/datatables.min.css"/>
+ 
 </head>
 <body>
