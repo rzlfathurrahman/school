@@ -5,13 +5,12 @@
   	<div class="col-12">
 		<p><?= lang('create_group_subheading');?></p>
 
-		<div id="infoMessage"><?= $message;?></div>
-
 		<?= form_open("auth/create_group");?>
 
 		      <p>
 		            <?= lang('create_group_name_label', 'group_name');?> <br />
 		            <?= form_input($group_name);?>
+		            <?= form_error('group_name','<span class="font-weight-bold text-danger">','</span>')  ?>
 		      </p>
 
 		      <p>
