@@ -26,7 +26,9 @@
   <script type="text/javascript" src="<?= base_url()  ?>assets/DataTables/datatables.min.js"></script>
   <script>
     $(document).ready(function() {
-      $('#dataTable').DataTable();
+      $('#dataTable').DataTable({
+        responsive: true
+      });
     });
   </script>
 </body>

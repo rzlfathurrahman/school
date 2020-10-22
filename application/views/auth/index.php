@@ -7,7 +7,7 @@
 
   		<div id="infoMessage"><?= $message;?></div>
 
-  		<table id="dataTable" cellpadding=0 class="table table-bordered table-hover" cellspacing=10>
+  		<table id="dataTable" class="table table-responsive table-bordered table-hover">
         <thead>
     			<tr class="bg-primary text-white">
             <th>#</th>
