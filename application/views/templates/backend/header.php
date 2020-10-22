@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Kesiswaan | <?= $judul; ?></title>
-  <link rel="stylesheet" href="<?= base_url(); ?>assets/backend/node_modules/font-awesome/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="<?= base_url(); ?>assets/backend/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" />
-  <link rel="stylesheet" href="<?= base_url(); ?>assets/backend/node_modules/flag-icon-css/css/flag-icon.min.css" />
-  <link rel="stylesheet" href="<?= base_url(); ?>assets/backend/css/style.css" />
-  <link rel="shortcut icon" href="<?= base_url(); ?>assets/backend/images/favicon.png" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 3 | Blank Page</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" type="text/css" href="<?= base_url()  ?>assets/DataTables/datatables.min.css"/>
- 
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="<?= base_url()  ?>assets/backend/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="<?= base_url()  ?>assets/backend/dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body>
+<body class="hold-transition sidebar-mini">
