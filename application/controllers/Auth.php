@@ -66,10 +66,13 @@ class Auth extends CI_Controller
 			$data['user_groups'] = $this->ion_auth->get_users_groups()->result();
 
 			// info halaman aktif 
-			$data['halaman'] = 'admin/dashboard';
+			$data['halaman'] = 'auth';
 
 			// judul web
 			$data['judul'] = 'Dashboard ';
+
+			// ambil url aktif
+			$data['url'] = $this->uri->segment_array();
 
 			$this->load->view('templates/backend/header',$data); 
 			$this->load->view('templates/backend/sidebar'); 
