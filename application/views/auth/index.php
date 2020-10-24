@@ -7,7 +7,6 @@
         <div class="col-sm-6">
           <h1><?= lang('index_heading');?></h1>
         </div>
-        <?= $this->session->flashdata('message');  ?>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <?php foreach ($url as $u): ?>
@@ -20,6 +19,7 @@
           </ol>
         </div>
       </div>
+      <?= $this->session->flashdata('message');  ?>
     </div><!-- /.container-fluid -->
   </section>
 
