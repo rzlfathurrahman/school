@@ -69,7 +69,7 @@ class Auth extends CI_Controller
 			$data['halaman'] = 'auth';
 
 			// judul web
-			$data['judul'] = 'Dashboard ';
+			$data['judul'] = 'Daftar Pengguna ';
 
 			// ambil url aktif
 			$data['url'] = $this->uri->segment_array();
@@ -103,7 +103,7 @@ class Auth extends CI_Controller
 				//if the login is successful
 				//redirect them back to the home page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect('/auth', 'refresh');
+				redirect('dashboard', 'refresh');
 			}
 			else
 			{
