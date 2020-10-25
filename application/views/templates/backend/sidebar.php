@@ -62,18 +62,47 @@
               </p>
             </a>
           </li>
-          <li class="nav-header">EXAMPLES</li>
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon far fa-plus-square"></i>
+          <?php $subHalaman = ''  ?>
+          <li class="nav-item <?= ($halaman == 'auth') ? "has-treeview menu-open" : ""  ?> ">
+            <a href="#" class="nav-link <?= ($halaman == 'auth') ? "active" : ""  ?>">
+              <i class="nav-icon fa fa-users-cog"></i>
               <p>
-                Extras
+                Pengguna
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../examples/blank.html" class="nav-link active">
+                <a href="<?= base_url('auth/')  ?>" class="nav-link <?= ($halaman == 'auth') ? 'active' : ''  ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Pengguna</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('auth/create_group')  ?>" class="nav-link <?= ($subHalaman == 'tambah_user') ? 'active' : ''  ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tambah Pengguna</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('auth/create_user')  ?>" class="nav-link  <?= ($subHalaman == 'tambah_grup') ? 'active' : ''  ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tambah Grup</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item <?= ($halaman == 'kesiswaan') ? "has-treeview menu-open" : ""  ?> ">
+            <a href="#" class="nav-link <?= ($halaman == 'kesiswaan') ? "active" : ""  ?>">
+              <i class="nav-icon fa fa-home"></i>
+              <p>
+                Kesiswaan
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../examples/blank.html" class="nav-link <?= ($subHalaman == 'profil_kesiswaan') ? 'active' : ''  ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Blank Page</p>
                 </a>
