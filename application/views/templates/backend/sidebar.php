@@ -62,9 +62,8 @@
               </p>
             </a>
           </li>
-          <?php $subHalaman = ''  ?>
-          <li class="nav-item <?= ($halaman == 'auth') ? "has-treeview menu-open" : ""  ?> ">
-            <a href="#" class="nav-link <?= ($halaman == 'auth') ? "active" : ""  ?>">
+          <li class="nav-item <?= ($halaman == 'auth'  || $halaman == 'auth/tambah_pengguna') ? "has-treeview menu-open" : ""  ?> ">
+            <a href="#" class="nav-link <?= ($halaman == 'auth'  || $halaman == 'auth/tambah_pengguna') ? "active" : ""  ?>">
               <i class="nav-icon fa fa-users-cog"></i>
               <p>
                 Pengguna
@@ -79,13 +78,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('auth/create_group')  ?>" class="nav-link <?= ($subHalaman == 'tambah_user') ? 'active' : ''  ?>">
+                <a href="<?= base_url('auth/create_user')  ?>" class="nav-link <?= ($halaman == 'auth/tambah_pengguna') ? 'active' : ''  ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tambah Pengguna</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('auth/create_user')  ?>" class="nav-link  <?= ($subHalaman == 'tambah_grup') ? 'active' : ''  ?>">
+                <a href="<?= base_url('auth/create_group')  ?>" class="nav-link  <?= ($halaman == 'tambah_grup') ? 'active' : ''  ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tambah Grup</p>
                 </a>
@@ -102,7 +101,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../examples/blank.html" class="nav-link <?= ($subHalaman == 'profil_kesiswaan') ? 'active' : ''  ?>">
+                <a href="../examples/blank.html" class="nav-link <?= ($halaman == 'profil_kesiswaan') ? 'active' : ''  ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Blank Page</p>
                 </a>
