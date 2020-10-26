@@ -6,6 +6,7 @@
       <div class="row mb-2">
         <div class="col-sm-6">
           <h1>Profil Kesiswaan</h1>
+          <?= $this->session->flashdata('message');  ?>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -45,7 +46,7 @@
            <!-- /.card-header -->
            <div class="card-body pad">
              <div class="mb-3">
-              <form action="<?= base_url('kesiswaan/setProfilKesiswaan')  ?>">
+              <form action="<?= base_url('kesiswaan/setProfilKesiswaan')  ?>" method="post">
                 <?php foreach ($profil_kesiswaan as $profil): ?> 
 
                   <div class="row">
@@ -65,7 +66,7 @@
                   </div>
 
                   <div class="form-group">                
-                   <textarea class="textarea" placeholder="Place some text here"
+                   <textarea class="textarea" name="keterangan" placeholder="Place some text here"
                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
                         <?= $profil->keterangan  ?>
                     </textarea>
