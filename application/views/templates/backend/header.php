@@ -20,5 +20,7 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- Toastr -->
   <link rel="stylesheet" href="<?= base_url()  ?>assets/backend/plugins/toastr/toastr.min.css">
+  <!-- pace-progress -->
+  <link rel="stylesheet" href="<?= base_url()  ?>assets/backend/plugins/pace-progress/themes/black/pace-theme-flat-top.css">
 </head>
 <body class="hold-transition sidebar-mini">
