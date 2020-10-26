@@ -864,6 +864,9 @@ class Auth extends CI_Controller
 		// judul web
 		$data['judul'] = 'Tambah Grup';
 
+		// ambil url aktif
+		$data['url'] = $this->uri->segment_array();
+
 		$this->load->view('templates/backend/header',$data);
 		$this->load->view('templates/backend/sidebar');
 		$this->_render_page('auth/create_group', $this->data);
