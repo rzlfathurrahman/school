@@ -93,7 +93,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?= base_url('kesiswaan') ?>" class="nav-link <?= ($halaman == 'profil_kesiswaan') ? 'active' : ''  ?>">
+                <a href="<?= base_url('kesiswaan') ?>" class="nav-link <?= ($halaman == 'kesiswaan') ? 'active' : ''  ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Profil Kesiswaan</p>
                 </a>
