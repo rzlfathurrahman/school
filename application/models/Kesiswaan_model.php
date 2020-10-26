@@ -5,7 +5,7 @@ class Kesiswaan_model extends CI_Model {
 
 	public function getProfilKesiswaan()
 	{
-		return $this->db->get('profil_kesiswaan');
+		return $this->db->get('profil_kesiswaan')->result();
 	}
 
 }
