@@ -38,6 +38,7 @@
 <script src="<?= base_url()  ?>assets/backend/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script>
   $(function () {
+    // data table
     $("#example1").DataTable({
       "responsive": true,
       "autoWidth": false,
@@ -51,8 +52,21 @@
       "autoWidth": false,
       "responsive": true,
     });
+
+    // logout notification
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+
+    $('.logout').click(function() {
+      toastr.info('Anda berhasil logout.')
+    });
   });
 </script>
+
 <?php if (!empty($notification)): ?>
   <?= $notification  ?>
 <?php endif; ?>
