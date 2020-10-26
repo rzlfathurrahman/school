@@ -93,9 +93,9 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../examples/blank.html" class="nav-link <?= ($halaman == 'profil_kesiswaan') ? 'active' : ''  ?>">
+                <a href="<?= base_url('kesiswaan') ?>" class="nav-link <?= ($halaman == 'profil_kesiswaan') ? 'active' : ''  ?>">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Blank Page</p>
+                  <p>Profil Kesiswaan</p>
                 </a>
               </li>
               <li class="nav-item">
