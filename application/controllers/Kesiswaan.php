@@ -74,15 +74,14 @@ class Kesiswaan extends CI_Controller {
 		{
 			redirect('auth', 'refresh');
 		}
-
-		// validasi form
-		$this->form_validation->set_rules('judul', 'judul', 'trim|required');
-		$this->form_validation->set_rules('keterangan','keterangan', 'trim|required');
-
-		// jika lolos maka update data
-		if ($this->form_validation->run() === TRUE) {
-			$this->kesiswaan->setProfilKesiswaan($data);
-			$this->session->set_flashdata('message','berhasil iupdate');
+		// update profil
+		$result = $this->kesiswaan->updateProfilKesiswaan($data);
+		// var_dump($result);exit();
+		// isi pesan jika berhasil
+		if ($result === true) {
+			$this->session->set_flashdata('message','berhasil update');
+		}else{
+			$this->session->set_flashdata('message','gagal update');
 		}
 		redirect('kesiswaan','refresh');
 		
