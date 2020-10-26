@@ -23,4 +23,4 @@
   <!-- pace-progress -->
   <link rel="stylesheet" href="<?= base_url()  ?>assets/backend/plugins/pace-progress/themes/black/pace-theme-flat-top.css">
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini pace-primary">
