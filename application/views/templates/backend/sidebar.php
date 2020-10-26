@@ -106,9 +106,41 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="#modalLogout" data-toggle="modal" class="nav-link">
+              <i class="nav-icon fas fa-sign-out-alt "></i>
+              <p>
+                Logout
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
   </aside>
+
+  <div class="modal fade" id="modalLogout">
+     <div class="modal-dialog modal-md">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h4 class="modal-title">Apakah anda yakin ingin Logout?</h4>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body">
+           <p>Setelah logout anda perlu login untuk kembali ke halaman ini...</p>
+         </div>
+         <div class="modal-footer justify-content-between">
+           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+           <a href="<?= base_url('auth/logout')  ?>" class="logout btn btn-outline-primary">Logout</a>
+         </div>
+       </div>
+       <!-- /.modal-content -->
+     </div>
+     <!-- /.modal-dialog -->
+   </div>
+   <!-- /.modal -->
+  
