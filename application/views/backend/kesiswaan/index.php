@@ -52,17 +52,18 @@
                     <div class="col-6">
                       <div class="form-group">
                         <label for="judul">Judul</label>
+                        <input type="hidden" name="id" value="<?= $profil->id  ?>">
                         <input type="text" id="judul" class="form-control" name="judul" value="<?= $profil->judul  ?>">
                       </div>
                     </div>
                     <div class="col-6">
                       <div class="form-group">
                         <label for="url">Url</label>
-                        <input type="text" id="url" class="form-control" name="url" value="<?= $this->uri->uri_string()  ?>">
+                        <input type="text" id="url" class="form-control" name="url" value="<?= $this->uri->uri_string()  ?>" readonly>
                       </div>
                     </div>
                   </div>
-                  
+
                   <div class="form-group">                
                    <textarea class="textarea" placeholder="Place some text here"
                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
@@ -71,7 +72,7 @@
                   </div>
 
                 <?php endforeach ?>
-                <button type="submit">submit</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
               </form>
              </div>
            </div>
