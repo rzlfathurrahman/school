@@ -28,10 +28,13 @@ class Kesiswaan extends CI_Controller {
 			$data['user_groups'] = $this->ion_auth->get_users_groups()->result();
 
 			// info halaman aktif 
-			$data['halaman'] = 'admin/kesiswaan';
+			$data['halaman'] = 'kesiswaan';
 
 			// judul web
 			$data['judul'] = 'Manajemen Kesiswaan ';
+
+			// data url
+			$data['url'] = $this->uri->segment_array();
 
 			$this->load->view('templates/backend/header',$data);
 			$this->load->view('templates/backend/sidebar');
