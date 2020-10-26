@@ -46,7 +46,7 @@ class Kesiswaan extends CI_Controller {
 		}
 	}
 
-	public function ubahProfilKesiswaan()
+	public function setProfilKesiswaan()
 	{
 		// tangkap inputan 
 		$id = $this->input->post('id');
