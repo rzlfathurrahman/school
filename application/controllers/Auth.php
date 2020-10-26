@@ -608,8 +608,11 @@ class Auth extends CI_Controller
 			// $data['halaman'] = 'auth';
 			$data['halaman'] = 'auth/tambah_pengguna';
 
+			// ambil url aktif
+			$data['url'] = $this->uri->segment_array();
+
 			// judul web
-			$data['judul'] = 'Dashboard ';
+			$data['judul'] = 'Tambah Pengguna';
 
 			$this->load->view('templates/backend/header',$data);
 			$this->load->view('templates/backend/sidebar');
