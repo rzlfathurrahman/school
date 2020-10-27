@@ -6,7 +6,6 @@
       <div class="row mb-2">
         <div class="col-sm-6">
           <h1>Profil Kesiswaan</h1>
-          <?= $this->session->flashdata('message');  ?>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -16,7 +15,7 @@
               <?php else: ?>
                 <li class="breadcrumb-item text-capitalize <?= ($u == $halaman) ? "active" : ""  ?>"><a href="#" style="cursor: not-allowed;"><?= $u  ?></a></li>
               <?php endif; ?>
-            <?php endforeach ?>
+            <?php endforeach; ?>
           </ol>
         </div>
       </div>
@@ -25,6 +24,7 @@
 
   <!-- Main content -->
   <section class="content">
+   <?= $this->session->flashdata('message');  ?>
     <div class="row">
        <div class="col-md-12">
          <div class="card card-outline card-info">
@@ -72,7 +72,7 @@
                     </textarea>
                   </div>
 
-                <?php endforeach ?>
+                <?php endforeach; ?>
                 <button type="submit" class="btn btn-primary">Simpan</button>
               </form>
              </div>
