@@ -81,7 +81,7 @@ class Kesiswaan extends CI_Controller {
 		if ($result === true) {
 			$this->session->set_flashdata('message',' <div class="alert alert-success alert-dismissible">
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                  <i class="icon fas fa-check">Profil berhasil diperbarui.
+                 Profil berhasil diperbarui.
                 </div>');
 		}else{
 			$this->session->set_flashdata('message','<div class="alert alert-danger">
