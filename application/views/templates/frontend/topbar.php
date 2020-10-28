@@ -51,12 +51,12 @@
             <div class="container">
                 <nav class="navbar navbar-default yamm">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
-                        </button>
+                        </button> -->
                         <div class="logo-normal">
                             <a class="navbar-brand" href="<?= base_url()  ?>"><img src="<?= base_url('assets/frontend/')  ?>images/logo.png" alt=""></a>
                         </div>
