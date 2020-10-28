@@ -54,6 +54,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="<?= base_url('menu')  ?>" class="nav-link <?= ($halaman == 'menu') ? 'active' : ''  ?>">
+              <i class="nav-icon fas fa-cogs "></i>
+              <p>
+                Manajemen Menu
+              </p>
+            </a>
+          </li>
           <li class="nav-item <?= ($halaman == 'auth'  || $halaman == 'auth/tambah_pengguna') ? "has-treeview menu-open" : ""  ?> ">
             <a href="#" class="nav-link <?= ($halaman == 'auth'  || $halaman == 'auth/tambah_pengguna') ? "active" : ""  ?>">
               <i class="nav-icon fa fa-users-cog"></i>
