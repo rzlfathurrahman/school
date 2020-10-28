@@ -6,7 +6,11 @@ class Home extends CI_Controller {
 	// untuk menampilkan halaman awal / landing page
 	public function index()
 	{
-		$this->load->view('templates/frontend/header');
+		// siapkan data judul , halaman
+		$data['judul'] = "SMK MA'ARIF NU 1 Ajibarang";
+		$data['halaman'] = "home";
+
+		$this->load->view('templates/frontend/header',$data);
 		$this->load->view('templates/frontend/topbar');
 		$this->load->view('frontend/home');
 		$this->load->view('templates/frontend/footer');
