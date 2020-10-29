@@ -24,5 +24,7 @@
   <link rel="stylesheet" href="<?= base_url()  ?>assets/backend/plugins/pace-progress/themes/black/pace-theme-flat-top.css">
   <!-- summernote -->
   <link rel="stylesheet" href="<?= base_url()  ?>assets/backend/plugins/summernote/summernote-bs4.css">
+  <!-- material icons -->
+  <link rel="stylesheet" href="<?= base_url('assets/frontend/login/css/material-icons.css')  ?>">
 </head>
 <body class="hold-transition sidebar-mini pace-primary">
