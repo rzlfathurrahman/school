@@ -45,6 +45,10 @@ class Menu extends CI_Controller {
 
 		// ambil url aktif
 		$data['url'] = $this->uri->segment_array();
+
+		// 
+		$data['menu'] = $this->db->get('menu')->result();
+
 		$this->load->view('templates/backend/header',$data);
 		$this->load->view('templates/backend/sidebar');
 		$this->load->view('backend/menu/index');
