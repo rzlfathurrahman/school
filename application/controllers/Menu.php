@@ -55,6 +55,30 @@ class Menu extends CI_Controller {
 		$this->load->view('templates/backend/footer');
 	}
 
+	public function tambahMenu()
+	{
+		$this->form_validation->set_rules('nama_menu', 'nama_menu', 'trim|required');
+		$this->form_validation->set_rules('url', 'url', 'trim|required');
+		$this->form_validation->set_rules('icon', 'icon', 'trim|required');
+
+		if ($this->form_validation->run() === FALSE) {
+			$this->index();
+		} else {
+			$nama_menu = $this->input->post("nama_menu");
+			$url = $this->input->post("url");
+			$icon = $this->input->post("icon");
+
+			$data = [
+				'nama_menu' => $nama_menu,
+				'url' => $url,
+				'icon' => $icon
+			];
+
+			$this->db->insert('menu', $data);
+			redirect('menu','refresh');	
+		}
+	}
+
 }
 
 /* End of file Menu.php */
