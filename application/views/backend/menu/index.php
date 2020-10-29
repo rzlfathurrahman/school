@@ -78,7 +78,7 @@
            </div>
 
            <div class="card-footer">
-             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
+             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTambah">
                 <i class="fas fa-plus"></i> Tambah Menu
               </button>
            </div>
@@ -90,7 +90,8 @@
   </section>
   <!-- /.content -->
 
-   <div class="modal fade" id="modal-default">
+  <!-- modal tambah menu -->
+   <div class="modal fade" id="modalTambah">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
