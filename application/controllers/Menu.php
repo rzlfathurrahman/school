@@ -73,8 +73,17 @@ class Menu extends CI_Controller {
 				'url' => $url,
 				'icon' => $icon
 			];
-
-			$this->db->insert('menu', $data);
+			if ($this->db->insert('menu', $data) === TRUE){
+				$this->session->set_flashdata('message',' <div class="alert alert-success alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                 Menu berhasil ditambah.
+                </div>');
+			}else{
+				$this->session->set_flashdata('message',' <div class="alert alert-danger alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                 Menu gagal ditambah.
+                </div>');
+			}
 			redirect('menu','refresh');	
 		}
 	}
