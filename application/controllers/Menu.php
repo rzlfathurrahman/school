@@ -88,6 +88,16 @@ class Menu extends CI_Controller {
 		}
 	}
 
+	public function hapusMenu($id)
+	{
+		$this->db->delete('menu',['id' => $id]);
+		$this->session->set_flashdata('message',' <div class="alert alert-danger alert-dismissible">
+	              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	             Menu berhasil dihapus.
+	            </div>');
+		redirect('menu','refresh');
+	}
+
 }
 
 /* End of file Menu.php */
