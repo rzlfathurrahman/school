@@ -64,16 +64,9 @@
 
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="<?= base_url()  ?>">Home</a></li>
-                            <li class="dropdown hassubmenu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Organisasi <span class="fa fa-angle-down"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="shop.html">Osis</a></li>
-                                    <li><a href="shop-single.html">Pramuka</a></li>
-                                    <li><a href="shop-single.html">IPNU IPPNU</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="<?= base_url('auth/login')  ?>">Login</a></li>
+                            <?php foreach ($menu as $m): ?>
+                                <li><a href="<?= base_url().$m->url  ?>"><?= $m->nama_menu  ?></a></li>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                 </nav><!-- end navbar -->
