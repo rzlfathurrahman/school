@@ -98,6 +98,64 @@ class Menu extends CI_Controller {
 		redirect('menu','refresh');
 	}
 
+	public function editMenu($id)
+	{
+		// siapkan data user yang aktif
+		$data['user'] = $this->session->userdata();
+		$id_user_aktif = $data['user']['user_id'];
+
+		// ambil data user aktif
+		$data['user'] = $this->ion_auth->user()->result_array();
+
+		// dapatkan grup user saat ini
+		$data['user_groups'] = $this->ion_auth->get_users_groups()->result();
+
+		// info halaman aktif 
+		$data['halaman'] = 'menu';
+
+		// judul web
+		$data['judul'] = 'Edit Menu';
+
+		// ambil url aktif
+		$data['url'] = $this->uri->segment_array();
+
+		// ambil data menu berdasarkan id
+		$data['menu'] = $this->db->get_where('menu',['id' => $id])->result();
+		// var_dump($data['menu']); exit();
+
+		$this->load->view('templates/backend/header',$data);
+		$this->load->view('templates/backend/sidebar');
+		$this->load->view('backend/menu/edit');
+		$this->load->view('templates/backend/footer');
+	}
+
+	public function updateMenu()
+	{
+		$id = $this->input->post('id');
+		$data = [
+			'id' => $id,
+			'nama_menu' => $this->input->post('nama_menu'),
+			'url' => $this->input->post('url'),
+		];
+
+		$this->db->update('menu', $data,['id' => $id]);
+
+		if ($this->db->affected_rows() > 0){
+			$this->session->set_flashdata('message',' <div class="alert alert-success alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+             Menu berhasil diupdate.
+            </div>');
+		}else{
+			$this->session->set_flashdata('message',' <div class="alert alert-danger alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+             Menu gagal diupdate.
+            </div>');
+		}
+		redirect('menu','refresh');	
+
+	}
+	
+
 }
 
 /* End of file Menu.php */
