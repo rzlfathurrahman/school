@@ -108,7 +108,7 @@
               </div>
               <div class="form-group">
                 <label for="urlMenu">Url Menu</label>
-                <input type="text" name="url" id="urlMenu" class="form-control" required>
+                <input type="text" name="url" id="urlMenu" class="form-control" >
               </div>
               <div class="form-group">
                 <label for="iconMenu">Icon Menu</label>
