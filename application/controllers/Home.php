@@ -10,6 +10,9 @@ class Home extends CI_Controller {
 		$data['judul'] = "SMK MA'ARIF NU 1 Ajibarang";
 		$data['halaman'] = "home";
 
+		// siapkan menu
+		$data['menu'] = $this->db->get('menu')->result();
+
 		$this->load->view('templates/frontend/header',$data);
 		$this->load->view('templates/frontend/topbar');
 		$this->load->view('frontend/home');
