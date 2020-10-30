@@ -103,24 +103,10 @@
 </head>
 <body>
     <nav id="menu-bottom" class="nav">
-    <a href="#" class="nav__link">
-      <i class="material-icons nav__icon">dashboard</i>
-      <span class="nav__text">Dashboard</span>
-    </a>
-    <a href="#" class="nav__link nav__link--active">
-      <i class="material-icons nav__icon">person</i>
-      <span class="nav__text">Profile</span>
-    </a>
-    <a href="#" class="nav__link">
-      <i class="material-icons nav__icon">devices</i>
-      <span class="nav__text">Devices</span>
-    </a>
-    <a href="#" class="nav__link">
-      <i class="material-icons nav__icon">lock</i>
-      <span class="nav__text">Privacy</span>
-    </a>
-    <a href="#" class="nav__link">
-      <i class="material-icons nav__icon">settings</i>
-      <span class="nav__text">Settings</span>
-    </a>
+        <?php foreach ($menu as $m): ?>
+            <a href="<?= base_url().$m->url  ?>" class="nav__link <?= ($halaman == 'home') ? "nav__link--active"  : "" ?>">
+            <?= $m->icon  ?>
+            <span class="nav__text"><?= $m->nama_menu  ?></span>
+        </a>
+        <?php endforeach; ?>
   </nav>
