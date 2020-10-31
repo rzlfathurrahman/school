@@ -8,6 +8,11 @@ class Kesiswaan_model extends CI_Model {
 		return $this->db->get('profil_kesiswaan')->result();
 	}
 
+	public function getStrukturOrganisasi()
+	{
+		return $this->db->get('struktur_organisasi')->result();
+	}
+
 	public function updateProfilKesiswaan($data)
 	{
 		$this->db->set($data);
