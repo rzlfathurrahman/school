@@ -2,13 +2,9 @@
     <div class="overlay"></div>
     <div class="home-text-wrapper relative container">
         <div class="home-message">
-            <p>Learning Management System</p>
-            <small>Edulogy is the ideal choice for your organization, your business and your online education system. Create your online course now with unlimited page templates, color options, and menu features.</small>
-            <div class="btn-wrapper">
-                <div class="text-center">
-                    <a href="#" class="btn btn-primary wow slideInLeft">Read More</a> &nbsp;&nbsp;&nbsp;<a href="#" class="btn btn-default wow slideInRight">Buy Now</a>
-                </div>
-            </div><!-- end row -->
+                
+        <p>SMK MA'ARIF NU 1 AJIBARANG</p>
+        <small>Lorem ipsum dolor sit, amet, consectetur adipisicing elit. At facere, consequuntur quam iste, enim aliquam sunt inventore soluta in? Esse dicta fugiat facilis, cum eveniet consequuntur vitae commodi, repellendus obcaecati.</small>
         </div>
     </div>
     <div class="slider-bottom">
@@ -26,48 +22,18 @@
             </div><!-- end col -->
             <div class="col-md-8">
                 <div class="custom-module p40l">
-                    <h2>We are a passionate <mark>learning system</mark> from<br>
-                    London. Do beautiful and easy-to-use digital <br>
-                    design & web development</h2>
+                    <?php foreach ($profil_kesiswaan as $profil): ?>
+                        
+                    <h2><?= $profil->judul  ?></h2>
 
-                    <p>Nam dictum sem, ipsum aliquam . Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus. Praesent sed nisi eleifend, fermentum orci amet, iaculis libero.</p>
+                    <p><?= $profil->keterangan  ?></p>
 
-                    <hr class="invis">
-
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 first">
-                            <ul class="check">
-                                <li>Custom Shortcodes</li>
-                                <li>Visual Page Builder</li>
-                                <li>Unlimited Shortcodes</li>
-                                <li>Responsive Theme</li>
-                                <li>Tons of Layouts</li>
-                            </ul><!-- end check -->
-                        </div><!-- end col-lg-4 -->
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <ul class="check">
-                                <li>Font Awesome Icons</li>
-                                <li>Pre-Defined Colors</li>
-                                <li>AJAX Transitions</li>
-                                <li>High Quality Support</li>
-                                <li>Unlimited Options</li>
-                            </ul><!-- end check -->    
-                        </div><!-- end col-lg-4 -->
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 last">
-                            <ul class="check">
-                                <li>Shopping Layouts</li>
-                                <li>Pre-Defined Fonts</li>
-                                <li>Style Changers</li>
-                                <li>Footer Styles</li>
-                                <li>Header Styles</li>
-                            </ul><!-- end check -->
-                        </div><!-- end col-lg-4 --> 
-                    </div><!-- end row -->   
+                    <?php endforeach; ?>
 
                     <hr class="invis">
 
                     <div class="btn-wrapper">
-                        <a href="#" class="btn btn-primary">Learn More About us</a>
+                        <a href="<?= base_url('profilKesiswaan')  ?>" class="btn btn-primary">Lihat Selengkapnya</a>
                     </div>
 
                 </div><!-- end module -->
