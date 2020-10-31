@@ -13,6 +13,10 @@ class Menu extends CI_Controller {
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
 		$this->lang->load('auth');
+	}
+
+	public function index()
+	{
 		if (!$this->ion_auth->logged_in())
 		{
 			// redirect them to the login page
@@ -23,10 +27,6 @@ class Menu extends CI_Controller {
 			// redirect them to the home page because they must be an administrator to view this
 			show_error('You must be an administrator to view this page.');
 		}
-	}
-
-	public function index()
-	{
 		// siapkan data user yang aktif
 		$data['user'] = $this->session->userdata();
 		$id_user_aktif = $data['user']['user_id'];
@@ -57,6 +57,17 @@ class Menu extends CI_Controller {
 
 	public function tambahMenu()
 	{
+		if (!$this->ion_auth->logged_in())
+		{
+			// redirect them to the login page
+			redirect('auth/login', 'refresh');
+		}
+		else if (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
+		{
+			// redirect them to the home page because they must be an administrator to view this
+			show_error('You must be an administrator to view this page.');
+		}
+
 		$this->form_validation->set_rules('nama_menu', 'nama_menu', 'trim|required');
 		$this->form_validation->set_rules('url', 'url', 'trim|required');
 		$this->form_validation->set_rules('icon', 'icon', 'trim|required');
@@ -90,6 +101,17 @@ class Menu extends CI_Controller {
 
 	public function hapusMenu($id)
 	{
+		if (!$this->ion_auth->logged_in())
+		{
+			// redirect them to the login page
+			redirect('auth/login', 'refresh');
+		}
+		else if (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
+		{
+			// redirect them to the home page because they must be an administrator to view this
+			show_error('You must be an administrator to view this page.');
+		}
+
 		$this->db->delete('menu',['id' => $id]);
 		$this->session->set_flashdata('message',' <div class="alert alert-danger alert-dismissible">
 	              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -100,6 +122,17 @@ class Menu extends CI_Controller {
 
 	public function editMenu($id)
 	{
+		if (!$this->ion_auth->logged_in())
+		{
+			// redirect them to the login page
+			redirect('auth/login', 'refresh');
+		}
+		else if (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
+		{
+			// redirect them to the home page because they must be an administrator to view this
+			show_error('You must be an administrator to view this page.');
+		}
+
 		// siapkan data user yang aktif
 		$data['user'] = $this->session->userdata();
 		$id_user_aktif = $data['user']['user_id'];
@@ -131,6 +164,17 @@ class Menu extends CI_Controller {
 
 	public function updateMenu()
 	{
+		if (!$this->ion_auth->logged_in())
+		{
+			// redirect them to the login page
+			redirect('auth/login', 'refresh');
+		}
+		else if (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
+		{
+			// redirect them to the home page because they must be an administrator to view this
+			show_error('You must be an administrator to view this page.');
+		}
+		
 		$id = $this->input->post('id');
 		$data = [
 			'id' => $id,
