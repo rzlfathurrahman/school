@@ -91,8 +91,8 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item <?= ($halaman == 'kesiswaan') ? "has-treeview menu-open" : ""  ?> ">
-            <a href="#" class="nav-link <?= ($halaman == 'kesiswaan') ? "active" : ""  ?>">
+          <li class="nav-item <?= ($halaman == 'kesiswaan' || $halaman == 'strukturOrganisasi') ? "has-treeview menu-open" : ""  ?> ">
+            <a href="#" class="nav-link <?= ($halaman == 'kesiswaan' || $halaman == 'strukturOrganisasi') ? "active" : ""  ?>">
               <i class="nav-icon fa fa-home"></i>
               <p>
                 Kesiswaan
@@ -107,7 +107,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('kesiswaan/strukturOrganisasi')  ?>" class="nav-link">
+                <a href="<?= base_url('kesiswaan/strukturOrganisasi')  ?>" class="nav-link <?= ($halaman == 'strukturOrganisasi') ? 'active' : ''  ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Struktur Organisasi</p>
                 </a>
