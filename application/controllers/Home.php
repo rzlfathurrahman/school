@@ -13,6 +13,9 @@ class Home extends CI_Controller {
 		// siapkan menu
 		$data['menu'] = $this->db->get('menu')->result();
 
+		// data profil kesiswaan
+		$data['profil_kesiswaan'] = $this->db->get('profil_kesiswaan')->result();
+
 		$this->load->view('templates/frontend/header',$data);
 		$this->load->view('templates/frontend/topbar');
 		$this->load->view('frontend/home');
