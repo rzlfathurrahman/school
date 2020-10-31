@@ -107,9 +107,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../../starter.html" class="nav-link">
+                <a href="<?= base_url('kesiswaan/strukturOrganisasi')  ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Starter Page</p>
+                  <p>Struktur Organisasi</p>
                 </a>
               </li>
             </ul>
