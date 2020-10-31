@@ -1,4 +1,4 @@
-<section id="home" class="video-section js-height-full">
+<section id="home" class="js-height-full" style="background-image: url(<?= base_url()  ?>assets/backend/dist/img/photo4.jpg); background-size: cover;">
     <div class="overlay"></div>
     <div class="home-text-wrapper relative container">
         <div class="home-message">
