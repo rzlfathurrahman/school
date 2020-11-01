@@ -28,7 +28,7 @@ class Ekstrakurikuler extends CI_Controller {
 		$data['user_groups'] = $this->ion_auth->get_users_groups()->result();
 
 		// info halaman aktif 
-		$data['halaman'] = 'ekstrakurikiler';
+		$data['halaman'] = 'ekstrakurikuler';
 
 		// judul web
 		$data['judul'] = 'Ekstrakurikuler';
