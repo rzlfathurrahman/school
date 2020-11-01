@@ -155,6 +155,45 @@ class Ekstrakurikuler extends CI_Controller {
 		$this->load->view('templates/backend/footer');
 	}
 
+	public function updateMenu()
+	{
+		if (!$this->ion_auth->logged_in())
+		{
+			// redirect them to the login page
+			redirect('auth/login', 'refresh');
+		}
+		else if (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
+		{
+			// redirect them to the home page because they must be an administrator to view this
+			show_error('You must be an administrator to view this page.');
+		}
+		
+		$id = $this->input->post('id');
+		$data = [
+			'id' => $id,
+			'nama_ekstrakurikuler' => $this->input->post('nama_menu'),
+			'kode_ekstrakurikuler' => $this->input->post('kode_ekstrakurikuler'),
+			'pembimbing' => $this->input->post('pembimbing'),
+			'jadwal' => $this->input->post('jadwal'),
+		];
+
+		$this->db->update('ekstrakurikuler', $data,['id' => $id]);
+
+		if ($this->db->affected_rows() > 0){
+			$this->session->set_flashdata('message',' <div class="alert alert-success alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+             Ekstrakurikuler berhasil diupdate.
+            </div>');
+		}else{
+			$this->session->set_flashdata('message',' <div class="alert alert-danger alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+             Ekstrakurikuler gagal diupdate.
+            </div>');
+		}
+		redirect('ekstrakurikuler','refresh');	
+
+	}
+
 }
 
 /* End of file Ekstrakurikuler.php */
