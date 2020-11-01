@@ -101,7 +101,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form action="<?= base_url('menu/tambahEkstrakurikuler')  ?>" method="post" >
+        <form action="<?= base_url('ekstrakurikuler/tambahEkstrakurikuler')  ?>" method="post" >
           <div class="modal-body">
               <div class="form-group">
                 <label for="namaEkstra">Nama Ekstrakurikuler</label>
