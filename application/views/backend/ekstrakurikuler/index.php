@@ -67,10 +67,10 @@
                  <td><?= htmlspecialchars($ekstra->jadwal,ENT_QUOTES,'UTF-8');?></td>
                  <td>
                    <!-- link untuk edit ekstra -->
-                   <?= anchor("ekstra/editEkstra/".$ekstra->id, '<span class="badge badge-pill badge-info">Edit</span>') ;?>
+                   <?= anchor("ekstrakurikuler/editEkstra/".$ekstra->id, '<span class="badge badge-pill badge-info">Edit</span>') ;?>
 
                    <!-- link untuk menghapus ekstra -->
-                   <?= anchor("ekstra/hapusEkstra/".$ekstra->id, '<span class="badge badge-pill badge-danger">Hapus</span>') ;?>
+                   <?= anchor("ekstrakurikuler/hapusEkstra/".$ekstra->id, '<span class="badge badge-pill badge-danger">Hapus</span>') ;?>
                      
                  </td>
                </tr>
