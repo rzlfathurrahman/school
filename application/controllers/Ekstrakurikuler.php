@@ -191,6 +191,7 @@ class Ekstrakurikuler extends CI_Controller {
             </div>');
 		}
 		redirect('ekstrakurikuler','refresh');	
+	}
 
 }
 
