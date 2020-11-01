@@ -171,7 +171,7 @@ class Ekstrakurikuler extends CI_Controller {
 		$id = $this->input->post('id');
 		$data = [
 			'id' => $id,
-			'nama_ekstrakurikuler' => $this->input->post('nama_menu'),
+			'nama_ekstrakurikuler' => $this->input->post('nama_ekstrakurikuler'),
 			'kode_ekstrakurikuler' => $this->input->post('kode_ekstrakurikuler'),
 			'pembimbing' => $this->input->post('pembimbing'),
 			'jadwal' => $this->input->post('jadwal'),
