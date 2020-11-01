@@ -91,7 +91,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item <?= ($halaman == 'kesiswaan' || $halaman == 'strukturOrganisasi') ? "has-treeview menu-open" : ""  ?> ">
+          <li class="nav-item <?= ($halaman == 'kesiswaan' || $halaman == 'strukturOrganisasi' || $halaman == 'ekstrakurikuler') ? "has-treeview menu-open" : ""  ?> ">
             <a href="#" class="nav-link <?= ($halaman == 'kesiswaan' || $halaman == 'strukturOrganisasi') ? "active" : ""  ?>">
               <i class="nav-icon fa fa-home"></i>
               <p>
@@ -112,8 +112,8 @@
                   <p>Struktur Organisasi</p>
                 </a>
               </li>
-              <li class="nav-item has-treeview">
-                 <a href="#" class="nav-link">
+              <li class="nav-item  <?= ($halaman == 'ekstrakurikuler') ? "has-treeview menu-open" : ""  ?>">
+                 <a href="#" class="nav-link ">
                    <i class="far fa-circle nav-icon"></i>
                    <p>
                      Ekstrakurikuler
@@ -122,7 +122,7 @@
                  </a>
                  <ul class="nav nav-treeview">
                    <li class="nav-item">
-                     <a href="#" class="nav-link">
+                     <a href="#" class="nav-link <?= ( $halaman == 'ekstrakurikuler') ? "active" : ""  ?>">
                        <i class="far fa-dot-circle nav-icon"></i>
                        <p>Daftar Ekskul</p>
                      </a>
