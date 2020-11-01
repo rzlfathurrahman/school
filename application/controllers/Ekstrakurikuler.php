@@ -155,7 +155,7 @@ class Ekstrakurikuler extends CI_Controller {
 		$this->load->view('templates/backend/footer');
 	}
 
-	public function updateMenu()
+	public function updateEkstrakurikuler()
 	{
 		if (!$this->ion_auth->logged_in())
 		{
@@ -191,8 +191,6 @@ class Ekstrakurikuler extends CI_Controller {
             </div>');
 		}
 		redirect('ekstrakurikuler','refresh');	
-
-	}
 
 }
 
