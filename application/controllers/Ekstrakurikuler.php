@@ -92,6 +92,27 @@ class Ekstrakurikuler extends CI_Controller {
 		}
 	}
 
+	public function hapusEkstra($id)
+	{
+		if (!$this->ion_auth->logged_in())
+		{
+			// redirect them to the login page
+			redirect('auth/login', 'refresh');
+		}
+		else if (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
+		{
+			// redirect them to the home page because they must be an administrator to view this
+			show_error('You must be an administrator to view this page.');
+		}
+
+		$this->db->delete('ekstrakurikuler',['id' => $id]);
+		$this->session->set_flashdata('message',' <div class="alert alert-danger alert-dismissible">
+	              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	             Ekstrakurikuler berhasil dihapus.
+	            </div>');
+		redirect('ekstrakurikuler','refresh');
+	}
+
 }
 
 /* End of file Ekstrakurikuler.php */
