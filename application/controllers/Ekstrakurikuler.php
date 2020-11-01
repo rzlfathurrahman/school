@@ -45,6 +45,53 @@ class Ekstrakurikuler extends CI_Controller {
 		$this->load->view('templates/backend/footer');
 	}
 
+	public function tambahEkstrakurikuler()
+	{
+		if (!$this->ion_auth->logged_in())
+		{
+			// redirect them to the login page
+			redirect('auth/login', 'refresh');
+		}
+		else if (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
+		{
+			// redirect them to the home page because they must be an administrator to view this
+			show_error('You must be an administrator to view this page.');
+		}
+
+		$this->form_validation->set_rules('nama_ekstrakurikuler', 'nama_ekstrakurikuler', 'trim|required');
+		$this->form_validation->set_rules('kode_ekstrakurikuler', 'kode_ekstrakurikuler', 'trim|required');
+		$this->form_validation->set_rules('pembimbing', 'pembimbing', 'trim|required');
+		$this->form_validation->set_rules('jadwal', 'jadwal', 'trim|required');
+
+		if ($this->form_validation->run() === FALSE) {
+			$this->index();
+		} else {
+			$nama_ekstrakurikuler = $this->input->post("nama_ekstrakurikuler");
+			$kode_ekstrakurikuler = $this->input->post("kode_ekstrakurikuler");
+			$pembimbing = $this->input->post("pembimbing");
+			$jadwal = $this->input->post("jadwal");
+
+			$data = [
+				'nama_ekstrakurikuler' => $nama_ekstrakurikuler,
+				'kode_ekstrakurikuler' => $kode_ekstrakurikuler,
+				'pembimbing' => $pembimbing,
+				'jadwal' => $jadwal,
+			];
+			if ($this->db->insert('ekstrakurikuler', $data) === TRUE){
+				$this->session->set_flashdata('message',' <div class="alert alert-success alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                 Ekstrakurikuler berhasil ditambah.
+                </div>');
+			}else{
+				$this->session->set_flashdata('message',' <div class="alert alert-danger alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                 Ekstrakurikuler gagal ditambah.
+                </div>');
+			}
+			redirect('ekstrakurikuler','refresh');	
+		}
+	}
+
 }
 
 /* End of file Ekstrakurikuler.php */
