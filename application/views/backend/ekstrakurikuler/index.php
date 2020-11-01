@@ -81,7 +81,7 @@
           </div>
 
           <div class="card-footer">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTambah">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTambahEkstra">
                <i class="fas fa-plus"></i> Tambah Ekstrakurikuler
              </button>
           </div>
@@ -91,4 +91,43 @@
 
   </section>
   <!-- /.content -->
-   	
+  <!-- modal tambah ekstrakurikuler -->
+   <div class="modal fade" id="modalTambahEkstra">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Tambah Ekstrakurikuler</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="<?= base_url('menu/tambahEkstrakurikuler')  ?>" method="post" >
+          <div class="modal-body">
+              <div class="form-group">
+                <label for="namaEkstra">Nama Ekstrakurikuler</label>
+                <input type="text" name="nama_ekstrakurikuler" id="namaEkstra" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="kodeEkstra">Kode Ekstrakurikuler</label>
+                <input type="text" name="kode_ekstrakurikuler" id="kodeEkstra" class="form-control" >
+              </div>
+              <div class="form-group">
+                <label for="pembimbing">Pembimbing</label>
+                <input type="text" name="pembimbing" id="pembimbing" class="form-control" required>
+              </div>
+               <div class="form-group">
+                <label for="jadwal">Jadwal</label>
+                <input type="text" name="jadwal" id="jadwal" class="form-control" required>
+              </div>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+          </div>
+        </form>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->  	
