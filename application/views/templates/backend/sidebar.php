@@ -128,7 +128,7 @@
                      </a>
                    </li>
                    <li class="nav-item">
-                     <a href="#" class="nav-link">
+                     <a href="#modalTambahEkstra" data-toggle="modal" data-target="#modalTambahEkstra" class="nav-link">
                        <i class="far fa-dot-circle nav-icon"></i>
                        <p>Tambah Ekskul</p>
                      </a>
