@@ -122,7 +122,7 @@
                  </a>
                  <ul class="nav nav-treeview">
                    <li class="nav-item">
-                     <a href="#" class="nav-link <?= ( $halaman == 'ekstrakurikuler') ? "active" : ""  ?>">
+                     <a href="<?= base_url('ekstrakurikuler')  ?>" class="nav-link <?= ( $halaman == 'ekstrakurikuler') ? "active" : ""  ?>">
                        <i class="far fa-dot-circle nav-icon"></i>
                        <p>Daftar Ekskul</p>
                      </a>
