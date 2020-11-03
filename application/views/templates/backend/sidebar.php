@@ -111,30 +111,13 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Struktur Organisasi</p>
                 </a>
+              </li> 
+              <li class="nav-item">
+                <a href="<?= base_url('ekstrakurikuler')  ?>" class="nav-link <?= ($halaman == 'ekstrakurikuler') ? 'active' : ''  ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ekstrakurikuler</p>
+                </a>
               </li>
-              <li class="nav-item  <?= ($halaman == 'ekstrakurikuler') ? "has-treeview menu-open" : ""  ?>">
-                 <a href="#" class="nav-link ">
-                   <i class="far fa-circle nav-icon"></i>
-                   <p>
-                     Ekstrakurikuler
-                     <i class="right fas fa-angle-left"></i>
-                   </p>
-                 </a>
-                 <ul class="nav nav-treeview">
-                   <li class="nav-item">
-                     <a href="<?= base_url('ekstrakurikuler')  ?>" class="nav-link <?= ( $halaman == 'ekstrakurikuler') ? "active" : ""  ?>">
-                       <i class="far fa-dot-circle nav-icon"></i>
-                       <p>Daftar Ekskul</p>
-                     </a>
-                   </li>
-                   <li class="nav-item">
-                     <a href="#modalTambahEkstra" data-toggle="modal" data-target="#modalTambahEkstra" class="nav-link">
-                       <i class="far fa-dot-circle nav-icon"></i>
-                       <p>Tambah Ekskul</p>
-                     </a>
-                   </li>
-                 </ul>
-               </li>
             </ul>
           </li>
 
