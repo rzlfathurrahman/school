@@ -63,11 +63,7 @@
             <span class="focus-input100" data-symbol="&#xf190;"></span>
           </div>
           
-          <div class="text-right p-t-8 p-b-31">
-            <a href="forgot_password">
-              <?= lang('login_forgot_password');?>
-            </a>
-          </div>
+          <div class="text-right p-t-8 p-b-31"></div>
           
           <div class="container-login100-form-btn">
             <div class="wrap-login100-form-btn">
