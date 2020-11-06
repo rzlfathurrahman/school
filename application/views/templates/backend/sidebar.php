@@ -91,7 +91,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item <?= ($halaman == 'kesiswaan' || $halaman == 'strukturOrganisasi' || $halaman == 'ekstrakurikuler') ? "has-treeview menu-open" : ""  ?> ">
+          <li class="nav-item <?= ($halaman == 'kesiswaan' || $halaman == 'strukturOrganisasi' || $halaman == 'ekstrakurikuler' || $halaman == 'guru' ) ? "has-treeview menu-open" : ""  ?> ">
             <a href="#" class="nav-link <?= ($halaman == 'kesiswaan' || $halaman == 'strukturOrganisasi') ? "active" : ""  ?>">
               <i class="nav-icon fa fa-home"></i>
               <p>
@@ -116,6 +116,12 @@
                 <a href="<?= base_url('ekstrakurikuler')  ?>" class="nav-link <?= ($halaman == 'ekstrakurikuler') ? 'active' : ''  ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Ekstrakurikuler</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('guru')  ?>" class="nav-link <?= ($halaman == 'guru') ? 'active' : ''  ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Guru</p>
                 </a>
               </li>
             </ul>
