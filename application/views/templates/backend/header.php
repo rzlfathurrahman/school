@@ -7,6 +7,11 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- my meta components -->
+  <meta name="description" content="Jasa pembuatan website terbaik, murah, dan terpercaya. Cocok untuk yang membutuhkan memakai teknologi website sebagai pembantu pemecahan masalah.">
+  <meta name="author" content="SMK MA'ARIF NU 1 AJIBARANG">
+
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?= base_url()  ?>assets/backend/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->

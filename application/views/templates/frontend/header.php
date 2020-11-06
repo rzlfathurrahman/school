@@ -12,9 +12,9 @@
     
     <!-- Site Meta -->
     <title><?= $judul  ?></title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="keywords" content="login,manusa,kesiswaan">
+    <meta name="description" content="Halaman Login Kesiswaan SMK MA'ARIF NU 1 AJIBARANG">
+    <meta name="author" content="SMK MANUSA AJB">
     
     <!-- Site Icons -->
     <link rel="shortcut icon" href="<?= base_url('assets/frontend/')  ?>images/favicon.ico" type="image/x-icon" />
