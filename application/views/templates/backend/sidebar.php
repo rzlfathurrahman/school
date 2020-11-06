@@ -36,7 +36,7 @@
         <div class="info">
           <a href="#" class="d-block"><?= $user[0]['username']  ?></a>
           <?php foreach ($user_groups as $user_group): ?>
-            <span class="badge badge-pill badge-info"><?= $user_group->name  ?></span>
+            <span class="float-left m-1 badge badge-pill badge-info"><?= $user_group->name  ?></span>
           <?php endforeach ?>
         </div>
       </div>
@@ -62,7 +62,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item <?= ($halaman == 'auth'  || $halaman == 'auth/tambah_pengguna') ? "has-treeview menu-open" : ""  ?> ">
+          <li class="nav-item <?= ($halaman == 'auth'  || $halaman == 'auth/tambah_pengguna' || $halaman == 'tambah_grup') ? "has-treeview menu-open" : ""  ?> ">
             <a href="#" class="nav-link <?= ($halaman == 'auth'  || $halaman == 'auth/tambah_pengguna') ? "active" : ""  ?>">
               <i class="nav-icon fa fa-users-cog"></i>
               <p>
