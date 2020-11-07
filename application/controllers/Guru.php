@@ -51,7 +51,7 @@ class Guru extends CI_Controller {
 
 		$this->load->view('templates/backend/header',$data);
 		$this->load->view('templates/backend/sidebar');
-		$this->load->view('backend/ekstrakurikuler/index');
+		$this->load->view('backend/guru/index');
 		$this->load->view('templates/backend/footer');
 	}
 
