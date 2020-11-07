@@ -85,7 +85,7 @@ class Jurusan extends CI_Controller {
 		}elseif(!empty($kepala_jurusan)){
 			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Kepala jurusan sudah terdaftar.</div>');
 		}else{
-			// jika tidak masukan ke database
+			// jika tidak, masukan ke database
 			$data = [
 				'kode_jurusan' => $kode_jurusan,
 				'nama_jurusan' => $nama_jurusan,
@@ -99,6 +99,87 @@ class Jurusan extends CI_Controller {
 			}else{
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Jurusan gagal disimpan.</div>');
 
+			}
+		}
+		// redirect ke jurusan
+		redirect('jurusan','refresh');
+	}
+
+	public function editJurusan($kode_jurusan)
+	{
+		// siapkan data user yang aktif
+		$data['user'] = $this->session->userdata();
+		$id_user_aktif = $data['user']['user_id'];
+
+		// ambil data user aktif
+		$data['user'] = $this->ion_auth->user()->result_array();
+
+		// dapatkan grup user saat ini
+		$data['user_groups'] = $this->ion_auth->get_users_groups()->result();
+
+		// list kajur
+		$data['kajur'] = $this->db->query("SELECT users.first_name,users.last_name,groups.name FROM users,groups JOIN users_groups WHERE users_groups.user_id = users.id AND users_groups.group_id = groups.id AND groups.name='kajur'")->result();
+
+		// var_dump($data['kajur']); exit();
+
+		// info halaman aktif 
+		$data['halaman'] = 'jurusan';
+
+		// judul web
+		$data['judul'] = 'Edit Jurusan';
+
+		// ambil url aktif
+		$data['url'] = $this->uri->segment_array();
+
+		// ambil daftar ekstra
+		$data['jurusan'] = $this->db->get_where('jurusan',['kode_jurusan' => $kode_jurusan])->result();
+
+		$this->load->view('templates/backend/header',$data);
+		$this->load->view('templates/backend/sidebar');
+		$this->load->view('backend/jurusan/edit');
+		$this->load->view('templates/backend/footer');	
+	}
+
+	public function updateJurusan()
+	{
+
+		// tangkap inputan
+		$kode_jurusan_lama 	= $this->input->post('kode_jurusan_lama');
+		$jurusan_lama 		= $this->input->post('jurusan_lama');
+		$kajur_lama 		= $this->input->post('kajur_lama');
+
+		$kode_jurusan = $this->input->post('kode_jurusan');
+		$nama_jurusan = $this->input->post('nama_jurusan');
+		$kajur = $this->input->post('kajur');
+
+		// ambil daftar koide jurusan
+		$jurusan = $this->db->get_where('jurusan',['kode_jurusan' => $kode_jurusan])->result();
+		// ambil data kajur
+		$kepala_jurusan = $this->db->get_where('jurusan',['kajur' => $kajur])->result();
+
+		// cek apakah ada data yang diganti atau tidak
+		// jika tidak ada tampilkan flashdata |tak ada data diubah|
+		if ($kode_jurusan == $kode_jurusan_lama && $nama_jurusan == $jurusan_lama && $kajur == $kajur_lama) {
+			$this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Tidak ada data yang diubah.</div>');
+		}else{	// jika ada
+			// cek apakah kode jurusan sudah ada di database atau belum
+			// jika sudah ada maka tampilkan pesan eror
+			if (!empty($jurusan) && $kode_jurusan != $kode_jurusan_lama) {
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Kode jurusan sudah terdaftar pada sistem.</div>');
+			}elseif(!empty($kepala_jurusan) && $kajur != $kajur_lama){	// cek apakah kajur sudah terdaftar di jurusan atau belum
+				// jika sudah ada maka tampilkan pesan eror
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Kepala jurusan sudah terdaftar.</div>');
+			}else{  //update data
+
+				$query = $this->db->query("UPDATE `jurusan` SET `kode_jurusan` = '$kode_jurusan', `nama_jurusan` = '$nama_jurusan', `kajur` = '$kajur' WHERE `jurusan`.`kode_jurusan` = '$kode_jurusan'");
+				// jika berhasil update
+				if ($query) {
+					// flashdata
+					$this->session->set_flashdata('message', '<div class="alert alert-primary" role="alert">Data berhasil diupdate.</div>');
+				}else{
+					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data gagal diupdate.</div>');
+
+				}
 			}
 		}
 		// redirect ke jurusan
