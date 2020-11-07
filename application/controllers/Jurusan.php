@@ -107,8 +107,8 @@ class Jurusan extends CI_Controller {
 
 	public function hapusJurusan($kode_jurusan)
 	{
-		$this->db->delete('jurusan');
 		$this->db->where('kode_jurusan', $kode_jurusan);
+		$this->db->delete('jurusan');
 		$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Jurusan berhasil dihapus.</div>');
 		redirect('jurusan','refresh');
 
