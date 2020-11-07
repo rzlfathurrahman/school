@@ -73,12 +73,17 @@ class Jurusan extends CI_Controller {
 
 		// ambil daftar koide jurusan
 		$jurusan = $this->db->get_where('jurusan',['kode_jurusan' => $kode_jurusan])->result();
+		// ambil data kajur
+		$kepala_jurusan = $this->db->get_where('jurusan',['kajur' => $kajur])->result();
+		
 		// var_dump($jurusan); exit();
-		// cek apakah kode jurusan sudah ada ditabase atau belum
+		// cek apakah kode jurusan dan kajur sudah ada ditabase atau belum
 		if (!empty($jurusan)) {
 			// jika sudah , maka jangan masukan ke database
 			// flashdata
 			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Kode jurusan sudah terdaftar pada sistem.</div>');
+		}elseif(!empty($kepala_jurusan)){
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Kepala jurusan sudah terdaftar.</div>');
 		}else{
 			// jika tidak masukan ke database
 			$data = [
@@ -98,6 +103,15 @@ class Jurusan extends CI_Controller {
 		}
 		// redirect ke jurusan
 		redirect('jurusan','refresh');
+	}
+
+	public function hapusJurusan($kode_jurusan)
+	{
+		$this->db->delete('jurusan');
+		$this->db->where('kode_jurusan', $kode_jurusan);
+		$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Jurusan berhasil dihapus.</div>');
+		redirect('jurusan','refresh');
+
 	}
 
 }
