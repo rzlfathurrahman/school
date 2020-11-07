@@ -36,6 +36,11 @@ class Jurusan extends CI_Controller {
 		// dapatkan grup user saat ini
 		$data['user_groups'] = $this->ion_auth->get_users_groups()->result();
 
+		// list kajur
+		$data['kajur'] = $this->db->query("SELECT users.first_name,users.last_name,groups.name FROM users,groups JOIN users_groups WHERE users_groups.user_id = users.id AND users_groups.group_id = groups.id AND groups.name='kajur'")->result();
+
+		// var_dump($data['kajur']); exit();
+
 		// info halaman aktif 
 		$data['halaman'] = 'jurusan';
 
@@ -52,6 +57,47 @@ class Jurusan extends CI_Controller {
 		$this->load->view('templates/backend/sidebar');
 		$this->load->view('backend/jurusan/index');
 		$this->load->view('templates/backend/footer');
+	}
+
+	public function tambahJurusan()
+	{
+
+		if (!$this->ion_auth->logged_in()) {
+			redirect('auth/login','refresh');
+		}
+
+		// tangkap inputan
+		$kode_jurusan = $this->input->post('kode_jurusan');
+		$nama_jurusan = $this->input->post('nama_jurusan');
+		$kajur = $this->input->post('kajur');
+
+		// ambil daftar koide jurusan
+		$jurusan = $this->db->get_where('jurusan',['kode_jurusan' => $kode_jurusan])->result();
+		// var_dump($jurusan); exit();
+		// cek apakah kode jurusan sudah ada ditabase atau belum
+		if (!empty($jurusan)) {
+			// jika sudah , maka jangan masukan ke database
+			// flashdata
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Kode jurusan sudah terdaftar pada sistem.</div>');
+		}else{
+			// jika tidak masukan ke database
+			$data = [
+				'kode_jurusan' => $kode_jurusan,
+				'nama_jurusan' => $nama_jurusan,
+				'kajur' => $kajur
+			];
+
+			// jika berhasil input
+			if ($this->db->insert('jurusan', $data)) {
+				// flashdata
+				$this->session->set_flashdata('message', '<div class="alert alert-primary" role="alert">Jurusan berhasil disimpan.</div>');
+			}else{
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Jurusan gagal disimpan.</div>');
+
+			}
+		}
+		// redirect ke jurusan
+		redirect('jurusan','refresh');
 	}
 
 }
