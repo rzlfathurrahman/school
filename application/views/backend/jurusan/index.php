@@ -65,10 +65,10 @@
                  <td><?= htmlspecialchars($j->kajur,ENT_QUOTES,'UTF-8');?></td>
                  <td>
                    <!-- link untuk edit jurusan -->
-                   <?= anchor("jurusan/editjurusan/".$j->kode_jurusan, '<span class="badge badge-pill badge-info">Edit</span>') ;?>
+                   <?= anchor("jurusan/editJurusan/".$j->kode_jurusan, '<span class="badge badge-pill badge-info">Edit</span>') ;?>
 
                    <!-- link untuk menghapus j -->
-                   <?= anchor("jurusan/hapusjurusan/".$j->kode_jurusan, '<span class="badge badge-pill badge-danger">Hapus</span>') ;?>
+                   <?= anchor("jurusan/hapusJurusan/".$j->kode_jurusan, '<span class="badge badge-pill badge-danger">Hapus</span>') ;?>
                      
                  </td>
                </tr>
