@@ -127,6 +127,30 @@
             </ul>
           </li>
 
+          <li class="nav-item <?= ($halaman == 'jurusan'  || $halaman == 'jurusan/tambah_pengguna' || $halaman == 'tambah_grup') ? "has-treeview menu-open" : ""  ?> ">
+            <a href="#" class="nav-link <?= ($halaman == 'jurusan'  || $halaman == 'jurusan/tambah_pengguna') ? "active" : ""  ?>">
+              <i class="nav-icon fa fa-school"></i>
+              <p>
+                Manajemen Jurusan
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= base_url('jurusan/')  ?>" class="nav-link <?= ($halaman == 'jurusan') ? 'active' : ''  ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Jurusan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('jurusan/mapel')  ?>" class="nav-link <?= ($halaman == 'jurusan/mapel') ? 'active' : ''  ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mata Pelajaran</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
           <li class="nav-item">
             <a href="#modalLogout" data-toggle="modal" class="nav-link">
               <i class="nav-icon fas fa-sign-out-alt "></i>
