@@ -143,7 +143,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('mapel')  ?>" class="nav-link <?= ($halaman == 'jurusan/mapel') ? 'active' : ''  ?>">
+                <a href="<?= base_url('mapel')  ?>" class="nav-link <?= ($halaman == 'mapel') ? 'active' : ''  ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Mata Pelajaran</p>
                 </a>
