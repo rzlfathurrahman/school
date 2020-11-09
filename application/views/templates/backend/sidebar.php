@@ -127,7 +127,7 @@
             </ul>
           </li>
 
-          <li class="nav-item <?= ($halaman == 'jurusan'  || $halaman == 'jurusan/tambah_pengguna' || $halaman == 'tambah_grup') ? "has-treeview menu-open" : ""  ?> ">
+          <li class="nav-item <?= ($halaman == 'jurusan' || $halaman == 'mapel' || $halaman == 'jurusan/tambah_pengguna' || $halaman == 'tambah_grup') ? "has-treeview menu-open" : ""  ?> ">
             <a href="#" class="nav-link <?= ($halaman == 'jurusan'  || $halaman == 'jurusan/tambah_pengguna') ? "active" : ""  ?>">
               <i class="nav-icon fa fa-school"></i>
               <p>
