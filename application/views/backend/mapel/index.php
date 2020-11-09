@@ -62,7 +62,7 @@
                  <td><?= $no++  ?></td>    
                  <td><?= htmlspecialchars($m->kode_mapel,ENT_QUOTES,'UTF-8');?></td>
                  <td><?= htmlspecialchars($m->nama_mapel,ENT_QUOTES,'UTF-8');?></td>
-                 <td><?= htmlspecialchars($m->kpde_jurusan,ENT_QUOTES,'UTF-8');?></td>
+                 <td><?= htmlspecialchars($m->kode_jurusan,ENT_QUOTES,'UTF-8');?></td>
                  <td>
                    <!-- link untuk edit mapel -->
                    <?= anchor("mapel/editMapel/".$m->kode_mapel, '<span class="badge badge-pill badge-info">Edit</span>') ;?>
