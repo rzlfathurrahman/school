@@ -113,6 +113,8 @@ class Mapel extends CI_Controller {
 		// dapatkan grup user saat ini
 		$data['user_groups'] = $this->ion_auth->get_users_groups()->result();
 
+		// list jurusan
+		$data['jurusan'] = $this->db->get('jurusan')->result();
 		
 		// info halaman aktif 
 		$data['halaman'] = 'mapel';
