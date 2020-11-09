@@ -101,6 +101,15 @@ class Mapel extends CI_Controller {
 
 	}
 
+	public function hapusMapel($kode_mapel)
+	{
+		$this->db->where('kode_mapel', $kode_mapel);
+		$this->db->delete('mapel');
+		$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Mata Pelajaran berhasil dihapus.</div>');
+		redirect('mapel','refresh');
+
+	}
+
 }
 
 /* End of file Mapel.php */
