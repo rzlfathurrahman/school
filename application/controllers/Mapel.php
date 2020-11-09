@@ -59,6 +59,48 @@ class Mapel extends CI_Controller {
 		$this->load->view('templates/backend/footer');
 	}
 
+	public function tambahMapel()
+	{
+		if (!$this->ion_auth->logged_in()) {
+			redirect('auth/login','refresh');
+		}
+
+		// tangkap inputan
+		$kode_mapel_with_space = $this->input->post('kode_mapel');
+		$nama_mapel = $this->input->post('nama_mapel');
+		$jurusan = $this->input->post('kode_jurusan');
+		$kelas = $this->input->post('kode_kelas');
+
+		$kode_mapel = trim(str_replace(" ", "_", $kode_mapel_with_space)); 
+
+		// cek apakah kode  mapel ada di database
+		$result = $this->db->get_where('mapel',['kode_mapel' => $kode_mapel])->result();
+
+		if (!empty($result)) {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Kode mapel sudah ada.</div>');
+		}else{
+			$data = [
+				'kode_mapel' => $kode_mapel,
+				'nama_mapel' => $nama_mapel,
+				'kode_jurusan' => $jurusan,
+				'kode_kelas' => $kelas
+			];
+
+
+			// jika berhasil input
+			if ($this->db->insert('mapel', $data)) {
+				// flashdata
+				$this->session->set_flashdata('message', '<div class="alert alert-primary" role="alert">Mata Pelajaran berhasil disimpan.</div>');
+			}else{
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Mata Pelajaran gagal disimpan.</div>');
+
+			}
+		}
+
+		redirect('mapel','refresh');
+
+	}
+
 }
 
 /* End of file Mapel.php */
