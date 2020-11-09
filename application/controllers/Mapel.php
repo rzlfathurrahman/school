@@ -134,6 +134,49 @@ class Mapel extends CI_Controller {
 		$this->load->view('templates/backend/footer');	
 	}
 
+	public function updateMapel()
+	{
+		// tangkap inputan
+		$kode_mapel_lama 	= $this->input->post('kode_mapel_lama');
+		$jurusan_lama 		= $this->input->post('jurusan_lama');
+		$mapel_lama 		= $this->input->post('mapel_lama');
+		$kelas_lama 		= $this->input->post('kelas_lama');
+
+		$kode_mapel = $this->input->post('kode_mapel');
+		$nama_mapel = $this->input->post('nama_mapel');
+		$jurusan = $this->input->post('jurusan');
+		$kelas = $this->input->post('kode_kelas');
+
+		// ambil data mapel
+		$mapel = $this->db->get_where('mapel',['kode_mapel' => $kode_mapel])->result();
+
+		// cek apakah ada data yang diganti atau tidak
+		// jika tidak ada tampilkan flashdata |tak ada data diubah|
+		if ($kode_mapel == $kode_mapel_lama && $jurusan == $jurusan_lama && $nama_mapel == $mapel_lama && $kelas == $kelas_lama) {
+			$this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Tidak ada data yang diubah.</div>');
+		}else{	// jika ada
+			// cek apakah kode mapel sudah ada di database atau belum
+			// jika sudah ada maka tampilkan pesan eror
+			if (!empty($mapel) && $kode_mapel != $kode_mapel_lama) {
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Kode mapel sudah terdaftar pada sistem.</div>');
+			}else{  
+				//update data
+				$query = $this->db->query("UPDATE `mapel` SET `kode_mapel` = '$kode_mapel', `nama_mapel` = '$nama_mapel', `kode_jurusan` = '$jurusan', `kode_kelas` = '$kelas' WHERE `mapel`.`kode_mapel` = '$kode_mapel';");
+				// jika berhasil update
+				if ($query) {
+					// flashdata
+					$this->session->set_flashdata('message', '<div class="alert alert-primary" role="alert">Data berhasil diupdate.</div>');
+				}else{
+					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data gagal diupdate.</div>');
+
+				}
+			}
+		}
+		// redirect ke mapel
+		redirect('mapel','refresh');
+	}
+
+
 	public function hapusMapel($kode_mapel)
 	{
 		$this->db->where('kode_mapel', $kode_mapel);
