@@ -101,6 +101,37 @@ class Mapel extends CI_Controller {
 
 	}
 
+	public function editMapel($kode_mapel)
+	{
+		// siapkan data user yang aktif
+		$data['user'] = $this->session->userdata();
+		$id_user_aktif = $data['user']['user_id'];
+
+		// ambil data user aktif
+		$data['user'] = $this->ion_auth->user()->result_array();
+
+		// dapatkan grup user saat ini
+		$data['user_groups'] = $this->ion_auth->get_users_groups()->result();
+
+		
+		// info halaman aktif 
+		$data['halaman'] = 'mapel';
+
+		// judul web
+		$data['judul'] = 'Edit Mata Pelajaran';
+
+		// ambil url aktif
+		$data['url'] = $this->uri->segment_array();
+
+		// ambil daftar ekstra
+		$data['mapel'] = $this->db->get_where('mapel',['kode_mapel' => $kode_mapel])->result();
+
+		$this->load->view('templates/backend/header',$data);
+		$this->load->view('templates/backend/sidebar');
+		$this->load->view('backend/mapel/edit');
+		$this->load->view('templates/backend/footer');	
+	}
+
 	public function hapusMapel($kode_mapel)
 	{
 		$this->db->where('kode_mapel', $kode_mapel);
