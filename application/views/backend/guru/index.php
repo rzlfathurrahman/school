@@ -111,13 +111,17 @@
               </div>
               <div class="form-group">
                 <label for="nama_guru">Nama Guru</label>
-                <input type="text" name="nama_guru" id="nama_guru" class="form-control">
+                <select class="form-control" name="nama_guru" id="nama_guru">
+                  <?php foreach ($guru_users as $g): ?>
+                    <option value="<?= $g->first_name." ".$g->last_name  ?>"><?= $g->first_name." ".$g->last_name  ?></option>
+                  <?php endforeach ?>
+                </select>
               </div>
               <div class="form-group">
-                <label for="kode_mapel">Kode Mapel</label>
-                <select name="kode_mapel" class="form-control" id="kode_mapel">
+                <label>Mata Pelajaran</label>
+                <select class="select2bs4" name="kode_mapel[]" multiple="multiple" data-dropdown-css-class="select2-purple" data-placeholder="Select a State" style="width: 100%;" >
                   <?php foreach ($mapel as $m): ?>
-                    <option value="<?= $m->kode_mapel  ?>"><?= $m->nama_mapel  ?></option>
+                    <option value="<?= $m->kode_mapel  ?>"><?= $m->kode_mapel  ?></option>
                   <?php endforeach ?>
                 </select>
               </div>
