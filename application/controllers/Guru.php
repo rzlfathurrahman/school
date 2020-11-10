@@ -46,8 +46,12 @@ class Guru extends CI_Controller {
 		// ambil url aktif
 		$data['url'] = $this->uri->segment_array();
 
-		// ambil daftar ekstra
+		// ambil daftar guru
 		$data['guru'] = $this->db->get('guru')->result();
+
+		// ambil data guru di tabel user
+		$query = "SELECT users.first_name,users.last_name,groups.name FROM users,groups JOIN users_groups WHERE users_groups.user_id = users.id AND users_groups.group_id = groups.id AND groups.name='guru'";
+		$data['guru_users'] = $this->db->query($query)->result();
 
 		// data mapel
 		$data['mapel'] = $this->db->get('mapel')->result();
