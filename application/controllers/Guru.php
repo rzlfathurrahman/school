@@ -49,6 +49,9 @@ class Guru extends CI_Controller {
 		// ambil daftar ekstra
 		$data['guru'] = $this->db->get('guru')->result();
 
+		// data mapel
+		$data['mapel'] = $this->db->get('mapel')->result();
+
 		$this->load->view('templates/backend/header',$data);
 		$this->load->view('templates/backend/sidebar');
 		$this->load->view('backend/guru/index');

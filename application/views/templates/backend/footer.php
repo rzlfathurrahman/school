@@ -31,6 +31,8 @@
 <script src="<?= base_url()  ?>assets/backend/dist/js/demo.js"></script>
   <!-- pace-progress -->
 <script src="<?= base_url()  ?>assets/backend/plugins/pace-progress/pace.min.js"></script>
+<!-- Select2 -->
+<script src="<?= base_url()  ?>assets/backend/plugins/select2/js/select2.full.min.js"></script>
 <!-- DataTables -->
 <script src="<?= base_url()  ?>assets/backend/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?= base_url()  ?>assets/backend/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -70,6 +72,11 @@
 
     // Summernote
     $('.textarea').summernote();
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    });
   });
 </script>
 

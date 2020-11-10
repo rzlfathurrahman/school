@@ -63,7 +63,7 @@
             </a>
           </li>
           <li class="nav-item <?= ($halaman == 'auth'  || $halaman == 'auth/tambah_pengguna' || $halaman == 'tambah_grup') ? "has-treeview menu-open" : ""  ?> ">
-            <a href="#" class="nav-link <?= ($halaman == 'auth'  || $halaman == 'auth/tambah_pengguna') ? "active" : ""  ?>">
+            <a href="#" class="nav-link <?= ($halaman == 'auth'  || $halaman == 'auth/tambah_pengguna' || $halaman == 'tambah_grup') ? "active" : ""  ?>">
               <i class="nav-icon fa fa-users-cog"></i>
               <p>
                 Pengguna
@@ -92,7 +92,7 @@
             </ul>
           </li>
           <li class="nav-item <?= ($halaman == 'kesiswaan' || $halaman == 'strukturOrganisasi' || $halaman == 'ekstrakurikuler' || $halaman == 'guru' ) ? "has-treeview menu-open" : ""  ?> ">
-            <a href="#" class="nav-link <?= ($halaman == 'kesiswaan' || $halaman == 'strukturOrganisasi') ? "active" : ""  ?>">
+            <a href="#" class="nav-link <?= ($halaman == 'kesiswaan' || $halaman == 'strukturOrganisasi' || $halaman == 'ekstrakurikuler' || $halaman == 'guru' ) ? "active" : ""  ?>">
               <i class="nav-icon fa fa-home"></i>
               <p>
                 Kesiswaan
@@ -128,7 +128,7 @@
           </li>
 
           <li class="nav-item <?= ($halaman == 'jurusan' || $halaman == 'mapel' || $halaman == 'jurusan/tambah_pengguna' || $halaman == 'tambah_grup') ? "has-treeview menu-open" : ""  ?> ">
-            <a href="#" class="nav-link <?= ($halaman == 'jurusan'  || $halaman == 'jurusan/tambah_pengguna') ? "active" : ""  ?>">
+            <a href="#" class="nav-link <?= ($halaman == 'jurusan'  || $halaman == 'jurusan/tambah_pengguna' || $halaman == 'mapel') ? "active" : ""  ?>">
               <i class="nav-icon fa fa-school"></i>
               <p>
                 Manajemen Jurusan

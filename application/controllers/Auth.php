@@ -453,7 +453,29 @@ class Auth extends CI_Controller
 			$this->data['user'] = $this->ion_auth->user($id)->row();
 			$this->data['identity'] = $this->config->item('identity', 'ion_auth');
 
+			// siapkan data user yang aktif
+			$data['user'] = $this->session->userdata();
+			$id_user_aktif = $data['user']['user_id'];
+	
+			// ambil data user aktif
+			$data['user'] = $this->ion_auth->user()->result_array();
+
+			// dapatkan grup user saat ini
+			$data['user_groups'] = $this->ion_auth->get_users_groups()->result();
+
+			// info halaman aktif 
+			$data['halaman'] = 'auth';
+
+			// judul web
+			$data['judul'] = 'Nonaktifkan Pengguna ';
+
+			// ambil url aktif
+			$data['url'] = $this->uri->segment_array();
+
+			$this->load->view('templates/backend/header',$data); 
+			$this->load->view('templates/backend/sidebar'); 
 			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'deactivate_user', $this->data);
+			$this->load->view('templates/backend/footer'); 
 		}
 		else
 		{
@@ -912,12 +934,12 @@ class Auth extends CI_Controller
 
 				if ($group_update)
 				{
-					$this->session->set_flashdata('message', $this->lang->line('edit_group_saved'));
+					$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">'.$this->lang->line('edit_group_saved').'</div>' );
 					redirect("auth", 'refresh');
 				}
 				else
 				{
-					$this->session->set_flashdata('message', $this->ion_auth->errors());
+					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">'.$this->ion_auth->errors().'</div>');
 				}				
 			}
 		}
@@ -933,6 +955,7 @@ class Auth extends CI_Controller
 			'id'      => 'group_name',
 			'type'    => 'text',
 			'value'   => $this->form_validation->set_value('group_name', $group->name),
+			'class' => 'form-control'
 		];
 		if ($this->config->item('admin_group', 'ion_auth') === $group->name) {
 			$this->data['group_name']['readonly'] = 'readonly';
@@ -943,9 +966,32 @@ class Auth extends CI_Controller
 			'id'    => 'group_description',
 			'type'  => 'text',
 			'value' => $this->form_validation->set_value('group_description', $group->description),
+			'class' => 'form-control'
 		];
 
+		// siapkan data user yang aktif
+		$data['user'] = $this->session->userdata();
+		$id_user_aktif = $data['user']['user_id'];
+		
+		// ambil data user aktif
+		$data['user'] = $this->ion_auth->user()->result_array();
+
+		// dapatkan grup user saat ini
+		$data['user_groups'] = $this->ion_auth->get_users_groups()->result();
+
+		// info halaman aktif 
+		$data['halaman'] = 'edit_grup';
+
+		// judul web
+		$data['judul'] = 'Edit Grup';
+
+		// ambil url aktif
+		$data['url'] = $this->uri->segment_array();
+
+		$this->load->view('templates/backend/header', $data);
+		$this->load->view('templates/backend/sidebar');
 		$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'edit_group', $this->data);
+		$this->load->view('templates/backend/footer');
 	}
 
 	/**
