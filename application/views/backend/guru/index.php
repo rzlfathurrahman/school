@@ -59,13 +59,14 @@
                </tr>
              </thead>
              <tbody>
-                      <?php var_dump($mapel) ?>
+                      <?php var_dump($guru_users) ?>
              <?php $no = 1; foreach ($guru as $ekstra):?>
+             <?php $kode_mapel = explode(',',$ekstra->kode_mapel) ?>
                <tr align="center">
                  <td><?= $no++  ?></td>    
                  <td><?= htmlspecialchars($ekstra->nip,ENT_QUOTES,'UTF-8');?></td>
                  <td><?= htmlspecialchars($ekstra->nama_guru,ENT_QUOTES,'UTF-8');?></td>
-                 <td><?= htmlspecialchars($ekstra->kode_mapel,ENT_QUOTES,'UTF-8');?></td>
+                 <td><?= $kode_mapel  ?></td>
                  <td><?= htmlspecialchars($ekstra->kelas,ENT_QUOTES,'UTF-8');?></td>
                  <td><?= htmlspecialchars($ekstra->role,ENT_QUOTES,'UTF-8');?></td>
                  <td>
@@ -107,7 +108,7 @@
           <div class="modal-body">
               <div class="form-group">
                 <label for="nip">NIP</label>
-                <input type="text" name="nip" id="nip" class="form-control">
+                <input type="text" name="nip" id="nip" placeholder="Masukan NIP (Jika Ada)" class="form-control">
               </div>
               <div class="form-group">
                 <label for="nama_guru">Nama Guru</label>
@@ -119,18 +120,26 @@
               </div>
               <div class="form-group">
                 <label>Mata Pelajaran</label>
-                <select class="select2bs4" name="kode_mapel[]" multiple="multiple" data-dropdown-css-class="select2-purple" data-placeholder="Select a State" style="width: 100%;" >
+                <select  data-placeholder="Pilih Mata Pelajaran" class="select2bs4" name="kode_mapel[]" multiple="multiple" data-dropdown-css-class="select2-purple" style="width: 100%;" >
                   <?php foreach ($mapel as $m): ?>
                     <option value="<?= $m->kode_mapel  ?>"><?= $m->kode_mapel  ?></option>
                   <?php endforeach ?>
                 </select>
               </div>
               <div class="form-group">
-                <label>Kategori</label>
-                <select class="select2bs4" name="kelas[]" multiple="multiple" data-dropdown-css-class="select2-purple" data-placeholder="Select a State" style="width: 100%;" >
+                <label>Kelas</label>
+                <select data-placeholder="Pilih Kelas" class="select2bs4" name="kelas[]" multiple="multiple" data-dropdown-css-class="select2-purple"  style="width: 100%;" >
                   <?php foreach ($mapel as $m): ?>
                     <option value="<?= $m->kode_kelas." ".$m->kode_jurusan  ?>"><?= $m->kode_kelas." ".$m->kode_jurusan  ?></option>
                   <?php endforeach ?>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Kategori Guru</label>
+                <select data-placeholder="Pilih Kategori Guru" class="select2bs4" name="role[]" multiple="multiple" data-dropdown-css-class="select2-purple"  style="width: 100%;" >
+                  <option value="NA">Normatif Adaptif</option>
+                  <option value="Produktif">Produktif</option>
+                  <option value="BK">BK</option>
                 </select>
               </div>
           </div>
