@@ -62,6 +62,37 @@ class Guru extends CI_Controller {
 		$this->load->view('templates/backend/footer');
 	}
 
+	public function tambahGuru()
+	{
+		$kelas ='';
+		$kode_mapel ='';
+		$role ='';
+
+		for ($i = 0; $i < count($this->input->post('kelas')) ; $i++) {
+			$kelas.=  $this->input->post('kelas')[$i]. ($i < count($this->input->post('kelas')) - 1 ? "," : "" );
+		}
+		for ($i = 0; $i < count($this->input->post('kode_mapel')) ; $i++) {
+			$kode_mapel.=  $this->input->post('kode_mapel')[$i]. ($i < count($this->input->post('kode_mapel')) - 1 ? "," : "" );
+		}
+		for ($i = 0; $i < count($this->input->post('role')) ; $i++) {
+			$role.=  $this->input->post('role')[$i]. ($i < count($this->input->post('role')) - 1 ? "," : "" );
+		}
+	    // exit();
+		$data = [
+			'nip' => $this->input->post('nip'),
+			'nama_guru' => $this->input->post('nama_guru'),
+			'kode_mapel' => $kode_mapel,
+			'kelas' =>  $kelas,
+			'role' =>  $role,
+
+		];
+		$this->db->insert('guru', $data);
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data guru berhasil ditambah.</div>');
+		redirect('guru','refresh');
+		// var_dump($data); exit();
+	}
+
+
 }
 
 /* End of file Guru.php */
