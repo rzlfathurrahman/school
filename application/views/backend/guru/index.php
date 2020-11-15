@@ -59,16 +59,31 @@
                </tr>
              </thead>
              <tbody>
-                      <?php var_dump($guru_users) ?>
              <?php $no = 1; foreach ($guru as $ekstra):?>
-             <?php $kode_mapel = explode(',',$ekstra->kode_mapel) ?>
+              <?php 
+                  $kode_mapel = explode(',',$ekstra->kode_mapel);
+                  $kelas = explode(',',$ekstra->kelas);
+                  $role = explode(',',$ekstra->role);
+               ?>
                <tr align="center">
                  <td><?= $no++  ?></td>    
-                 <td><?= htmlspecialchars($ekstra->nip,ENT_QUOTES,'UTF-8');?></td>
+                 <td><?= (!empty($ekstra->nip)) ? htmlspecialchars($ekstra->nip,ENT_QUOTES,'UTF-8') : '-';?></td>
                  <td><?= htmlspecialchars($ekstra->nama_guru,ENT_QUOTES,'UTF-8');?></td>
-                 <td><?= $kode_mapel  ?></td>
-                 <td><?= htmlspecialchars($ekstra->kelas,ENT_QUOTES,'UTF-8');?></td>
-                 <td><?= htmlspecialchars($ekstra->role,ENT_QUOTES,'UTF-8');?></td>
+                 <td>
+                    <?php foreach ($kode_mapel as $k): ?>
+                      <span class="badge badge-primary"><?= $k;?></span>
+                    <?php endforeach ?>
+                 </td>
+                 <td>
+                   <?php foreach ($kelas as $kls): ?>
+                      <span class="badge badge-warning"><?= $kls;?></span>
+                    <?php endforeach ?>
+                 </td>
+                 <td>
+                   <?php foreach ($role as $r): ?>
+                      <span class="badge badge-success"><?= $r;?></span>
+                    <?php endforeach ?>
+                 </td>
                  <td>
                    <!-- link untuk edit ekstra -->
                    <?= anchor("guru/editEkstra/".$ekstra->id, '<span class="badge badge-pill badge-info">Edit</span>') ;?>
