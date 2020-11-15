@@ -50,7 +50,11 @@ class Guru extends CI_Controller {
 		$data['guru'] = $this->db->get('guru')->result();
 
 		// ambil data guru di tabel user
-		$query = "SELECT users.first_name,users.last_name,groups.name FROM users,groups JOIN users_groups WHERE users_groups.user_id = users.id AND users_groups.group_id = groups.id AND groups.name='guru'";
+		$query = "SELECT users.first_name,users.last_name,groups.name 
+					FROM users,groups JOIN users_groups 
+					WHERE users_groups.user_id = users.id 
+					AND users_groups.group_id = groups.id
+					 AND groups.name='guru'";
 		$data['guru_users'] = $this->db->query($query)->result();
 
 		// data mapel
@@ -68,28 +72,46 @@ class Guru extends CI_Controller {
 		$kode_mapel ='';
 		$role ='';
 
+		$this->form_validation->set_rules('nip', 'nip', 'trim');
+		$this->form_validation->set_rules('nama_guru', 'nama_guru', 'trim|required');
+		$this->form_validation->set_rules('kode_mapel[]', 'kode Mapel', 'trim|required');
+		$this->form_validation->set_rules('kelas[]', 'Kelas', 'trim|required');
+		$this->form_validation->set_rules('role[]', 'Kategori', 'trim|required');
+
 		for ($i = 0; $i < count($this->input->post('kelas')) ; $i++) {
 			$kelas.=  $this->input->post('kelas')[$i]. ($i < count($this->input->post('kelas')) - 1 ? "," : "" );
 		}
+
 		for ($i = 0; $i < count($this->input->post('kode_mapel')) ; $i++) {
 			$kode_mapel.=  $this->input->post('kode_mapel')[$i]. ($i < count($this->input->post('kode_mapel')) - 1 ? "," : "" );
 		}
+
 		for ($i = 0; $i < count($this->input->post('role')) ; $i++) {
 			$role.=  $this->input->post('role')[$i]. ($i < count($this->input->post('role')) - 1 ? "," : "" );
 		}
-	    // exit();
-		$data = [
-			'nip' => $this->input->post('nip'),
-			'nama_guru' => $this->input->post('nama_guru'),
-			'kode_mapel' => $kode_mapel,
-			'kelas' =>  $kelas,
-			'role' =>  $role,
 
-		];
-		$this->db->insert('guru', $data);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data guru berhasil ditambah.</div>');
+		$guru = $this->db->get_where('guru',['nama_guru' => $this->input->post('nama_guru')])->result();
+
+		if ($this->form_validation->run() == TRUE) {
+			if (!empty($guru)) {
+				// jika  guru sudah terdaftar , maka jangan masukan ke database
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Guru sudah terdaftar pada sistem.</div>');
+				redirect('guru','refresh');
+			}
+			$data = [
+				'nip' => $this->input->post('nip'),
+				'nama_guru' => $this->input->post('nama_guru'),
+				'kode_mapel' => $kode_mapel,
+				'kelas' =>  $kelas,
+				'role' =>  $role,
+
+			];
+			$this->db->insert('guru', $data);
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data guru berhasil ditambah.</div>');
+		} else {
+			$this->session->set_flashdata('message', validation_errors());
+		}
 		redirect('guru','refresh');
-		// var_dump($data); exit();
 	}
 
 
