@@ -59,16 +59,16 @@
                </tr>
              </thead>
              <tbody>
-             <?php $no = 1; foreach ($guru as $ekstra):?>
+             <?php $no = 1; foreach ($guru as $guru):?>
               <?php 
-                  $kode_mapel = explode(',',$ekstra->kode_mapel);
-                  $kelas = explode(',',$ekstra->kelas);
-                  $role = explode(',',$ekstra->role);
+                  $kode_mapel = explode(',',$guru->kode_mapel);
+                  $kelas = explode(',',$guru->kelas);
+                  $role = explode(',',$guru->role);
                ?>
                <tr align="center">
                  <td><?= $no++  ?></td>    
-                 <td><?= (!empty($ekstra->nip)) ? htmlspecialchars($ekstra->nip,ENT_QUOTES,'UTF-8') : '-';?></td>
-                 <td><?= htmlspecialchars($ekstra->nama_guru,ENT_QUOTES,'UTF-8');?></td>
+                 <td><?= (!empty($guru->nip)) ? htmlspecialchars($guru->nip,ENT_QUOTES,'UTF-8') : '-';?></td>
+                 <td><?= htmlspecialchars($guru->nama_guru,ENT_QUOTES,'UTF-8');?></td>
                  <td>
                     <?php foreach ($kode_mapel as $k): ?>
                       <span class="badge badge-primary"><?= $k;?></span>
@@ -85,11 +85,11 @@
                     <?php endforeach ?>
                  </td>
                  <td>
-                   <!-- link untuk edit ekstra -->
-                   <?= anchor("guru/editEkstra/".$ekstra->id, '<span class="badge badge-pill badge-info">Edit</span>') ;?>
+                   <!-- link untuk edit guru -->
+                   <?= anchor("guru/editGuru/".$guru->id, '<span class="badge badge-pill badge-info">Edit</span>') ;?>
 
-                   <!-- link untuk menghapus ekstra -->
-                   <?= anchor("guru/hapusEkstra/".$ekstra->id, '<span class="badge badge-pill badge-danger">Hapus</span>') ;?>
+                   <!-- link untuk menghapus guru -->
+                   <?= anchor("guru/hapusGuru/".$guru->id, '<span class="badge badge-pill badge-danger" onclick="return confirm(\' Yakin ingin menghapus? \')">Hapus</span>') ;?>
                      
                  </td>
                </tr>
