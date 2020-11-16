@@ -112,8 +112,24 @@ class Guru extends CI_Controller {
 			$this->session->set_flashdata('message', validation_errors());
 		}
 		redirect('guru','refresh');
-	}
+	}	
 
+	public function hapusGuru($id = null)
+	{
+		$query = $this->db->get_where('guru',['id' => $id]);
+		if ($id != null) {
+			if ($query->num_rows() > 0 ) {
+				$this->db->where('id', $id);
+				$this->db->delete('guru');
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data guru berhasil dihapus.</div>');
+			}elseif($query->num_rows() == 0){
+				$this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Data dengan id '. $id .' tidak ditemukan.</div>');
+			}
+		}else{
+			$this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Anda tidak menghapus data apapun.</div>');
+		}
+		redirect('guru','refresh');
+	}
 
 }
 
