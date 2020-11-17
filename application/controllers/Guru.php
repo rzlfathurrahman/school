@@ -202,6 +202,10 @@ class Guru extends CI_Controller{
                 redirect('guru/editGuru/'.$id,'refresh');
             }
 
+            if (empty($kode_mapel)) { $kode_mapel .= $kode_mapel_lama; }
+            if (empty($kelas)) { $kelas .= $kelas_lama; }
+            if (empty($role)) { $role .= $role_lama; }
+
             $data = [
                 'id' => $id,
                 'nip' => $nip,
