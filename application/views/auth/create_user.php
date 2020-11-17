@@ -27,6 +27,8 @@
 
     <?= form_open("auth/create_user");?>
 
+    <?= $message  ?>
+
           <div class="form-group"> 
                 <?= lang('create_user_fname_label', 'first_name');?> <br />
                 <?= form_input($first_name);?>
