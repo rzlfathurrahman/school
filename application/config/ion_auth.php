@@ -140,7 +140,7 @@ $config['identity']                   = 'email';             /* You can use any 
 															    		   update the UNIQUE constraint in your DB */
 $config['min_password_length']        = 8;                   // Minimum Required Length of Password (not enforced by lib - see note above)
 $config['email_activation']           = FALSE;               // Email Activation for registration
-$config['manual_activation']          = FALSE;               // Manual Activation for registration
+$config['manual_activation']          = TRUE;               // Manual Activation for registration
 $config['remember_users']             = TRUE;                // Allow users to be remembered and enable auto-login
 $config['user_expire']                = 0;               // How long to remember the user (seconds). Set to zero for no expiration - see sess_expiration in CodeIgniter Session Config for session expiration
 $config['user_extend_on_login']       = FALSE;               // Extend the users cookies every time they auto-login
