@@ -27,11 +27,13 @@
    <?= $this->session->flashdata('message');  ?>
     <div class="row">
        <div class="col-md-12">
+        <?= $this->session->flashdata('pesan');  ?>
          <div class="card card-outline card-info">
            <div class="card-body">
               <form action="<?= base_url('guru/updateGuru')  ?>" method="post">
                 <?php foreach ($guru as $guru): ?>
                   <!-- Data guru yg lama -->
+                    <input type="hidden" name="id" value="<?= $guru->id  ?>">
                     <input type="hidden" name="nip_lama" value="<?= $guru->nip  ?>">
                     <input type="hidden" name="nama_guru_lama" value="<?= $guru->nama_guru  ?>">
                     <input type="hidden" name="kode_mapel_lama" value="<?= $guru->kode_mapel  ?>">
