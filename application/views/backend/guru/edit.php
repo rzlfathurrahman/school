@@ -32,15 +32,15 @@
               <form action="<?= base_url('guru/updateGuru')  ?>" method="post">
                 <?php foreach ($guru as $guru): ?>
                   <!-- Data guru yg lama -->
-                    <input type="hidden" name="nip" value="<?= $guru->nip  ?>">
-                    <input type="hidden" name="nama_guru" value="<?= $guru->nama_guru  ?>">
-                    <input type="hidden" name="kode_mapel" value="<?= $guru->kode_mapel  ?>">
-                    <input type="hidden" name="kelas" value="<?= $guru->kelas  ?>">
-                    <input type="hidden" name="role" value="<?= $guru->role  ?>">
+                    <input type="hidden" name="nip_lama" value="<?= $guru->nip  ?>">
+                    <input type="hidden" name="nama_guru_lama" value="<?= $guru->nama_guru  ?>">
+                    <input type="hidden" name="kode_mapel_lama" value="<?= $guru->kode_mapel  ?>">
+                    <input type="hidden" name="kelas_lama" value="<?= $guru->kelas  ?>">
+                    <input type="hidden" name="role_lama" value="<?= $guru->role  ?>">
                   <!-- ./Data guru yg lama -->
                   <div class="form-group">
                     <label for="nip">NIP</label>
-                    <input type="text" name="nip" id="nip" placeholder="Masukan NIP (Jika Ada)" class="form-control">
+                    <input type="text" name="nip" id="nip" placeholder="Masukan NIP (Jika Ada)" value="<?= $guru->nip  ?>" class="form-control">
                   </div>
                   <div class="form-group">
                     <label for="nama_guru">Nama Guru</label>
