@@ -171,6 +171,55 @@ class Guru extends CI_Controller{
         if (!$this->ion_auth->logged_in()) {
             redirect('auth/login','refresh');
         }
+
+
+        $id = $this->input->post('id');
+        $nip_lama = $this->input->post('nip_lama');
+        $nama_guru_lama = $this->input->post('nama_guru_lama');
+        $kode_mapel_lama = $this->input->post('kode_mapel_lama');
+        $kelas_lama = $this->input->post('kelas_lama');
+        $role_lama = $this->input->post('role_lama');
+
+        $kdm = $this->input->post('kode_mapel');
+        $kls = $this->input->post('kelas');
+        $role = $this->input->post('role');
+
+        $nip = $this->input->post('nip');
+        $nama_guru = $this->input->post('nama_guru');
+        $kode_mapel = (!empty($kdm)) ? implode(',', $kdm) : '';
+        $kelas = (!empty($kls)) ? implode(',',$kls) : '';
+        $role = (!empty($role)) ? implode(',',$role) : '';
+
+        $guru = $this->db->get_where('guru',['nama_guru' => $nama_guru])->result();
+        // cek apakah ada data yg diupdate
+        // jika tidak, langsung kembalikan ke halaman daftar guru
+        if ($nip_lama == $nip && $nama_guru_lama == $nama_guru && (empty($kode_mapel) || $kode_mapel_lama == $kode_mapel) && (empty($kelas) || $kelas_lama == $kelas)  && (empty($role) || $role_lama == $role) ) {
+            $this->session->set_flashdata('message', '<div class="alert alert-info" role="alert">Tidak ada data yang diubah.</div>');
+        }else{
+            // jika guru sudah terdaftar (sudah diganti) maka kembalikan ke form edit
+            if (!empty($guru) && $nama_guru != $nama_guru_lama) {
+                $this->session->set_flashdata('pesan', '<div class="alert alert-warning" role="alert">Guru sudah terdaftar.</div>');
+                redirect('guru/editGuru/'.$id,'refresh');
+            }
+
+            $data = [
+                'id' => $id,
+                'nip' => $nip,
+                'nama_guru' => $nama_guru,
+                'kode_mapel' => $kode_mapel,
+                'kelas' => $kelas,
+                'role' => $role,
+            ];
+
+            // var_dump($data); exit();
+
+            if( $this->db->where('id', $id) && $this->db->update('guru', $data)){
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diubah/diupdate.</div>');
+            }else{
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data gagal diubah/diupdate.</div>');
+            }
+        }
+        redirect('guru','refresh');
     }
 
     public function hapusGuru($id = null)
