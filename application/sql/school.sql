@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 16, 2020 at 08:47 AM
+-- Generation Time: Nov 17, 2020 at 03:13 PM
 -- Server version: 10.3.25-MariaDB-0ubuntu0.20.04.1
 -- PHP Version: 7.4.12
 
@@ -71,7 +71,8 @@ INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 (11, 'Kajur', 'Kepala Jurusan'),
 (13, 'Produktif', 'Guru Produktif SMK MA\'ARIF NU 1 AJIBARANG'),
 (14, 'NA', 'Normatif Adaptif'),
-(15, 'BK', 'Guru BK SMK MA\'ARIF NU 1 AJIBARANG');
+(15, 'BK', 'Guru BK SMK MA\'ARIF NU 1 AJIBARANG'),
+(16, 'members', 'member');
 
 -- --------------------------------------------------------
 
@@ -93,7 +94,9 @@ CREATE TABLE `guru` (
 --
 
 INSERT INTO `guru` (`id`, `nip`, `nama_guru`, `kode_mapel`, `kelas`, `role`) VALUES
-(6, '122134242314', 'Admin istrator', 'Biologi', 'X RPL', 'NA');
+(6, '122134242314', 'Admin istrator', 'Biologi', 'X RPL', 'NA'),
+(7, '1234567899', 'RIZAL RAHMAN', 'Biologi', 'X TKRO,X RPL', 'NA'),
+(8, '1344622131', 'Muhammad Rifqi Fauzi', 'KJD', 'X TKJ', 'Produktif');
 
 -- --------------------------------------------------------
 
@@ -113,7 +116,7 @@ CREATE TABLE `jurusan` (
 
 INSERT INTO `jurusan` (`kode_jurusan`, `nama_jurusan`, `kajur`) VALUES
 ('RPL', 'Teknik Komputer dan Jaringan', 'Admin istrator'),
-('TKJ', 'Teknik Komputer dan Jaringan', 'p p'),
+('TKJ', 'Teknik Komputer dan Jaringan', 'Muhammad Rifqi Fauzi'),
 ('TKRO', 'Teknik Kendaraan RIngan Otomotif', 'RIZAL RAHMAN');
 
 -- --------------------------------------------------------
@@ -148,6 +151,7 @@ CREATE TABLE `mapel` (
 
 INSERT INTO `mapel` (`kode_mapel`, `nama_mapel`, `kode_jurusan`, `kode_kelas`) VALUES
 ('Biologi', 'IPA', 'TKRO', 'X'),
+('KJD', 'Komputer dan Jaringan Dasar', 'TKJ', 'X'),
 ('MTK X', 'Matematika', 'RPL', 'X');
 
 -- --------------------------------------------------------
@@ -248,13 +252,15 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$ANMk6nxXtwdstNFV99z87.TPbe/D99V8QfZusSv/3hIjwuy8jWpC.', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1605488884, 1, 'Admin', 'istrator', NULL, NULL),
-(2, '::1', NULL, '$2y$10$7Na0wjW1nwNleszq2mUAXe1QrTSkjKgmdJX7WXDY2G3rrLeptWEre', 'githubakun686@gmail.com', '3f76b754f09b4a7a5840', '$2y$10$xPb8ZObPG/NT6pF2NzgLZ.kHeeo73o6sQL6LsPYjOHA7GWebXDmBW', NULL, NULL, NULL, NULL, NULL, 1603256409, 1603576528, 0, 'RIZAL', 'RAHMAN', NULL, NULL),
+(1, '127.0.0.1', 'administrator', '$2y$12$ANMk6nxXtwdstNFV99z87.TPbe/D99V8QfZusSv/3hIjwuy8jWpC.', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1605590993, 1, 'Admin', 'istrator', NULL, NULL),
+(2, '::1', NULL, '$2y$10$7Na0wjW1nwNleszq2mUAXe1QrTSkjKgmdJX7WXDY2G3rrLeptWEre', 'githubakun686@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1603256409, 1603576528, 1, 'RIZAL', 'RAHMAN', NULL, NULL),
 (3, '::1', NULL, '$2y$10$GZmsBoLH9fgq9Y5c35pXmOj8BPvWDMzrYl6MyXXEF.wuXrNRfL4bu', 'p@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1603258118, NULL, 1, 'p', 'p', NULL, NULL),
 (4, '::1', NULL, '$2y$10$C5U30XqYXnrB.SOEANA5S.ASCzcz4GRd2yxLZyNT86HQMW5pdhtRS', 'githubakun696@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1603449323, NULL, 1, 'Ahmad', 'Solighin', NULL, NULL),
 (5, '::1', NULL, '$2y$10$DOW0x.Ek7AdDJ89Avxkp4ezaZShB9YCZd0QjUdWp7vxVVGE2UcpQ6', 'githubakun676@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1603449440, NULL, 1, 'RIZAL', 'RAHMAN', NULL, NULL),
-(6, '127.0.0.1', NULL, '$2y$10$LbR8DDkQGPMZqNnsAyYTzeFpoIZn4RBtQD17uNyBUcid5l1n5TORu', 'githubakun6861111@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1603673245, NULL, 1, 'Sodikin', 'Slmaten', NULL, NULL),
-(7, '127.0.0.1', NULL, '$2y$10$yMnYlgjbv.dytulyBnQEYelzc2Q0XSboWgO4UsIakVos14jO38Md2', 'githubakun686@gmail.comasa', 'f01f1d807d5fc96c1cdc', '$2y$10$nsWR8iEcDLB4ZDj3Vh82G.peOkRipiiKuzGTgmAByMtLNcZ1I0B1i', NULL, NULL, NULL, NULL, NULL, 1603673674, NULL, 0, 'Subaru', 'Kyun', NULL, NULL);
+(6, '127.0.0.1', NULL, '$2y$10$LbR8DDkQGPMZqNnsAyYTzeFpoIZn4RBtQD17uNyBUcid5l1n5TORu', 'githubakun6861111@gmail.com', 'af662a119f12da100877', '$2y$10$Sx3JdMwXOC7qRA1mvXDbsuZrSF99ms//1LnS4TYA84culjekQ0N.i', NULL, NULL, NULL, NULL, NULL, 1603673245, NULL, 0, 'Sodikin', 'Slmaten', NULL, NULL),
+(7, '127.0.0.1', NULL, '$2y$10$yMnYlgjbv.dytulyBnQEYelzc2Q0XSboWgO4UsIakVos14jO38Md2', 'githubakun686@gmail.comasa', 'f01f1d807d5fc96c1cdc', '$2y$10$nsWR8iEcDLB4ZDj3Vh82G.peOkRipiiKuzGTgmAByMtLNcZ1I0B1i', NULL, NULL, NULL, NULL, NULL, 1603673674, NULL, 0, 'Subaru', 'Kyun', NULL, NULL),
+(8, '::1', NULL, '$2y$10$1U.9su.yyN/liortSHehGuEbjTGKciyR4EL/TDIpGzS5vGi1iCD8m', 'rizal@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1605591814, NULL, 1, 'RIZAL', 'FATHUR RAHMAN', NULL, NULL),
+(9, '::1', NULL, '$2y$10$yqYMGPjbvbVIUvNq/UBJF.yjsdQviZThU1ow5OmSY4gg7et5bGS.2', 'rifqi@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1605592082, NULL, 1, 'Muhammad Rifqi', 'Fauzi', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -277,11 +283,12 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (30, 1, 3),
 (31, 1, 6),
 (32, 1, 11),
-(57, 2, 2),
-(58, 2, 3),
-(59, 2, 6),
-(60, 2, 11),
-(61, 2, 13),
+(71, 2, 1),
+(72, 2, 2),
+(73, 2, 3),
+(74, 2, 6),
+(75, 2, 11),
+(76, 2, 13),
 (49, 3, 2),
 (50, 3, 6),
 (51, 3, 11),
@@ -294,7 +301,12 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (66, 6, 2),
 (67, 7, 2),
 (68, 7, 3),
-(69, 7, 6);
+(69, 7, 6),
+(70, 8, 16),
+(81, 9, 6),
+(82, 9, 11),
+(83, 9, 13),
+(84, 9, 16);
 
 --
 -- Indexes for dumped tables
@@ -387,13 +399,13 @@ ALTER TABLE `ekstrakurikuler`
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `login_attempts`
@@ -423,13 +435,13 @@ ALTER TABLE `struktur_organisasi`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users_groups`
 --
 ALTER TABLE `users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- Constraints for dumped tables
