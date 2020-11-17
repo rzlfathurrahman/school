@@ -164,8 +164,13 @@ class Guru extends CI_Controller{
             redirect('guru','refresh');
         }
       }
+    }
 
-
+    public function updateGuru()
+    {
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login','refresh');
+        }
     }
 
     public function hapusGuru($id = null)
