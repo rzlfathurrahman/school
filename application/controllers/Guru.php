@@ -95,7 +95,7 @@ class Guru extends CI_Controller{
         if ($this->form_validation->run() == TRUE) {
             if (!empty($guru)) {
                 // jika  guru sudah terdaftar , maka jangan masukan ke database
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Guru sudah terdaftar pada sistem.</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">'. $this->input->post('nama_guru') .' sudah terdaftar pada sistem.</div>');
                 redirect('guru','refresh');
             }
             $data = [
@@ -121,7 +121,7 @@ class Guru extends CI_Controller{
         $this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Tidak ada adata yang dipilih.</div>');
         redirect('guru','refresh');
       }else{
-        if ($query->num_rows() > 0 ) {
+        if($query->num_rows() == 1 ) {
             // siapkan data user yang aktif
             $data['user'] = $this->session->userdata();
             $id_user_aktif = $data['user']['user_id'];
@@ -152,17 +152,19 @@ class Guru extends CI_Controller{
             // data mapel
             $data['mapel'] = $this->db->get('mapel')->result();
 
+            // data guru yg akan diedit
+            $data['guru'] = $this->db->get_where('guru',['id' => $id])->result();
+
             $this->load->view('templates/backend/header',$data);
             $this->load->view('templates/backend/sidebar');
             $this->load->view('backend/guru/edit');
             $this->load->view('templates/backend/footer');
         }else{
-
             $this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Data guru tidak ditemukan.</div>');
+            redirect('guru','refresh');
         }
       }
 
-      redirect('guru','refresh');
 
     }
 
