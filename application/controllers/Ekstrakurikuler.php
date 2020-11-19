@@ -192,6 +192,19 @@ class Ekstrakurikuler extends CI_Controller {
 		// ambil data ekstrakurikuler berdasarkan id
 		$data['ekstrakurikuler'] = $this->db->get_where('ekstrakurikuler',['id' => $id])->result();
 		// var_dump($data['ekstrakurikuler']); exit();
+		
+		// ambil data user yg menjadi pembimbing ekstra / ekskul
+		$data['pembimbing'] = $this->db->query("SELECT users.first_name,users.last_name,groups.name FROM users,groups JOIN users_groups WHERE users_groups.user_id = users.id AND users_groups.group_id = groups.id AND groups.name='pembina_ekskul'")->result();
+		$data['hari'] = ['Senin','Selasa','Rabu','Kamis','Jum\'at','Sabtu','Minggu'];
+		for ($i = 0; $i < 24; $i++) {
+			$jam[] = sprintf('%02d',$i); 
+		}
+		for($i = 0; $i < 60; $i++){
+			$menit[] = sprintf('%02d',$i);
+		}
+		$data['jam'] = $jam;
+		$data['menit'] = $menit;
+
 
 		$this->load->view('templates/backend/header',$data);
 		$this->load->view('templates/backend/sidebar');
@@ -218,8 +231,29 @@ class Ekstrakurikuler extends CI_Controller {
 			'nama_ekstrakurikuler' => $this->input->post('nama_ekstrakurikuler'),
 			'kode_ekstrakurikuler' => $this->input->post('kode_ekstrakurikuler'),
 			'pembimbing' => $this->input->post('pembimbing'),
-			'jadwal' => $this->input->post('jadwal'),
+			'jadwal' => "Setiap hari ".$this->input->post("hari")." Pukul ".$this->input->post('jam_mulai')." - ".$this->input->post('jam_selesai'),
 		];
+		if (!empty($query)) {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+             Ekstrakurikuler sudah ada.
+            </div>');
+            redirect('ekstrakurikuler/editEkstra/'.$id,'refresh');
+		}
+		if (empty($this->input->post('nama_ekstrakurikuler'))) {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+             Nama Ekstrakurikuler wajib diisi.
+            </div>');
+            redirect('ekstrakurikuler/editEkstra/'.$id,'refresh');
+		}
+		if (empty($this->input->post('kode_ekstrakurikuler'))) {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+             Kode Ekstrakurikuler wajib diisi.
+            </div>');
+            redirect('ekstrakurikuler/editEkstra/'.$id,'refresh');
+		}
 
 		$this->db->update('ekstrakurikuler', $data,['id' => $id]);
 
