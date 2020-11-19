@@ -3,8 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Ekstrakurikuler extends CI_Controller {
 
-	public function __construct()
-	{
+	public function __construct(){
 		parent::__construct();
 		$this->load->database();
 		$this->load->library(['ion_auth', 'form_validation']);
@@ -13,10 +12,17 @@ class Ekstrakurikuler extends CI_Controller {
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
 		$this->lang->load('auth');
-		if (!$this->ion_auth->logged_in()) {
-			redirect('auth/login','refresh');
+		if (!$this->ion_auth->logged_in())
+		{
+			// redirect them to the login page
+			redirect('auth/login', 'refresh');
 		}
-	}			
+		else if (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
+		{
+			// redirect them to the home page because they must be an administrator to view this
+			show_error('You must be an administrator to view this page.');
+		}
+	}	
 
 	public function index()
 	{
@@ -42,6 +48,19 @@ class Ekstrakurikuler extends CI_Controller {
 		// ambil daftar ekstra
 		$data['ekstrakurikuler'] = $this->db->get('ekstrakurikuler')->result();
 
+		// ambil data user yg menjadi pembimbing ekstra / ekskul
+		$data['pembimbing'] = $this->db->query("SELECT users.first_name,users.last_name,groups.name FROM users,groups JOIN users_groups WHERE users_groups.user_id = users.id AND users_groups.group_id = groups.id AND groups.name='pembina_ekskul'")->result();
+		$data['hari'] = ['Senin','Selasa','Rabu','Kamis','Jum\'at','Sabtu','Minggu'];
+		for ($i = 0; $i < 24; $i++) {
+			$jam[] = sprintf('%02d',$i); 
+		}
+		for($i = 0; $i < 60; $i++){
+			$menit[] = sprintf('%02d',$i);
+		}
+		$data['jam'] = $jam;
+		$data['menit'] = $menit;
+
+
 		$this->load->view('templates/backend/header',$data);
 		$this->load->view('templates/backend/sidebar');
 		$this->load->view('backend/ekstrakurikuler/index');
@@ -62,17 +81,37 @@ class Ekstrakurikuler extends CI_Controller {
 		}
 
 		$this->form_validation->set_rules('nama_ekstrakurikuler', 'nama_ekstrakurikuler', 'trim|required');
-		$this->form_validation->set_rules('kode_ekstrakurikuler', 'kode_ekstrakurikuler', 'trim|required');
+		$this->form_validation->set_rules('kode_ekstrakurikuler', 'kode_ekstrakurikuler', 'trim|required|is_unique[ekstrakurikuler.kode_ekstrakurikuler]');
 		$this->form_validation->set_rules('pembimbing', 'pembimbing', 'trim|required');
-		$this->form_validation->set_rules('jadwal', 'jadwal', 'trim|required');
 
-		if ($this->form_validation->run() === FALSE) {
-			$this->index();
+		$query = $this->db->get_where('ekstrakurikuler',['kode_ekstrakurikuler' => $this->input->post('kode_ekstrakurikuler')])->result();
+
+		if ($this->form_validation->run() == false) {
+			if (!empty($query)) {
+				$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                 Ekstrakurikuler sudah ada.
+                </div>');
+			}
+			if (empty($this->input->post('nama_ekstrakurikuler'))) {
+				$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                 Nama Ekstrakurikuler wajib diisi.
+                </div>');
+			}
+			if (empty($this->input->post('kode_ekstrakurikuler'))) {
+				$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                 Kode Ekstrakurikuler wajib diisi.
+                </div>');
+			}
+			redirect('ekstrakurikuler','refresh');
+
 		} else {
 			$nama_ekstrakurikuler = $this->input->post("nama_ekstrakurikuler");
 			$kode_ekstrakurikuler = $this->input->post("kode_ekstrakurikuler");
 			$pembimbing = $this->input->post("pembimbing");
-			$jadwal = $this->input->post("jadwal");
+			$jadwal = "Setiap hari ".$this->input->post("hari")." Pukul ".$this->input->post('jam_mulai')." - ".$this->input->post('jam_selesai');
 
 			$data = [
 				'nama_ekstrakurikuler' => $nama_ekstrakurikuler,
@@ -80,7 +119,9 @@ class Ekstrakurikuler extends CI_Controller {
 				'pembimbing' => $pembimbing,
 				'jadwal' => $jadwal,
 			];
-			if ($this->db->insert('ekstrakurikuler', $data) === TRUE){
+
+			// var_dump($this->db->insert('ekstrakurikuler', $data)); exit();
+			if ($this->db->insert('ekstrakurikuler', $data) == true){
 				$this->session->set_flashdata('message',' <div class="alert alert-success alert-dismissible">
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                  Ekstrakurikuler berhasil ditambah.
