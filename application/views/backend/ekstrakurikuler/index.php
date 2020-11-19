@@ -19,13 +19,12 @@
           </ol>
         </div>
       </div>
-      <?= $this->session->flashdata('message');  ?>
     </div><!-- /.container-fluid -->
   </section>
 
   <!-- Main content -->
   <section class="content">
-
+    <?= $this->session->flashdata('message');  ?>
     <div class="row">
       <div class="col-12">
         <div class="card card-outline card-info">
@@ -113,11 +112,47 @@
               </div>
               <div class="form-group">
                 <label for="pembimbing">Pembimbing</label>
-                <input type="text" name="pembimbing" id="pembimbing" class="form-control" required>
+                <select name="pembimbing" class="form-control">
+                  <?php foreach ($pembimbing as $p): ?>
+                    <option value="<?= $p->first_name." ".$p->last_name  ?>"><?= $p->first_name." ".$p->last_name  ?></option>
+                  <?php endforeach; ?>
+                </select>
               </div>
                <div class="form-group">
                 <label for="jadwal">Jadwal</label>
-                <input type="text" name="jadwal" id="jadwal" class="form-control" required>
+                <div class="row">
+                  <div class="col-2 d-flex justify-content-center align-items-center">
+                    Setiap
+                  </div> 
+                  <div class="col-3 ">
+                    <select name="hari" class="form-control">
+                      <?php foreach ($hari as $h): ?>
+                        <option  value="<?= $h  ?>"><?= $h  ?></option>
+                      <?php endforeach ?>
+                    </select>
+                  </div>
+                  <div class="col-3">
+                    <select name="jam_mulai" class="form-control">
+                      <?php for ($i = 0; $i < count($jam); $i++) : ?>
+                        <?php for ($j = 0; $j < count($menit); $j++) : ?>
+                          <option value="<?= $jam[$i].".".$menit[$j]  ?>"><?= $jam[$i].".".$menit[$j]  ?></option>
+                        <?php endfor ?>
+                      <?php endfor ?>
+                    </select>
+                  </div>
+                  <div class="col-1 d-flex justify-content-center align-items-center">
+                    -
+                  </div> 
+                  <div class="col-3">
+                    <select name="jam_selesai" class="form-control">
+                      <?php for ($i = 0; $i < count($jam); $i++) : ?>
+                        <?php for ($j = 0; $j < count($menit); $j++) : ?>
+                          <option value="<?= $jam[$i].".".$menit[$j]  ?>"><?= $jam[$i].".".$menit[$j]  ?></option>
+                        <?php endfor ?>
+                      <?php endfor ?>
+                    </select>
+                  </div>
+                </div>
               </div>
           </div>
           <div class="modal-footer justify-content-between">
