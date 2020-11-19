@@ -38,7 +38,7 @@
                   </div>
                   <div class="form-group">
                     <label for="kode_ekstrakurikuler">Kode Ekstrakurikuler</label>
-                    <input type="text" name="kode_ekstrakurikuler" id="kode_ekstrakurikuler" class="form-control"  value="<?= $ekstra->kode_ekstrakurikuler  ?>">
+                    <input type="text" id="kode_ekstrakurikuler" class="form-control"  value="<?= $ekstra->kode_ekstrakurikuler  ?>" readonly>
                   </div>
                   <div class="form-group">
                     <label for="pembimbing">Pembimbing</label>
