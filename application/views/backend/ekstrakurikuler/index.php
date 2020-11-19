@@ -69,7 +69,7 @@
                    <?= anchor("ekstrakurikuler/editEkstra/".$ekstra->id, '<span class="badge badge-pill badge-info">Edit</span>') ;?>
 
                    <!-- link untuk menghapus ekstra -->
-                   <?= anchor("ekstrakurikuler/hapusEkstra/".$ekstra->id, '<span class="badge badge-pill badge-danger">Hapus</span>') ;?>
+                   <?= anchor("ekstrakurikuler/hapusEkstra/".$ekstra->id, '<span class="badge badge-pill badge-danger" onclick="return confirm(\' Yakin ingin menghapus data ini?  \')">Hapus</span>') ;?>
                      
                  </td>
                </tr>
