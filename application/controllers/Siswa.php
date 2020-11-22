@@ -38,7 +38,7 @@ class Siswa extends CI_Controller {
 		$data['user_groups'] = $this->ion_auth->get_users_groups()->result();
 
 		// info halaman aktif 
-		$data['halaman'] = 'backend/siswa';
+		$data['halaman'] = 'siswa';
 
 		// judul web
 		$data['judul'] = 'Siswa';
