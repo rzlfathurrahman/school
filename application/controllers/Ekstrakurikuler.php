@@ -226,34 +226,56 @@ class Ekstrakurikuler extends CI_Controller {
 		}
 		
 		$id = $this->input->post('id');
+
+		$data_lama = $this->db->get_where('ekstrakurikuler',['id' => $id])->result();
+
+		$nama_ekstrakurikuler_lama = $data_lama[0]->nama_ekstrakurikuler;
+		$kode_ekstrakurikuler_lama = $data_lama[0]->kode_ekstrakurikuler;
+		$pembimbing_lama = $data_lama[0]->pembimbing;
+		$jadwal_lama = $data_lama[0]->jadwal;
+
 		$data = [
 			'id' => $id,
 			'nama_ekstrakurikuler' => $this->input->post('nama_ekstrakurikuler'),
-			'kode_ekstrakurikuler' => $this->input->post('kode_ekstrakurikuler'),
+			'kode_ekstrakurikuler' => $kode_ekstrakurikuler_lama,
 			'pembimbing' => $this->input->post('pembimbing'),
 			'jadwal' => "Setiap hari ".$this->input->post("hari")." Pukul ".$this->input->post('jam_mulai')." - ".$this->input->post('jam_selesai'),
 		];
-		if (!empty($query)) {
-			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-             Ekstrakurikuler sudah ada.
-            </div>');
-            redirect('ekstrakurikuler/editEkstra/'.$id,'refresh');
+		if (!empty($_POST['id'] && $_POST['nama_ekstrakurikuler'] && $_POST['kode_ekstrakurikuler'] && $_POST['pembimbing'])) {
+
+			if ($data['nama_ekstrakurikuler'] == $nama_ekstrakurikuler_lama && $data['kode_ekstrakurikuler'] == $kode_ekstrakurikuler_lama && $data['pembimbing'] == $pembimbing_lama && $data['jadwal'] == "Setiap hari # Pukul # - #") {
+				$this->session->set_flashdata('message', '<div class="alert alert-warning alert-dismissible">
+	              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	             Tidak ada data yang diubah.
+	            </div>');
+	            redirect('ekstrakurikuler','refresh');			
+			}
+			if ($data['jadwal'] == "Setiap hari # Pukul # - #") {
+				$data['jadwal'] = $jadwal_lama;
+			}		
+			if (!empty($query)) {
+				$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible">
+	              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	             Ekstrakurikuler sudah ada.
+	            </div>');
+	            redirect('ekstrakurikuler/editEkstra/'.$id,'refresh');
+			}
+			if (empty($this->input->post('nama_ekstrakurikuler'))) {
+				$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible">
+	              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	             Nama Ekstrakurikuler wajib diisi.
+	            </div>');
+	            redirect('ekstrakurikuler/editEkstra/'.$id,'refresh');
+			}
+			if (empty($this->input->post('kode_ekstrakurikuler'))) {
+				$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible">
+	              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	             Kode Ekstrakurikuler wajib diisi.
+	            </div>');
+	            redirect('ekstrakurikuler/editEkstra/'.$id,'refresh');
+			}
 		}
-		if (empty($this->input->post('nama_ekstrakurikuler'))) {
-			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-             Nama Ekstrakurikuler wajib diisi.
-            </div>');
-            redirect('ekstrakurikuler/editEkstra/'.$id,'refresh');
-		}
-		if (empty($this->input->post('kode_ekstrakurikuler'))) {
-			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-             Kode Ekstrakurikuler wajib diisi.
-            </div>');
-            redirect('ekstrakurikuler/editEkstra/'.$id,'refresh');
-		}
+
 
 		$this->db->update('ekstrakurikuler', $data,['id' => $id]);
 

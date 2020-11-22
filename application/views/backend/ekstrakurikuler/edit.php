@@ -43,7 +43,7 @@
                     <div class="col-6">
                       <div class="form-group">
                         <label for="kode_ekstrakurikuler">Kode Ekstrakurikuler</label>
-                        <input type="text" id="kode_ekstrakurikuler" class="form-control"  value="<?= $ekstra->kode_ekstrakurikuler  ?>" readonly>
+                        <input type="text" id="kode_ekstrakurikuler" class="form-control" name="kode_ekstrakurikuler" value="<?= $ekstra->kode_ekstrakurikuler  ?>" readonly>
                       </div>
                     </div>
                   </div>
