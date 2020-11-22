@@ -250,9 +250,11 @@ class Ekstrakurikuler extends CI_Controller {
 	            </div>');
 	            redirect('ekstrakurikuler','refresh');			
 			}
+
 			if ($data['jadwal'] == "Setiap hari # Pukul # - #") {
 				$data['jadwal'] = $jadwal_lama;
-			}		
+			}	
+
 			if (!empty($query)) {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible">
 	              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -260,6 +262,7 @@ class Ekstrakurikuler extends CI_Controller {
 	            </div>');
 	            redirect('ekstrakurikuler/editEkstra/'.$id,'refresh');
 			}
+
 			if (empty($this->input->post('nama_ekstrakurikuler'))) {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible">
 	              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -267,6 +270,7 @@ class Ekstrakurikuler extends CI_Controller {
 	            </div>');
 	            redirect('ekstrakurikuler/editEkstra/'.$id,'refresh');
 			}
+			
 			if (empty($this->input->post('kode_ekstrakurikuler'))) {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible">
 	              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
