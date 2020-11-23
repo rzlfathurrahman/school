@@ -1041,4 +1041,21 @@ class Auth extends CI_Controller
 		}
 	}
 
+	/**
+	 * @param int|string|bool $id
+	 *
+	 * @return bool Whether the user is an siswa
+	 * @author Rizal Fathur Rahman
+	 */
+	public function is_siswa($id = FALSE)
+	{
+		// dapatkan grup user saat ini
+		$user_groups = $this->ion_auth->get_users_groups()->result();
+		if ($user_groups[0]->name == 'Siswa') {
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 }
