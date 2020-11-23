@@ -43,6 +43,9 @@ class Siswa extends CI_Controller {
 		// judul web
 		$data['judul'] = 'Siswa';
 
+		// jurusan
+		$data['jurusan'] = $this->db->get('jurusan')->result();
+
 		// ambil url aktif
 		$data['url'] = $this->uri->segment_array();
 
