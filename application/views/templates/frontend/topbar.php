@@ -67,6 +67,11 @@
                             <?php foreach ($menu as $m): ?>
                                 <li><a href="<?= base_url().$m->url  ?>"><?= $m->nama_menu  ?></a></li>
                             <?php endforeach; ?>
+                            <?php if ($is_login): ?>
+                                <li><a class="btn btn-danger" href="<?= base_url('auth/logout')  ?>">Logout</a></li>
+                            <?php else: ?>
+                                <li><a class="btn btn-primary" href="<?= base_url('auth/login')  ?>">Login</a></li>
+                            <?php endif ?>
                         </ul>
                     </div>
                 </nav><!-- end navbar -->

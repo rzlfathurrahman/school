@@ -104,9 +104,20 @@
 <body>
     <nav id="menu-bottom" class="nav">
         <?php foreach ($menu as $m): ?>
-            <a href="<?= base_url().$m->url  ?>" class="nav__link <?= ($halaman == 'home') ? "nav__link--active"  : "" ?>">
-            <?= $m->icon  ?>
-            <span class="nav__text"><?= $m->nama_menu  ?></span>
-        </a>
+            <a href="<?= base_url().$m->url  ?>" class="nav__link <?= ($halaman == $m->url) ? "nav__link--active"  : "" ?>">
+                <?= $m->icon  ?>
+                <span class="nav__text"><?= $m->nama_menu  ?></span>
+            </a>
         <?php endforeach; ?>
+        <?php if ($is_login): ?>
+            <a href="<?= base_url('auth/logout')  ?>" class="nav__link" onclick="return confirm('Yakin ingin logout?');">
+                <i class="material-icons nav__icon">logout</i>
+                <span class="nav__text">logout</span>
+            </a>
+        <?php else: ?>
+            <a href="<?= base_url('auth/login')  ?>" class="nav__link">
+                <i class="material-icons nav__icon">login</i>
+                <span class="nav__text">login</span>
+            </a>
+        <?php endif ?>
   </nav>
