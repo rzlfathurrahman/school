@@ -55,6 +55,37 @@ class Siswa extends CI_Controller {
 		$this->load->view('templates/backend/footer');
 	}
 
+	public function kelas($kelas)
+	{
+		$kelas = strtolower($kelas);
+		// siapkan data user yang aktif
+		$data['user'] = $this->session->userdata();
+		$id_user_aktif = $data['user']['user_id'];
+
+		// ambil data user aktif
+		$data['user'] = $this->ion_auth->user()->result_array();
+
+		// dapatkan grup user saat ini
+		$data['user_groups'] = $this->ion_auth->get_users_groups()->result();
+
+		// info halaman aktif 
+		$data['halaman'] = 'siswa';
+
+		// judul web
+		$data['judul'] = 'Siswa '.strtoupper($kelas);
+
+		// jurusan
+		$data['jurusan'] = $this->db->get('jurusan')->result();
+
+		// ambil url aktif
+		$data['url'] = $this->uri->segment_array();
+
+		$this->load->view('templates/backend/header',$data);
+		$this->load->view('templates/backend/sidebar');
+		$this->load->view('backend/siswa/kelas/'.$kelas);
+		$this->load->view('templates/backend/footer');	
+	}
+
 }
 
 /* End of file Siswa.php */
