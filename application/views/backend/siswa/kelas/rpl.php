@@ -30,7 +30,7 @@
          <div class="card card-outline card-info">
            <div class="card-header">
              <h3 class="card-title">
-               Data siswa RPL SMK MA'ARIF NU 1 AJIBARANG.
+               Data siswa X RPL SMK MA'ARIF NU 1 AJIBARANG.
              </h3>
              <!-- tools box -->
              <div class="card-tools">
