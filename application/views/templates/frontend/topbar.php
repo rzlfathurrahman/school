@@ -25,7 +25,7 @@
         </div>
         <!-- END # MODAL LOGIN -->
 
-        <header class="header">
+        <header class="header header-normal">
             <div class="topbar clearfix">
                 <div class="container">
                     <div class="row-fluid">
@@ -58,7 +58,7 @@
                             <span class="icon-bar"></span>
                         </button> -->
                         <div class="logo-normal">
-                            <a class="navbar-brand" href="<?= base_url()  ?>"><img src="<?= base_url('assets/frontend/')  ?>images/logo.png" alt=""></a>
+                            <a class="navbar-brand" href="<?= base_url()  ?>"><img src="<?= base_url('assets/frontend/')  ?>images/logo-dark.png" alt=""></a>
                         </div>
                     </div>
 
