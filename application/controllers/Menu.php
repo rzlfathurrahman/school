@@ -180,11 +180,10 @@ class Menu extends CI_Controller {
 			'id' => $id,
 			'nama_menu' => $this->input->post('nama_menu'),
 			'url' => $this->input->post('url'),
+			'icon' => $this->input->post('icon'),
 		];
 
-		$this->db->update('menu', $data,['id' => $id]);
-
-		if ($this->db->affected_rows() > 0){
+		if ($this->db->update('menu', $data,['id' => $id])){
 			$this->session->set_flashdata('message',' <div class="alert alert-success alert-dismissible">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
              Menu berhasil diupdate.
