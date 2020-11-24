@@ -18,6 +18,9 @@ class Home extends CI_Controller {
 
 		$data['is_login'] = $this->ion_auth->logged_in();
 
+		// landing page
+		$data['landing_page'] = $this->db->get_where('landing_page',['is_tampil' => 1])->result();
+
 		$this->load->view('templates/frontend/header',$data);
 		$this->load->view('templates/frontend/topbar');
 		$this->load->view('frontend/home');
