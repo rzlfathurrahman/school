@@ -54,7 +54,7 @@ class Informasi extends CI_Controller {
 
 	public function ekstrakurikuler()
 	{
-		$data['halaman'] = "frontend/informasi/struktur";
+		$data['halaman'] = "frontend/informasi/ekstrakurikuler";
 
 		// siapkan menu
 		$data['menu'] = $this->db->get('menu')->result();
