@@ -63,10 +63,35 @@ class Dashboard extends CI_Controller {
 			
 		}
 
+		// informasi landing page
+		$data['landing_page'] = $this->db->get('landing_page')->result();
+
 		$this->load->view('templates/backend/header',$data);
 		$this->load->view('templates/backend/sidebar');
 		$this->load->view('backend/index');
 		$this->load->view('templates/backend/footer');
+	}
+
+	public function informasi($status,$id)
+	{
+		if ($status == 'draft') {
+			$result = $this->db->query("UPDATE `landing_page` SET `is_tampil` = '0' WHERE `landing_page`.`id` = $id;");
+			if ($result) {
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Informasi berhasil draft (disembunyikan).</div>');
+			}else{
+				$this->session->set_flashdata('pesan', '<div class="alert alert-warning" role="alert">Informasi gagal dipublish.</div>');
+			}
+		}elseif($status == 'show'){
+			$result = $this->db->query("UPDATE `landing_page` SET `is_tampil` = '1' WHERE `landing_page`.`id` = $id;");
+			if ($result) {
+				$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Informasi berhasil dipublish.</div>');
+			}else{
+				$this->session->set_flashdata('pesan', '<div class="alert alert-warning" role="alert">Informasi gagal disembunyikan (di draft).</div>');
+			}
+		}
+
+
+		redirect('dashboard','refresh');
 	}
 
 }
