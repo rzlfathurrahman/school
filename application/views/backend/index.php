@@ -30,6 +30,7 @@
       <!-- col -->
       <div class="col-md-12">
       <?= $this->session->flashdata('pesan');  ?>
+      <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#modal_tambah_informasi">Tambah Informasi</button>
          <div class="card card-outline card-success">
           <div class="card-header">
             <h3 class="card-title">
@@ -89,41 +90,49 @@
       </div>
       <!-- end col -->
     </div>
-    <!-- end row -->
+    <!-- end row -->   	
 
-    <!-- row -->
-    <div class="row">
-      <!-- col -->
-      <div class="col-md-12">
-        
-        <div class="card card-outline card-info">
-          <div class="card-header">
-            <h3 class="card-title">
-              Form Tambah Informasi
-            </h3>
-            <!-- tools box -->
-            <div class="card-tools">
-              <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip"
-                      title="Collapse">
-                <i class="fas fa-minus"></i></button>
-              <button type="button" class="btn btn-tool btn-sm" data-card-widget="remove" data-toggle="tooltip"
-                      title="Remove">
-                <i class="fas fa-times"></i></button>
-            </div>
-            <!-- /. tools -->
-          </div>
-          <!-- /.card-header -->
-          <div class="card-body pad">
-            <div class="mb-3">
-              <textarea class="textarea form-control" placeholder="Place some text here"></textarea>
-            </div>
-          </div>
-        </div>
-
+<!-- Modal -->
+<div class="modal fade" id="modal_tambah_informasi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Form Tambah Informasi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <!-- end col -->
+      <div class="modal-body">
+        <form action="<?= base_url('dashboard/tambah_informasi')  ?>" method="post">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="judul">Judul</label>
+                <input type="text" id="judul" class="form-control"  value="<?= set_value('judul')  ?>" name="judul" placeholder="Judul Informasi" required>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="status">Status</label>
+                <select name="is_tampil" class="form-control" id="status">
+                  <option value="0">Draft</option>
+                  <option value="1">Publish</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!-- end row -->
+
+          <div class="form-group">   
+            <label for="keterangan">Keterangan</label>             
+            <textarea class="textarea form-control" id="keterangan" name="keterangan" placeholder="Place some text here" value="<?= set_value('keterangan')  ?>"  required ></textarea>
+          </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </form>
+      </div>
     </div>
-    <!-- end row -->
-  </section>
-  <!-- /.content -->
-   	
+  </div>
+</div>

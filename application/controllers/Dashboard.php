@@ -94,6 +94,32 @@ class Dashboard extends CI_Controller {
 		redirect('dashboard','refresh');
 	}
 
+	public function tambah_informasi()
+	{
+		$this->form_validation->set_rules('judul', 'judul', 'trim|required');
+		$this->form_validation->set_rules('is_tampil', 'is_tampil', 'trim|required');
+		$this->form_validation->set_rules('keterangan', 'keterangan', 'trim|required');
+
+		if ($this->form_validation->run() == TRUE) {
+			$data = [
+				'judul' => $this->input->post('judul'),
+				'is_tampil' => $this->input->post('is_tampil'),
+				'keterangan' => $this->input->post('keterangan'),
+			];
+			$result = $this->db->insert('landing_page', $data);
+			if ($result) {
+				$this->session->set_flashdata('pesan', '<div class="alert alert-primary" role="alert">Informasi berhasil disimpan.</div>');
+			}else{
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Informasi gagal disimpan.</div>');
+			}
+		} else {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Informasi gagal disimpan. Semua data harus diisi !</div>');	
+		}
+
+		redirect('dashboard','refresh');
+
+	}
+
 }
 
 /* End of file Dashboard.php */
