@@ -16,7 +16,7 @@
         <?php foreach ($ekstrakurikuler as $eks): ?>
       <div class="col-md-3">
           
-        <div class="card">
+        <div class="card" style="margin-bottom: 3em">
           <table class="table table-striped table-bordered">
             <tr>
               <th colspan="1" >Ekstra</th>
