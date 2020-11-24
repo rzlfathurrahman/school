@@ -4,7 +4,7 @@
         <div class="home-message">
                 
         <p>SMK MA'ARIF NU 1 AJIBARANG</p>
-        <small>Lorem ipsum dolor sit, amet, consectetur adipisicing elit. At facere, consequuntur quam iste, enim aliquam sunt inventore soluta in? Esse dicta fugiat facilis, cum eveniet consequuntur vitae commodi, repellendus obcaecati.</small>
+        <small>Selamat Datang Di Website Kesiswaan SMK MA'ARIF NU 1 AJIBARANG.</small>
         </div>
     </div>
     <div class="slider-bottom">
@@ -15,8 +15,8 @@
 
 <section class="section <?= (($i % 2) == 0) ? 'gb' : ''  ?>">
     <div class="container">
-      <h2><?= $landing_page->judul  ?></h2>
-      <h2><?= $landing_page->keterangan  ?></h2>
+      <h2><?= $landing_page[$i]->judul  ?></h2>
+      <?= $landing_page[$i]->keterangan  ?>
     </div><!-- end container -->
 </section>
 
