@@ -80,9 +80,52 @@ class Siswa extends CI_Controller {
 		// ambil url aktif
 		$data['url'] = $this->uri->segment_array();
 
+		// ambil data siswa kelas @kelas
+		$data['x_'.$kelas] = $this->db->get_where('siswa',['kelas' => 'X '.strtoupper($kelas)])->result();
+		$data['xi_'.$kelas] = $this->db->get_where('siswa',['kelas' => 'XI '.strtoupper($kelas)])->result();
+		$data['xii_'.$kelas] = $this->db->get_where('siswa',['kelas' => 'XII '.strtoupper($kelas)])->result();
+
 		$this->load->view('templates/backend/header',$data);
 		$this->load->view('templates/backend/sidebar');
 		$this->load->view('backend/siswa/kelas/'.$kelas);
+		$this->load->view('templates/backend/footer');	
+	}
+
+	public function detail_siswa($nis)
+	{
+		// siapkan data user yang aktif
+		$data['user'] = $this->session->userdata();
+		$id_user_aktif = $data['user']['user_id'];
+
+		// ambil data user aktif
+		$data['user'] = $this->ion_auth->user()->result_array();
+
+		// dapatkan grup user saat ini
+		$data['user_groups'] = $this->ion_auth->get_users_groups()->result();
+
+		// info halaman aktif 
+		$data['halaman'] = 'siswa';
+
+		$res = $this->db->get_where('siswa',['nis' => $nis])->result();
+
+		// judul web
+		$data['judul'] = 'Siswa '.$res[0]->kelas;	
+
+		// jurusan
+		$data['jurusan'] = $this->db->get('jurusan')->result();
+
+		// ambil url aktif
+		$data['url'] = $this->uri->segment_array();
+
+		// ambil detail siswa
+		$query = "SELECT * FROM siswa,orangtua WHERE siswa.nis = orangtua.nis";
+		$result = $this->db->query($query)->result();
+		$data['result'] = $result[0];
+		// var_dump($data['result']); exit();
+
+		$this->load->view('templates/backend/header',$data);
+		$this->load->view('templates/backend/sidebar');
+		$this->load->view('backend/siswa/detail');
 		$this->load->view('templates/backend/footer');	
 	}
 
