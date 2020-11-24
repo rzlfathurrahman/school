@@ -63,7 +63,15 @@
                  <td><?= htmlspecialchars($x->nis,ENT_QUOTES,'UTF-8');?></td>
                  <td><?= htmlspecialchars($x->nama_siswa,ENT_QUOTES,'UTF-8');?></td>
                  <td><?= htmlspecialchars($x->kelas,ENT_QUOTES,'UTF-8');?></td>
-                 <td><?= htmlspecialchars($x->lulus,ENT_QUOTES,'UTF-8');?></td>
+                 <td>
+                   <?php if ($x->lulus == 0): ?>
+                     <div class="btn btn-sm btn-info">Belum Lulus</div>
+                    <?php elseif($x->lulus == 1) : ?>
+                     <div class="btn btn-sm btn-success">Lulus</div>
+                    <?php elseif($x->lulus == -1) : ?>
+                     <div class="btn btn-sm btn-danger">Tidak Lulus</div>
+                   <?php endif ?>
+                 </td>
                  <td>
                    <?= anchor("siswa/detail_siswa/".$x->nis, '<span class="badge badge-pill badge-primary">Detail</span>') ;?>
                    <?= anchor("siswa/edit_siswa/".$x->nis, '<span class="badge badge-pill badge-info">Edit</span>') ;?>
