@@ -1,37 +1,19 @@
 <!DOCTYPE html>
-<!--[if IE 9]> <html class="no-js ie9 fixed-layout" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js " lang="en"> <!--<![endif]-->
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <!-- Basic -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    <!-- Mobile Meta -->
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-    <!-- Site Meta -->
-    <title><?= $judul  ?></title>
-    <meta name="keywords" content="login,manusa,kesiswaan">
-    <meta name="description" content="Halaman Login Kesiswaan SMK MA'ARIF NU 1 AJIBARANG">
-    <meta name="author" content="SMK MANUSA AJB">
-    
-    <!-- Site Icons -->
-    <link rel="shortcut icon" href="<?= base_url('assets/frontend/')  ?>images/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="<?= base_url('assets/frontend/')  ?>images/apple-touch-icon.png">
+  <title>Kesiswaan | <?= $judul  ?> </title>
 
-	<!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i" rel="stylesheet"> 
-	
-    <!-- Custom & Default Styles -->
-	<link rel="stylesheet" href="<?= base_url('assets/frontend/')  ?>css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?= base_url('assets/frontend/')  ?>css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?= base_url('assets/frontend/')  ?>css/carousel.css">
-    <link rel="stylesheet" href="<?= base_url('assets/frontend/')  ?>css/animate.css">
-    <link rel="stylesheet" href="<?= base_url('assets/frontend/')  ?>style.css">
-
-    <!-- material icons -->
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="<?= base_url('assets/backend/')  ?>plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="<?= base_url('assets/backend/')  ?>dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+   <!-- material icons -->
     <link rel="stylesheet" href="<?= base_url('assets/frontend/login/css/material-icons.css')  ?>">
     <!-- Navigation Bottom -->
     <style>
@@ -79,30 +61,93 @@
         .nav__icon {
             font-size: 18px;
         }
-        #copyrights{
-            margin-bottom: 55px;
+        footer.main-footer{
+          margin-bottom: 55px
+        }
+        .jumbotron .container{
+          position: relative;
+          z-index: 88;
+        }
+        .jumbotron{
+          background-image: url(<?= base_url('assets/backend/dist/img/photo4.jpg')  ?>);
+          background-size: cover;
+          height: 540px;
+          position: relative;
+        }
+        .jumbotron::after{
+          content: '';
+          display: block;
+          width: 100%;
+          height: 100%;
+          background-image: linear-gradient(to bottom right ,rgba(0,0,0,.8), rgba(0,0,0,.1));
+          position: absolute;
+          /*bottom: 0;*/
+        }
+        .jumbotron .display-4{
+          color: white;
+          text-align: center;
+          font-weight: 300px;
+          text-shadow: 1px 1px 1px rgba(0,0,0.7);
+          font-size: 40px;
+        }
+        .main-header .container .navbar-brand .brand-text{
+          color: black  !important;   
+        }
+        #nav-link{
+          text-transform: capitalize;
         }
        
        /* hilangkan ketika berada selain di versi mobile */
        @media (min-width: 992px){
+          .main-header{
+            border: none !important;
+          }
+
+          .main-header .container .navbar-brand .brand-text{
+            color: white !important;   
+          }
+
+          .nav-link{
+            color: white !important;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
+          }
+
            #menu-bottom.nav {
             display: none  !important;
            }
-           #copyrights{
+
+           footer.main-footer{
             margin-bottom: 0;
+           }
+
+           .nav-link:hover::after,.nav-link.active::after{
+            content: '';
+            display: block;
+            border-bottom: 3px solid #0b63dc;
+            width: 50%;
+            margin: auto;
+            padding-bottom: 5px;
+            margin-bottom: -8px
+           }
+
+           .jumbotron{
+            margin-top: -75px;
+            height: 640px
+           }
+
+           .jumbotron .display-4{
+              font-size: 40px;
+           }
+           .tombol{
+            text-transform: uppercase;
+            border-radius: 40px;
            }
        }
 
     </style>
-
-	<!--[if lt IE 9]>
-		<script src="js/vendor/html5shiv.min.js"></script>
-		<script src="js/vendor/respond.min.js"></script>
-	<![endif]-->
-
 </head>
-<body>
-    <nav id="menu-bottom" class="nav">
+<body class="hold-transition layout-top-nav">
+  <nav id="menu-bottom" class="nav">
         <?php foreach ($menu as $m): ?>
             <a href="<?= base_url().$m->url  ?>" class="nav__link <?= ($halaman == $m->url) ? "nav__link--active"  : "" ?>">
                 <?= $m->icon  ?>
