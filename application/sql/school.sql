@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 25, 2020 at 03:37 AM
+-- Generation Time: Nov 25, 2020 at 09:08 AM
 -- Server version: 10.3.25-MariaDB-0ubuntu0.20.04.1
 -- PHP Version: 7.4.12
 
@@ -121,6 +121,27 @@ INSERT INTO `jurusan` (`kode_jurusan`, `nama_jurusan`, `kajur`) VALUES
 ('TBSM', 'Teknik Bisnis dan Sepeda Motor', 'KAJUR TBSM'),
 ('TKJ', 'Teknik Komputer dan Jaringan', 'Muhammad Rifqi Fauzi'),
 ('TKRO', 'Teknik Kendaraan RIngan Otomotif', 'RIZAL RAHMAN');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `landing_page`
+--
+
+CREATE TABLE `landing_page` (
+  `id` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `keterangan` text NOT NULL,
+  `is_tampil` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `landing_page`
+--
+
+INSERT INTO `landing_page` (`id`, `judul`, `keterangan`, `is_tampil`) VALUES
+(3, 'Selamat Datang Di Kesiswaan SMK MAARIF NU 1 AJIBARANG', 'lorem200', 1),
+(5, 'Judul Informasi', '<blockquote class=\"blockquote\"><p>asdadas</p></blockquote><h3 style=\"text-align: justify; \"><b><u style=\"background-color: rgb(255, 255, 0);\"><br></u></b></h3><table class=\"table table-bordered\"><tbody><tr><td>mo</td><td>nam</td><td>afsd</td><td>dfsfsd</td><td>sdfsdf</td></tr><tr><td>dfsdfdsf</td><td>sdfsfs</td><td>fsdfsdfds</td><td>sdfsd</td><td>sdfdsf</td></tr><tr><td>dsfsdf</td><td>sdfsd</td><td>sdfsdf</td><td>sdfd</td><td>sdfsdf</td></tr><tr><td>sdfsdfs</td><td>dsfsdf</td><td>sdfds</td><td>sdfsdf</td><td>dsfsdf</td></tr></tbody></table><ol><li style=\"text-align: justify;\"><b><u style=\"background-color: rgb(255, 255, 0);\">sfdf</u></b></li><li style=\"text-align: justify;\"><b><u style=\"background-color: rgb(255, 255, 0);\">dsad</u></b></li><li style=\"text-align: justify;\"><b><u style=\"background-color: rgb(255, 255, 0);\">d</u></b></li><li style=\"text-align: justify;\"><b><u style=\"background-color: rgb(255, 255, 0);\">asd</u></b></li><li style=\"text-align: justify;\"><b><u style=\"background-color: rgb(255, 255, 0);\">sa</u></b></li><li style=\"text-align: justify;\"><b><u style=\"background-color: rgb(255, 255, 0);\">sadasd</u></b></li></ol><p style=\"text-align: justify;\"><br></p><ul><li style=\"text-align: center;\"><b><u style=\"background-color: rgb(255, 255, 0);\">dsadsadedsadsaddaasd</u></b></li><li style=\"text-align: center;\"><b><u style=\"background-color: rgb(255, 255, 0);\">sadd</u></b></li><li style=\"text-align: center;\"><b><u style=\"background-color: rgb(255, 255, 0);\">ad</u></b></li><li style=\"text-align: center;\"><b><u style=\"background-color: rgb(255, 255, 0);\">as</u></b></li><li style=\"text-align: center;\"><b><u style=\"background-color: rgb(255, 255, 0);\">d</u></b></li></ul><p><br></p>', 1);
 
 -- --------------------------------------------------------
 
@@ -309,7 +330,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$ANMk6nxXtwdstNFV99z87.TPbe/D99V8QfZusSv/3hIjwuy8jWpC.', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1606202832, 1, 'Admin', 'istrator', NULL, NULL),
+(1, '127.0.0.1', 'administrator', '$2y$12$ANMk6nxXtwdstNFV99z87.TPbe/D99V8QfZusSv/3hIjwuy8jWpC.', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1606253165, 1, 'Admin', 'istrator', NULL, NULL),
 (2, '::1', NULL, '$2y$10$7Na0wjW1nwNleszq2mUAXe1QrTSkjKgmdJX7WXDY2G3rrLeptWEre', 'githubakun686@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1603256409, 1603576528, 1, 'RIZAL', 'RAHMAN', NULL, NULL),
 (3, '::1', NULL, '$2y$10$GZmsBoLH9fgq9Y5c35pXmOj8BPvWDMzrYl6MyXXEF.wuXrNRfL4bu', 'p@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1603258118, NULL, 1, 'p', 'p', NULL, NULL),
 (4, '::1', NULL, '$2y$10$C5U30XqYXnrB.SOEANA5S.ASCzcz4GRd2yxLZyNT86HQMW5pdhtRS', 'githubakun696@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1603449323, NULL, 1, 'Ahmad', 'Solighin', NULL, NULL),
@@ -411,6 +432,12 @@ ALTER TABLE `jurusan`
   ADD PRIMARY KEY (`kode_jurusan`);
 
 --
+-- Indexes for table `landing_page`
+--
+ALTER TABLE `landing_page`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
@@ -493,6 +520,12 @@ ALTER TABLE `groups`
 --
 ALTER TABLE `guru`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `landing_page`
+--
+ALTER TABLE `landing_page`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `login_attempts`
