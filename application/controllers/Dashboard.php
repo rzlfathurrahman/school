@@ -151,6 +151,85 @@ class Dashboard extends CI_Controller {
 		$this->load->view('templates/backend/footer');
 	}
 
+	public function update_informasi()
+	{
+		$this->form_validation->set_rules('judul', 'judul', 'trim|required');
+		$this->form_validation->set_rules('keterangan', 'keterangan', 'trim|required');
+		$this->form_validation->set_rules('is_tampil', 'is_tampil', 'trim|required');
+
+		$id = $this->input->post('id');
+
+		// data lama
+		$judul_old = $this->input->post('judul_old');
+		$keterangan_old = $this->input->post('keterangan_old');
+		$is_tampil_old = $this->input->post('is_tampil_old');
+
+		$data_old = [
+			'judul' => $judul_old,
+			'keterangan' => $keterangan_old,
+			'is_tampil' => $is_tampil_old,
+		];
+
+		// data baru
+		$judul = $this->input->post('judul');
+		$keterangan = $this->input->post('keterangan');
+		$is_tampil = $this->input->post('is_tampil');
+
+		$data_new = [
+			'judul' => $judul,
+			'keterangan' => $keterangan_old,
+			'is_tampil' => $is_tampil
+		];
+
+		////////////////////////////////
+		// cek apakah validasi lancar //
+		////////////////////////////////
+		if ($this->form_validation->run() == TRUE) { 
+		// jika iya
+			// cek apakah ada yang diganti 
+			if ($this->_is_edit($data_old,$data_new)) {
+				$this->session->set_flashdata('pesan', '<div class="alert alert-warning" role="alert">Tidak ada informasi yang diubah.</div>');
+			}else{
+				// jika ada diganti maka update database
+				if ($this->_update($id,$data_new)) {
+					$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Informasi berhasi diupdate.</div>');				
+				}else{
+					$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Informasi gagal diupdate.</div>');				
+				}
+			}
+		} else {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Harap isi data dengam benar.</div>');
+			redirect('dashboard/edit_landing_page/'.$id,'refresh');
+		}
+
+		redirect('dashboard','refresh');
+
+	}
+
+	private function _is_edit($old,$new)
+	{
+		$judul_old = $old['judul'];
+		$keterangan_old = $old['keterangan'];
+		$is_tampil_old = $old['is_tampil'];
+
+		$judul = $new['judul'];
+		$keterangan = $new['keterangan'];
+		$is_tampil = $new['is_tampil'];
+
+		// tak ada data yang diedit, return TRUE
+		if ($judul_old == $judul && $keterangan_old == $keterangan && $is_tampil_old == $is_tampil) {
+			return true;			
+		}else{
+			return false;
+		}
+	}
+
+	private function _update($id,$data)
+	{
+		$this->db->where('id', $id);
+		return $this->db->update('landing_page', $data);
+	}
+
 }
 
 /* End of file Dashboard.php */
