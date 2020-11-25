@@ -120,6 +120,37 @@ class Dashboard extends CI_Controller {
 
 	}
 
+	public function edit_landing_page($id)
+	{
+		// siapkan data user yang aktif
+		$data['user'] = $this->session->userdata();
+		$id_user_aktif = $data['user']['user_id'];
+
+		// ambil data user aktif
+		$data['user'] = $this->ion_auth->user()->result_array();
+
+		// dapatkan grup user saat ini
+		$data['user_groups'] = $this->ion_auth->get_users_groups()->result();
+
+		// info halaman aktif 
+		$data['halaman'] = 'dashboard';
+
+		// judul web
+		$data['judul'] = 'Edit Informasi';
+
+		// ambil url aktif
+		$data['url'] = $this->uri->segment_array();
+
+		// informasi landing page
+		$landing_page = $this->db->get_where('landing_page',['id' => $id])->result();
+		$data['landing_page'] = $landing_page[0];
+
+		$this->load->view('templates/backend/header',$data);
+		$this->load->view('templates/backend/sidebar');
+		$this->load->view('backend/edit_landing_page');
+		$this->load->view('templates/backend/footer');
+	}
+
 }
 
 /* End of file Dashboard.php */
