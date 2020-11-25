@@ -18,6 +18,21 @@ class Siswa extends CI_Controller {
 			// redirect them to the login page
 			redirect('auth/login', 'refresh');
 		}
+		if ($this->is_siswa() == false) {
+			$this->session->set_flashdata("pesan","<div class='alert alert-warning'>Anda tidak berhak mengakses halaman profil siswa !</div>");
+			redirect('dashboard','refresh');
+		}
+	}
+
+	private function is_siswa()
+	{
+		$row = $this->ion_auth->user()->row();
+		$nama = $row->first_name." ".$row->last_name;
+		$query = $this->db->query("SELECT * FROM users,siswa WHERE siswa.nama_siswa = '$nama'")->result(); 
+		if (empty($query)) {
+			return false;
+		}
+		return true;
 	}
 
 	// untuk menampilkan halaman awal / landing page
@@ -36,13 +51,17 @@ class Siswa extends CI_Controller {
 		$id_user_aktif = $data['user']['user_id'];
 
 		// ambil data user aktif
-		$data['user'] = $this->ion_auth->user()->result_array();
+		$user = $this->ion_auth->user()->result();
+		$nama_siswa = '';
+		foreach ($user as $u) {
+			$nama_siswa = $u->first_name." ".$u->last_name;
+		}
 
 		// judul web
-		$data['judul'] = 'Profil Saya';	
+		$data['judul'] = 'Profil Saya';
 
 		// ambil detail siswa
-		$query = "SELECT * FROM siswa,orangtua WHERE siswa.nis = orangtua.nis";
+		$query = "SELECT * FROM siswa,orangtua WHERE siswa.nis = orangtua.nis AND siswa.nama_siswa = '$nama_siswa'";
 		$result = $this->db->query($query)->result();
 		$data['result'] = $result[0];
 
