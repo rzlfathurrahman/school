@@ -73,7 +73,7 @@
                    <?php endif ?>
                  </td>
                  <td>
-                   <?= anchor('dashboard/edit_landing_page/'.$page->id, '<div class="mb-1 btn btn-primary btn-sm">Edit</div>');  ?>
+                   <?= anchor('dashboard/edit_landing_page/'.$page->id, '<div class="mb-1 btn btn-secondary btn-sm">Edit</div>');  ?>
                    <?php if ($page->is_tampil == 1): ?>
                    <?= anchor('dashboard/informasi/draft/'.$page->id, '<div class="mb-1 btn btn-danger btn-sm" onclick="return confirm(\' Yakin ingin disembunyikan? \')">Sembunyikan</div>');  ?>
                      <?php else: ?>

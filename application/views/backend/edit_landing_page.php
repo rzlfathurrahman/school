@@ -55,7 +55,7 @@
                       <input type="hidden" name="id" value="<?= $landing_page->id ?>">
                       <input type="hidden" name="judul_old" value="<?= $landing_page->judul  ?>">
                       <input type="hidden" name="is_tampil_old" value="<?= $landing_page->is_tampil  ?>">
-                      <input type="hidden" name="keterangan_old" value="<?= $landing_page->keterangan  ?>">
+                      <input type="hidden" name="keterangan_old" value="<?= htmlspecialchars($landing_page->keterangan)  ?>">
                       <input type="text" id="judul" class="form-control"  value="<?= $landing_page->judul ?>" name="judul" placeholder="Judul Informasi" required>
                     </div>
                   </div>
