@@ -68,9 +68,6 @@
           </div>
           <div class="card-body">
             <form action="<?= base_url('kelas/tambah_kelas')  ?>" method="post" >
-              <div class="modal-body">
-                 
-
                 <div class="form-group">
                   <label for="tingkat_kelas">Kelas</label>
                   <select class="form-control" name="tingkat" id="tingkat_kelas">
@@ -93,10 +90,7 @@
                   <label for="tag">Grade</label> <i class="text-danger">Kosongi jika hanya ada satu kelas.</i>
                   <input type="text" name="tag" class="form-control" placeholder="Misal A / B / C dst... " >
                 </div>   
-
-              </div>
-              <div class="modal-footer justify-content-between">
-              <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
             </form>
           </div>
         </div>
