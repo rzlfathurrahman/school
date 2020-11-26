@@ -133,8 +133,8 @@
             </ul>
           </li>
 
-          <li class="nav-item <?= ($halaman == 'jurusan' || $halaman == 'mapel' || $halaman == 'jurusan/tambah_pengguna' || $halaman == 'tambah_grup') ? "has-treeview menu-open" : ""  ?> ">
-            <a href="#" class="nav-link <?= ($halaman == 'jurusan'  || $halaman == 'jurusan/tambah_pengguna' || $halaman == 'mapel') ? "active" : ""  ?>">
+          <li class="nav-item <?= ($halaman == 'jurusan' || $halaman == 'mapel' || $halaman == 'jurusan/tambah_pengguna' || $halaman == 'tambah_grup' || $halaman == 'kelas') ? "has-treeview menu-open" : ""  ?> ">
+            <a href="#" class="nav-link <?= ($halaman == 'jurusan'  || $halaman == 'jurusan/tambah_pengguna' || $halaman == 'mapel' || $halaman == 'kelas') ? "active" : ""  ?>">
               <i class="nav-icon fa fa-school"></i>
               <p>
                 Manajemen Jurusan
@@ -152,6 +152,12 @@
                 <a href="<?= base_url('mapel')  ?>" class="nav-link <?= ($halaman == 'mapel') ? 'active' : ''  ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Mata Pelajaran</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('kelas')  ?>" class="nav-link <?= ($halaman == 'kelas') ? 'active' : ''  ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Kelas</p>
                 </a>
               </li>
             </ul>
