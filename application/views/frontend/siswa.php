@@ -10,6 +10,24 @@
 
    <div class="row">
     <div class="col-12">
+      <?php if ($result == null): ?>
+         <div class="error-page my-5">
+          <h2 class="headline text-warning"> 404</h2>
+
+          <div class="error-content">
+            <h4><i class="fas fa-exclamation-triangle text-warning"></i> Maaf! Akun anda belum terdaftar sebagai siswa SMK MA'ARIF NU 1 AJIBARANG.</h4>
+
+            <p>
+              Silahkan untuk menghubungi pihak Kesiswaan atau Wali Kelas terkait. 
+            </p>
+
+            </form>
+          </div>
+          <!-- /.error-content -->
+        </div>
+        <!-- /.error-page -->
+      <?php else: ?>
+        
       <!-- Custom Tabs -->
       <div class="card">
         <div class="card-header d-flex p-0">
@@ -108,6 +126,8 @@
         </div><!-- /.card-body -->
       </div>
       <!-- ./card -->
+
+      <?php endif ?>
     </div>
     <!-- /.col -->
   </div>
