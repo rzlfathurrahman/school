@@ -109,14 +109,89 @@ class Kelas extends CI_Controller {
 		return false;
 	}
 
-	public function edit_kelas()
+	public function edit_kelas($id)
 	{
+		// siapkan data user yang aktif
+		$data['user'] = $this->session->userdata();
+		$id_user_aktif = $data['user']['user_id'];
 
+		// ambil data user aktif
+		$data['user'] = $this->ion_auth->user()->result_array();
+
+		// dapatkan grup user saat ini
+		$data['user_groups'] = $this->ion_auth->get_users_groups()->result();
+
+		// info halaman aktif 
+		$data['halaman'] = 'kelas';
+
+		// judul web
+		$data['judul'] = 'Edit Kelas';
+
+		// ambil url aktif
+		$data['url'] = $this->uri->segment_array();
+
+		// daftar kelas
+		$kelas = $this->db->get_where('kelas',['id' => $id])->result();
+		$data['detail'] = $kelas[0];
+		$data['kelas'] = $this->db->get('kelas')->result();
+
+		// ambil data jurusan
+		$data['jurusan'] = $this->db->query("SELECT nama_jurusan,kode_jurusan FROM jurusan")->result();
+
+		$this->load->view('templates/backend/header',$data);
+		$this->load->view('templates/backend/sidebar');
+		$this->load->view('backend/kelas/edit');
+		$this->load->view('templates/backend/footer');
 	}
 
 	public function update_kelas()
 	{
-		
+		$id = $this->input->post('id');
+		$tingkat = $this->input->post('tingkat');
+		$jurusan = $this->input->post('jurusan');
+		$tag = $this->input->post('tag');
+
+		$kelas_new = $tingkat." ".$jurusan." ".$tag;
+		$kelas_old = $this->input->post('kelas');
+
+		$is_added = $this->db->get_where('kelas',['kelas' => $kelas_new])->result();
+
+		// cek apakah ada data yang diubah
+		// jika ada kembalikan ke halaman daftar kelas
+		if ($kelas_new == $kelas_old) {
+			$this->session->set_flashdata('message', '<div class="alert alert-secondary alert-dismissible fade show" role="alert">Tidak ada data yang diubah.</div>' ); 
+		}else{
+			// cek apakah data yang diubah sama dengan data yg sudah ada di database
+			// jika sudah ada maka kembalikan ke halaman edit data tadi
+			if (!empty($is_added)) {
+				$this->session->set_flashdata('message', '<div class="alert alert-warning alert-dismissible fade show" role="alert">Kelas sudah terdaftar di database.</div>' ); 
+				redirect('kelas/edit_kelas/'.$id,'refresh');
+			}else{
+				$data = [
+					'id' => $id,
+					'tingkat' => $tingkat,
+					'jurusan' => $jurusan,
+					'kelas' => $kelas_new
+				];
+
+				$is_update = false;
+
+				if ($this->db->where('id', $id) && $this->db->update('kelas', $data)) {
+					$is_update = true;
+				}
+
+				// cek apakah update berhasil atau tidak
+				if ($is_update) {
+					$this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Data berhasil diupdate.</div>' ); 			
+				}else{
+					$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Data gagal diupdate diupdate.</div>' );	
+				}
+
+			}
+		}
+
+		redirect('kelas','refresh');
+
 	}
 
 	public function hapus_kelas($id)
