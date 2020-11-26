@@ -31,7 +31,32 @@ class Kelas extends CI_Controller {
 
 	public function index()
 	{
+		// siapkan data user yang aktif
+		$data['user'] = $this->session->userdata();
+		$id_user_aktif = $data['user']['user_id'];
 
+		// ambil data user aktif
+		$data['user'] = $this->ion_auth->user()->result_array();
+
+		// dapatkan grup user saat ini
+		$data['user_groups'] = $this->ion_auth->get_users_groups()->result();
+
+		// info halaman aktif 
+		$data['halaman'] = 'kelas';
+
+		// judul web
+		$data['judul'] = 'Daftar Kelas';
+
+		// ambil url aktif
+		$data['url'] = $this->uri->segment_array();
+
+		// informasi landing page
+		$data['kelas'] = $this->db->get('kelas')->result();
+
+		$this->load->view('templates/backend/header',$data);
+		$this->load->view('templates/backend/sidebar');
+		$this->load->view('backend/kelas/index');
+		$this->load->view('templates/backend/footer');
 	}
 
 	public function tambah_kelas()
@@ -51,7 +76,7 @@ class Kelas extends CI_Controller {
 
 	public function hapus_kelas()
 	{
-		
+
 	}
 
 }
