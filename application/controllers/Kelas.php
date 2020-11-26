@@ -50,8 +50,11 @@ class Kelas extends CI_Controller {
 		// ambil url aktif
 		$data['url'] = $this->uri->segment_array();
 
-		// informasi landing page
+		// daftar kelas
 		$data['kelas'] = $this->db->get('kelas')->result();
+
+		// ambil data jurusan
+		$data['jurusan'] = $this->db->query("SELECT nama_jurusan,kode_jurusan FROM jurusan")->result();
 
 		$this->load->view('templates/backend/header',$data);
 		$this->load->view('templates/backend/sidebar');
@@ -61,7 +64,48 @@ class Kelas extends CI_Controller {
 
 	public function tambah_kelas()
 	{
+		$tingkat = $this->input->post('tingkat');
+		$jurusan = $this->input->post('jurusan');
+		$tag = strtoupper($this->input->post('tag'));
+		$kelas = $tingkat." ".$jurusan." ".$tag;
 
+		$is_added = $this->db->get_where('kelas',['kelas' => $kelas])->result();
+
+		// validasi form
+		if ($this->_rules($tingkat,$jurusan,$tag)) {
+			// jika sukses maka cek apakah kelas sudah ada do database atau belum
+			if (!empty($is_added)) {
+				$this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Kelas sudah terdaftar di Database.</div>');
+			}else{
+				// jika belum ada di db, maka masukan data kelas tsb 
+				$data = [
+					'tingkat' => $tingkat,
+					'jurusan' => $jurusan,
+					'tag' => $tag,
+					'kelas' => $kelas
+				];
+				if ($this->db->insert('kelas', $data)) {
+					$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Kelas berhasil ditambah.</div>');
+				}else{
+					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Kelas gagal ditambah.</div>');
+				}
+			}
+
+		}else{
+			// jika validasi gagal
+			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Harap isi semua data !</div>' ); 
+		}
+			redirect('kelas','refresh');
+
+	}
+
+	private function _rules($tingkat,$jurusan)
+	{
+		if (!empty($tingkat) && !empty($jurusan)) {
+			return true;
+		}
+
+		return false;
 	}
 
 	public function edit_kelas()
@@ -78,6 +122,7 @@ class Kelas extends CI_Controller {
 	{
 
 	}
+
 
 }
 
