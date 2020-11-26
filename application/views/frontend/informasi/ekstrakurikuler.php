@@ -10,7 +10,7 @@
     <div class="row">
 
     <?php foreach ($ekstrakurikuler as $eks): ?>
-      <div class="col-md-3">
+      <div class="col-md-4">
 
         <div class="card card-primary collapsed-card">
           <div class="card-header">
