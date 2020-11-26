@@ -95,6 +95,7 @@ class Kelas extends CI_Controller {
 			// jika validasi gagal
 			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Harap isi semua data !</div>' ); 
 		}
+			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Harap isi semua data !</div>' ); 
 			redirect('kelas','refresh');
 
 	}
@@ -118,9 +119,12 @@ class Kelas extends CI_Controller {
 		
 	}
 
-	public function hapus_kelas()
+	public function hapus_kelas($id)
 	{
-
+		$this->db->where('id', $id);
+		$this->db->delete('kelas');
+		$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Kelas berhasil dihapus.</div>' ); 
+		redirect('kelas','refresh');
 	}
 
 
