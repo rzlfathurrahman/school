@@ -24,16 +24,23 @@ class Siswa extends CI_Controller {
 		}
 	}
 
-	private function is_siswa()
+	/**
+	 * @param int|string|bool $id
+	 *
+	 * @return bool Whether the user is an siswa
+	 * @author Rizal Fathur Rahman
+	 */
+	public function is_siswa($id = FALSE)
 	{
-		$row = $this->ion_auth->user()->row();
-		$nama = $row->first_name." ".$row->last_name;
-		$query = $this->db->query("SELECT * FROM users,siswa WHERE siswa.nama_siswa = '$nama'")->result(); 
-		if (empty($query)) {
+		// dapatkan grup user saat ini
+		$user_groups = $this->ion_auth->get_users_groups()->result();
+		if ($user_groups[0]->name == 'Siswa') {
+			return true;
+		}else{
 			return false;
 		}
-		return true;
 	}
+
 
 	// untuk menampilkan halaman awal / landing page
 	public function index()
@@ -63,7 +70,13 @@ class Siswa extends CI_Controller {
 		// ambil detail siswa
 		$query = "SELECT * FROM siswa,orangtua WHERE siswa.nis = orangtua.nis AND siswa.nama_siswa = '$nama_siswa'";
 		$result = $this->db->query($query)->result();
-		$data['result'] = $result[0];
+
+		// jika user belum terdaftar sebagai siswa
+		if (empty($result)) {
+			$data['result'] = null;
+		}else{
+			$data['result'] = $result[0];
+		}
 
 		// var_dump($data); exit();
 
