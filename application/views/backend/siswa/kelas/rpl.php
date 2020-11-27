@@ -30,7 +30,7 @@
          <div class="card card-outline card-info">
            <div class="card-header">
              <h3 class="card-title">
-               Data siswa X RPL SMK MA'ARIF NU 1 AJIBARANG.
+               Data siswa <strong>Rekayasa Perangkat Lunak</strong> SMK MA'ARIF NU 1 AJIBARANG.
              </h3>
              <!-- tools box -->
              <div class="card-tools">
@@ -57,25 +57,25 @@
                </tr>
              </thead>
              <tbody>
-             <?php $no = 1; foreach ($x_rpl as $x):?>
+             <?php $no = 1; foreach ($rpl as $rpl):?>
                <tr align="center">
                  <td><?= $no++  ?></td>    
-                 <td><?= htmlspecialchars($x->nis,ENT_QUOTES,'UTF-8');?></td>
-                 <td><?= htmlspecialchars($x->nama_siswa,ENT_QUOTES,'UTF-8');?></td>
-                 <td><?= htmlspecialchars($x->kelas,ENT_QUOTES,'UTF-8');?></td>
+                 <td><?= htmlspecialchars($rpl->nis,ENT_QUOTES,'UTF-8');?></td>
+                 <td><?= htmlspecialchars($rpl->nama_siswa,ENT_QUOTES,'UTF-8');?></td>
+                 <td><?= htmlspecialchars($rpl->kelas,ENT_QUOTES,'UTF-8');?></td>
                  <td>
-                   <?php if ($x->lulus == 0): ?>
+                   <?php if ($rpl->lulus == 0): ?>
                      <div class="btn btn-sm btn-info">Belum Lulus</div>
-                    <?php elseif($x->lulus == 1) : ?>
+                    <?php elseif($rpl->lulus == 1) : ?>
                      <div class="btn btn-sm btn-success">Lulus</div>
-                    <?php elseif($x->lulus == -1) : ?>
+                    <?php elseif($rpl->lulus == -1) : ?>
                      <div class="btn btn-sm btn-danger">Tidak Lulus</div>
                    <?php endif ?>
                  </td>
                  <td>
-                   <?= anchor("siswa/detail_siswa/".$x->nis, '<span class="badge badge-pill badge-primary">Detail</span>') ;?>
-                   <?= anchor("siswa/edit_siswa/".$x->nis, '<span class="badge badge-pill badge-info">Edit</span>') ;?>
-                   <?= anchor("siswa/hapus_siswa/".$x->nis, '<span class="badge badge-pill badge-danger">Hapus</span>') ;?>
+                   <?= anchor("siswa/detail_siswa/".$rpl->nis, '<span class="badge badge-pill badge-primary">Detail</span>') ;?>
+                   <?= anchor("siswa/edit_siswa/".$rpl->nis, '<span class="badge badge-pill badge-info">Edit</span>') ;?>
+                   <?= anchor("siswa/hapus_siswa/".$rpl->nis, '<span class="badge badge-pill badge-danger">Hapus</span>') ;?>
                      
                  </td>
                </tr>
