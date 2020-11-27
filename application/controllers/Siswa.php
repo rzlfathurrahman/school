@@ -81,9 +81,7 @@ class Siswa extends CI_Controller {
 		$data['url'] = $this->uri->segment_array();
 
 		// ambil data siswa kelas @kelas
-		$data['x_'.$kelas] = $this->db->get_where('siswa',['kelas' => 'X '.strtoupper($kelas)])->result();
-		$data['xi_'.$kelas] = $this->db->get_where('siswa',['kelas' => 'XI '.strtoupper($kelas)])->result();
-		$data['xii_'.$kelas] = $this->db->get_where('siswa',['kelas' => 'XII '.strtoupper($kelas)])->result();
+		$data[$kelas] = $this->db->get_where('siswa',['kelas' => strtoupper($kelas)])->result();
 
 		$this->load->view('templates/backend/header',$data);
 		$this->load->view('templates/backend/sidebar');
