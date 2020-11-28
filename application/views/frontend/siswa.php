@@ -15,10 +15,10 @@
           <h2 class="headline text-warning"> 404</h2>
 
           <div class="error-content">
-            <h4><i class="fas fa-exclamation-triangle text-warning"></i> Maaf! Akun anda belum terdaftar sebagai siswa SMK MA'ARIF NU 1 AJIBARANG.</h4>
+            <h5><i class="fas fa-exclamation-triangle text-warning"></i> Maaf! Akun anda belum terdaftar sebagai siswa SMK MA'ARIF NU 1 AJIBARANG.</h5>
 
             <p>
-              Silahkan untuk menghubungi pihak Kesiswaan atau Wali Kelas terkait. 
+              Silahkan anda klik pada tombol berikut untuk mendaftar <a href="<?= base_url('frontend/siswa/tambah_siswa')  ?>" class="btn btn-primary">Daftar</a>
             </p>
 
             </form>
