@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="<?= base_url('assets/frontend/login/css/material-icons.css')  ?>">
   <!-- custom css -->
   <link rel="stylesheet" href="<?= base_url('assets/frontend/style.css')  ?>">
+    <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="<?= base_url('assets/backend/')  ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 
 </head>
 <body class="hold-transition layout-top-nav">
