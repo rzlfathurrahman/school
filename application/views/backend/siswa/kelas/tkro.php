@@ -74,7 +74,6 @@
                  </td>
                  <td>
                    <?= anchor("siswa/detail_siswa/".$tkro->nis, '<span class="badge badge-pill badge-primary">Detail</span>') ;?>
-                   <?= anchor("siswa/edit_siswa/".$tkro->nis, '<span class="badge badge-pill badge-info">Edit</span>') ;?>
                    <?= anchor("siswa/hapus_siswa/".$tkro->nis, '<span class="badge badge-pill badge-danger">Hapus</span>') ;?>
                      
                  </td>
@@ -84,10 +83,6 @@
            </table>
 
            </div>
-           <div class="card-footer">
-             <a href="<?= base_url('siswa/tambah_siswa')  ?>" class="btn btn-primary">Tambah Siswa</a>
-           </div>
-
          </div>
        </div>
        <!-- /.col-->

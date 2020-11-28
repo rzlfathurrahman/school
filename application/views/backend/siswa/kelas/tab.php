@@ -57,25 +57,24 @@
                </tr>
              </thead>
              <tbody>
-             <?php $no = 1; foreach ($rpl as $rpl):?>
+             <?php $no = 1; foreach ($tab as $tab):?>
                <tr align="center">
                  <td><?= $no++  ?></td>    
-                 <td><?= htmlspecialchars($rpl->nis,ENT_QUOTES,'UTF-8');?></td>
-                 <td><?= htmlspecialchars($rpl->nama_siswa,ENT_QUOTES,'UTF-8');?></td>
-                 <td><?= htmlspecialchars($rpl->kelas,ENT_QUOTES,'UTF-8');?></td>
+                 <td><?= htmlspecialchars($tab->nis,ENT_QUOTES,'UTF-8');?></td>
+                 <td><?= htmlspecialchars($tab->nama_siswa,ENT_QUOTES,'UTF-8');?></td>
+                 <td><?= htmlspecialchars($tab->kelas,ENT_QUOTES,'UTF-8');?></td>
                  <td>
-                   <?php if ($rpl->lulus == 0): ?>
+                   <?php if ($tab->lulus == 0): ?>
                      <div class="btn btn-sm btn-info">Belum Lulus</div>
-                    <?php elseif($rpl->lulus == 1) : ?>
+                    <?php elseif($tab->lulus == 1) : ?>
                      <div class="btn btn-sm btn-success">Lulus</div>
-                    <?php elseif($rpl->lulus == -1) : ?>
+                    <?php elseif($tab->lulus == -1) : ?>
                      <div class="btn btn-sm btn-danger">Tidak Lulus</div>
                    <?php endif ?>
                  </td>
                  <td>
-                   <?= anchor("siswa/detail_siswa/".$rpl->nis, '<span class="badge badge-pill badge-primary">Detail</span>') ;?>
-                   <?= anchor("siswa/edit_siswa/".$rpl->nis, '<span class="badge badge-pill badge-info">Edit</span>') ;?>
-                   <?= anchor("siswa/hapus_siswa/".$rpl->nis, '<span class="badge badge-pill badge-danger">Hapus</span>') ;?>
+                   <?= anchor("siswa/detail_siswa/".$tab->nis, '<span class="badge badge-pill badge-primary">Detail</span>') ;?>
+                   <?= anchor("siswa/hapus_siswa/".$tab->nis, '<span class="badge badge-pill badge-danger">Hapus</span>') ;?>
                      
                  </td>
                </tr>
@@ -84,10 +83,6 @@
            </table>
 
            </div>
-           <div class="card-footer">
-             <a href="<?= base_url('siswa/tambah_siswa')  ?>" class="btn btn-primary">Tambah Siswa</a>
-           </div>
-
          </div>
        </div>
        <!-- /.col-->
