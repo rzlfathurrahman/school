@@ -82,7 +82,7 @@ class Siswa extends CI_Controller {
 
 		// ambil data siswa kelas @kelas
 		// $data[$kelas] = $this->db->get_where('siswa',['kelas' => 'X '.strtoupper($kelas) || 'XI '.strtoupper($kelas) || 'XII '.strtoupper($kelas)])->result();
-		$data[$kelas] = $this->db->query("SELECT * FROM siswa WHERE kelas = 'X {$kelas}' OR kelas = 'XI {$kelas}' OR kelas = 'XII {$kelas}'")->result();
+		$data[$kelas] = $this->db->query("SELECT * FROM `siswa` WHERE kelas LIKE '%".$kelas."%'")->result();
 		// var_dump($data[$kelas]); exit();
 
 
