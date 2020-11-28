@@ -1051,14 +1051,16 @@ class Auth extends CI_Controller
 	 * @return bool Whether the user is an siswa
 	 * @author Rizal Fathur Rahman
 	 */
-	public function is_siswa($id = FALSE)
+	public function is_siswa()
 	{
 		// dapatkan grup user saat ini
 		$user_groups = $this->ion_auth->get_users_groups()->result();
-		if ($user_groups[0]->name == 'Siswa') {
-			return true;
-		}else{
-			return false;
+		foreach ($user_groups as $ug) {
+			if ($ug->name == 'Siswa') {
+				return true;
+			}else{
+				return false;
+			}
 		}
 	}
 
