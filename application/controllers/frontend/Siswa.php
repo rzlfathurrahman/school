@@ -164,7 +164,7 @@ class Siswa extends CI_Controller {
 		$telepon_orangtua = $this->input->post('telepon');
 		$alamat_orangtua = $this->input->post('alamat');
 		$is_wali = $this->input->post('is_wali');
-		$foto_orangtua =  $_FILES['foto_ortu']['name'];
+		// $foto_orangtua =  $_FILES['foto_ortu']['name'];
 		$pekerjaan_orangtua = $this->input->post('pekerjaan');
 		// $nama_img_orangtua = $this->_new_img_name($foto_orangtua);
 

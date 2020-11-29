@@ -16,7 +16,7 @@
             <h4>Form Pendaftaran Siswa</h4>
           </div>
           <div class="card-body">
-            <?= $this->session->set_flashdata('message', 'value');  ?>
+            <?= $this->session->flashdata('message');  ?>
             <form action="<?= base_url('frontend/siswa/tambah_siswa_aksi')  ?>" method="post" enctype="multipart/form-data">
               <div class="row">
                 <div class="col-md-6">
@@ -128,11 +128,11 @@
                      </div>
                   </div>
 
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label for="img-input-ortu">Foto Orang Tua</label><br>
                     <img id="img-preview-ortu" src="<?= base_url('assets/backend/dist/img/user1-128x128.jpg')  ?>" class="img-thumbnail"><br>
                     <input id="img-input-ortu" type="file" name="foto_ortu" class="form-control-file" onchange="img_preview_ortu()">
-                  </div>
+                  </div> -->
 
                   <div class="form-group">
                     <label for="alamat">Alamat</label>
