@@ -19,11 +19,6 @@
                 <a id="nav-link" class="nav-link <?= ($halaman == $m->url) ? "active"  : "" ?>" href="<?= base_url().$m->url  ?>"><?= $m->nama_menu  ?></a>
               </li>
           <?php endforeach; ?>
-          <?php if (empty($result) && $this->ion_auth->logged_in()): ?>
-            <li class="nav-item">
-              <a id="nav-link" class="nav-link <?= ($halaman == 'tambah siswa') ? "active"  : "" ?>" href="<?= base_url('frontend/siswa/tambah_aksi')  ?>">Daftar</a>
-            </li>
-          <?php endif ?>
         </ul>
 
       <!-- Right navbar links -->
