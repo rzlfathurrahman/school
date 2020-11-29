@@ -41,10 +41,10 @@
           <div class="tab-content">
             <div class="tab-pane active" id="tab_1">
               <!-- card -->
-              <div class="card-body mb-3">
+              <div class="mb-3">
                 <div class="row no-gutters">
                   <div class="col-md-4">
-                    <img src="<?= base_url('assets/backend/dist/img/').$result->foto_siswa  ?>" class="card-img" alt="<?= $result->foto_siswa  ?>">
+                    <img src="<?= base_url('assets/img/').$result->foto_siswa  ?>" class="card-img" alt="<?= $result->foto_siswa  ?>">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
@@ -52,39 +52,39 @@
                       <p class="card-text"><?= $result->kelas  ?></p>
 
                       <table class="table table-bordered table-hover">
-                        <tr>
+                        <tr class="small">
                           <th>NIS</th>
                           <td><?= $result->nis  ?></td>
                         </tr>
-                        <tr>
+                        <tr class="small">
                           <th>NISN</th>
                           <td><?= $result->nisn  ?></td>
                         </tr>
-                        <tr>
+                        <tr class="small">
                           <th>Nama Siswa</th>
                           <td><?= $result->nama_siswa  ?></td>
                         </tr>
-                        <tr>
+                        <tr class="small">
                           <th>Tempat Tanggal Lahir</th>
                           <td><?= $result->tempat_tgl_lahir  ?></td>
                         </tr>
-                        <tr>
+                        <tr class="small">
                           <th>Jenis Kelamin</th>
                           <td><?= $result->jenis_kelamin  ?></td>
                         </tr>
-                        <tr>
+                        <tr class="small">
                           <th>Agama</th>
                           <td><?= $result->nis  ?></td>
                         </tr>
-                        <tr>
+                        <tr class="small">
                           <th>Alamat</th>
                           <td><?= $result->alamat  ?></td>
                         </tr>
-                        <tr>
+                        <tr class="small">
                           <th>Sisa Point</th>
                           <td><?= $result->point  ?></td>
                         </tr>
-                        <tr>
+                        <tr class="small">
                           <th>Nomor Telepon</th>
                           <td><?= $result->telepon_siswa  ?></td>
                         </tr>
@@ -98,22 +98,23 @@
             </div>
             <!-- /.tab-pane -->
             <div class="tab-pane" id="tab_2">
+            <!--  <img src="<?= base_url('assets/img/').$result->foto  ?>" class="card-img" alt="<?= $result->foto  ?>"> -->
              <h3><?= $result->nama  ?></h3>
              <table class="table">
                  <tbody>
-                     <tr>
+                     <tr class="small">
                          <td><strong>Status</strong></td>
                          <td><?= ($result->is_wali == 0) ? 'Orang Tua' : 'Wali'  ?></td>
                      </tr>
-                     <tr>
+                     <tr class="small">
                          <td><strong>Alamat</strong></td>
                          <td><?= $result->alamat  ?></td>
                      </tr>
-                     <tr>
+                     <tr class="small">
                          <td><strong>Pekerjaan</strong></td>
                          <td><?= $result->pekerjaan  ?></td>
                      </tr>
-                     <tr>
+                     <tr class="small">
                          <td><strong>Nomor Telepon</strong></td>
                          <td><?= $result->telepon  ?></td>
                      </tr>
