@@ -130,6 +130,25 @@ class Siswa extends CI_Controller {
 		$this->load->view('templates/backend/footer');	
 	}
 
+	public function hapus_siswa($nis)
+	{
+		$query = $this->db->get_where('siswa',['nis' => $nis]);
+		$query2 = $this->db->get_where('orangtua',['nis' => $nis]);
+        if ($nis != null) {
+            if ($query->num_rows() > 0 && $query2->num_rows() > 0 ) {
+                $this->db->where('nis', $nis);
+                $this->db->delete('siswa');
+                $this->db->delete('orangtua');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data siswa berhasil dihapus.</div>');
+            }elseif($query->num_rows() == 0 && $query2->num_rows() == 0){
+                $this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Data dengan nis '. $nis .' tidak ditemukan.</div>');
+            }
+        }else{
+            $this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Anda tidak menghapus data apapun.</div>');
+        }
+        redirect('siswa','refresh');
+	}
+
 }
 
 /* End of file Siswa.php */
