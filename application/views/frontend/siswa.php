@@ -70,7 +70,9 @@
                         </tr>
                         <tr class="small">
                           <th>Jenis Kelamin</th>
-                          <td><?= $result->jenis_kelamin  ?></td>
+                          <td>
+                            <?= ($result->jenis_kelamin == 1) ? 'Laki - Laki' : 'Perempuan'  ?>  
+                          </td>
                         </tr>
                         <tr class="small">
                           <th>Agama</th>
