@@ -37,7 +37,7 @@
               <!-- Add the bg color to the header using any of the bg-* classes -->
               <div class="widget-user-header bg-info">
                 <div class="widget-user-image">
-                  <img class="img-circle elevation-2" src="<?= base_url('assets/backend/')  ?>/dist/img/<?= $result->foto_siswa  ?>" alt="User Avatar">
+                  <img class="img-circle elevation-2" src="<?= base_url('assets/img/')  ?><?= $result->foto_siswa  ?>" alt="User Avatar">
                 </div>
                 <!-- /.widget-user-image -->
                 <h5 class="widget-user-username"><?= $result->nama_siswa  ?></h5>
@@ -112,7 +112,7 @@
               <!-- Add the bg color to the header using any of the bg-* classes -->
               <div class="widget-user-header bg-primary">
                 <div class="widget-user-image">
-                  <img class="img-circle elevation-2" src="<?= base_url('assets/backend/')  ?>/dist/img/<?= $result->foto  ?>" alt="User Avatar">
+                  <img class="img-circle elevation-2" src="<?= base_url('assets/img/')  ?><?= $result->foto  ?>" alt="User Avatar">
                 </div>
                 <!-- /.widget-user-image -->
                 <h5 class="widget-user-username"><?= $result->nama  ?></h5>
