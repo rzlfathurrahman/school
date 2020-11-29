@@ -74,7 +74,7 @@
                  </td>
                  <td>
                    <?= anchor("siswa/detail_siswa/".$rpl->nis, '<span class="badge badge-pill badge-primary">Detail</span>') ;?>
-                   <?= anchor("siswa/hapus_siswa/".$rpl->nis, '<span class="badge badge-pill badge-danger">Hapus</span>') ;?>
+                   <?= anchor("siswa/hapus_siswa/".$rpl->nis, '<span class="badge badge-pill badge-danger" onclick="return confirm(\' Anda takin ingin menghapus data ini? \')">Hapus</span>') ;?>
                      
                  </td>
                </tr>
