@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 25, 2020 at 09:08 AM
+-- Generation Time: Nov 30, 2020 at 05:08 PM
 -- Server version: 10.3.25-MariaDB-0ubuntu0.20.04.1
--- PHP Version: 7.4.12
+-- PHP Version: 7.4.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -96,7 +96,6 @@ CREATE TABLE `guru` (
 
 INSERT INTO `guru` (`id`, `nip`, `nama_guru`, `kode_mapel`, `kelas`, `role`) VALUES
 (6, '122134242314', 'Admin istrator', 'Biologi', 'X RPL', 'NA'),
-(7, '1234567899', 'RIZAL RAHMAN', 'Biologi', 'X TKRO,X RPL', 'NA'),
 (8, '1344622131', 'Muhammad Rifqi Fauzi', 'KJD', 'X TKJ', 'Produktif');
 
 -- --------------------------------------------------------
@@ -125,6 +124,32 @@ INSERT INTO `jurusan` (`kode_jurusan`, `nama_jurusan`, `kajur`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `kelas`
+--
+
+CREATE TABLE `kelas` (
+  `id` int(11) NOT NULL,
+  `tingkat` varchar(3) NOT NULL,
+  `jurusan` varchar(15) NOT NULL,
+  `tag` varchar(2) NOT NULL,
+  `kelas` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kelas`
+--
+
+INSERT INTO `kelas` (`id`, `tingkat`, `jurusan`, `tag`, `kelas`) VALUES
+(1, 'X', 'RPL', 'A', 'X RPL A'),
+(2, 'X', 'RPL', 'B', 'X RPL B'),
+(3, 'X', 'TKJ', 'C', 'X TKJ C'),
+(4, 'XI', 'RPL', 'A', 'XI RPL A'),
+(5, 'X', 'TBSM', 'A', 'X TBSM A'),
+(6, 'XI', 'TBSM', 'A', 'XI TBSM C');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `landing_page`
 --
 
@@ -140,8 +165,9 @@ CREATE TABLE `landing_page` (
 --
 
 INSERT INTO `landing_page` (`id`, `judul`, `keterangan`, `is_tampil`) VALUES
-(3, 'Selamat Datang Di Kesiswaan SMK MAARIF NU 1 AJIBARANG', 'lorem200', 1),
-(5, 'Judul Informasi', '<blockquote class=\"blockquote\"><p>asdadas</p></blockquote><h3 style=\"text-align: justify; \"><b><u style=\"background-color: rgb(255, 255, 0);\"><br></u></b></h3><table class=\"table table-bordered\"><tbody><tr><td>mo</td><td>nam</td><td>afsd</td><td>dfsfsd</td><td>sdfsdf</td></tr><tr><td>dfsdfdsf</td><td>sdfsfs</td><td>fsdfsdfds</td><td>sdfsd</td><td>sdfdsf</td></tr><tr><td>dsfsdf</td><td>sdfsd</td><td>sdfsdf</td><td>sdfd</td><td>sdfsdf</td></tr><tr><td>sdfsdfs</td><td>dsfsdf</td><td>sdfds</td><td>sdfsdf</td><td>dsfsdf</td></tr></tbody></table><ol><li style=\"text-align: justify;\"><b><u style=\"background-color: rgb(255, 255, 0);\">sfdf</u></b></li><li style=\"text-align: justify;\"><b><u style=\"background-color: rgb(255, 255, 0);\">dsad</u></b></li><li style=\"text-align: justify;\"><b><u style=\"background-color: rgb(255, 255, 0);\">d</u></b></li><li style=\"text-align: justify;\"><b><u style=\"background-color: rgb(255, 255, 0);\">asd</u></b></li><li style=\"text-align: justify;\"><b><u style=\"background-color: rgb(255, 255, 0);\">sa</u></b></li><li style=\"text-align: justify;\"><b><u style=\"background-color: rgb(255, 255, 0);\">sadasd</u></b></li></ol><p style=\"text-align: justify;\"><br></p><ul><li style=\"text-align: center;\"><b><u style=\"background-color: rgb(255, 255, 0);\">dsadsadedsadsaddaasd</u></b></li><li style=\"text-align: center;\"><b><u style=\"background-color: rgb(255, 255, 0);\">sadd</u></b></li><li style=\"text-align: center;\"><b><u style=\"background-color: rgb(255, 255, 0);\">ad</u></b></li><li style=\"text-align: center;\"><b><u style=\"background-color: rgb(255, 255, 0);\">as</u></b></li><li style=\"text-align: center;\"><b><u style=\"background-color: rgb(255, 255, 0);\">d</u></b></li></ul><p><br></p>', 1);
+(3, 'Selamat Datang Di  SMK MAARIF NU 1 AJIBARANG', 'lorem200', 1),
+(5, 'Judul Informasi', '<blockquote class=\"blockquote\"><p>asdadas</p></blockquote><h3 style=\"text-align: justify; \"><b><u style=\"background-color: rgb(255, 255, 0);\"><br></u></b></h3><table class=\"table table-bordered\"><tbody><tr><td>mo</td><td>nam</td><td>afsd</td><td>dfsfsd</td><td>sdfsdf</td></tr><tr><td>dfsdfdsf</td><td>sdfsfs</td><td>fsdfsdfds</td><td>sdfsd</td><td>sdfdsf</td></tr><tr><td>dsfsdf</td><td>sdfsd</td><td>sdfsdf</td><td>sdfd</td><td>sdfsdf</td></tr><tr><td>sdfsdfs</td><td>dsfsdf</td><td>sdfds</td><td>sdfsdf</td><td>dsfsdf</td></tr></tbody></table><ol><li style=\"text-align: justify;\"><b><u style=\"background-color: rgb(255, 255, 0);\">sfdf</u></b></li><li style=\"text-align: justify;\"><b><u style=\"background-color: rgb(255, 255, 0);\">dsad</u></b></li><li style=\"text-align: justify;\"><b><u style=\"background-color: rgb(255, 255, 0);\">d</u></b></li><li style=\"text-align: justify;\"><b><u style=\"background-color: rgb(255, 255, 0);\">asd</u></b></li><li style=\"text-align: justify;\"><b><u style=\"background-color: rgb(255, 255, 0);\">sa</u></b></li><li style=\"text-align: justify;\"><b><u style=\"background-color: rgb(255, 255, 0);\">sadasd</u></b></li></ol><p style=\"text-align: justify;\"><br></p><ul><li style=\"text-align: center;\"><b><u style=\"background-color: rgb(255, 255, 0);\">dsadsadedsadsaddaasd</u></b></li><li style=\"text-align: center;\"><b><u style=\"background-color: rgb(255, 255, 0);\">sadd</u></b></li><li style=\"text-align: center;\"><b><u style=\"background-color: rgb(255, 255, 0);\">ad</u></b></li><li style=\"text-align: center;\"><b><u style=\"background-color: rgb(255, 255, 0);\">as</u></b></li><li style=\"text-align: center;\"><b><u style=\"background-color: rgb(255, 255, 0);\">d</u></b></li></ul><p><br></p>', 1),
+(6, 'Pembiayaan Seklah', '<p>Hahahaha</p>', 0);
 
 -- --------------------------------------------------------
 
@@ -155,6 +181,13 @@ CREATE TABLE `login_attempts` (
   `login` varchar(100) NOT NULL,
   `time` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `login_attempts`
+--
+
+INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
+(11, '::1', 'rizal@gmail.com', 1606651811);
 
 -- --------------------------------------------------------
 
@@ -215,7 +248,7 @@ CREATE TABLE `orangtua` (
   `alamat` varchar(150) NOT NULL,
   `is_wali` int(1) NOT NULL,
   `nis` int(7) NOT NULL,
-  `foto` text NOT NULL,
+  `foto` text DEFAULT NULL,
   `pekerjaan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -224,7 +257,7 @@ CREATE TABLE `orangtua` (
 --
 
 INSERT INTO `orangtua` (`id`, `nama`, `telepon`, `alamat`, `is_wali`, `nis`, `foto`, `pekerjaan`) VALUES
-(1, 'Bapak Solihin', '087766554433', 'Desa Glempang, Kecamatan Pekuncen, Kabupaten Banyumas, Provinsi Jawa Tengah', 0, 1810877, 'avatar5.png', 'Wiraswasta');
+(5, 'Ahmad SObari', '7318923712983', 'kalsdajsjdl', 0, 1810867, NULL, 'PNS');
 
 -- --------------------------------------------------------
 
@@ -254,14 +287,13 @@ INSERT INTO `profil_kesiswaan` (`id`, `judul`, `url`, `keterangan`, `gambar`) VA
 --
 
 CREATE TABLE `siswa` (
-  `nis` int(7) NOT NULL,
-  `nisn` int(10) NOT NULL,
+  `nis` varchar(20) NOT NULL,
+  `nisn` varchar(20) NOT NULL,
   `nama_siswa` varchar(120) NOT NULL,
   `tempat_tgl_lahir` varchar(150) NOT NULL,
   `jenis_kelamin` int(1) NOT NULL,
   `agama` varchar(20) NOT NULL,
   `kelas` varchar(8) NOT NULL,
-  `email` varchar(150) NOT NULL,
   `alamat_siswa` text NOT NULL,
   `foto_siswa` text NOT NULL,
   `lulus` int(1) NOT NULL,
@@ -273,8 +305,8 @@ CREATE TABLE `siswa` (
 -- Dumping data for table `siswa`
 --
 
-INSERT INTO `siswa` (`nis`, `nisn`, `nama_siswa`, `tempat_tgl_lahir`, `jenis_kelamin`, `agama`, `kelas`, `email`, `alamat_siswa`, `foto_siswa`, `lulus`, `point`, `telepon_siswa`) VALUES
-(1810877, 1234567890, 'Solih Indra Ramdani', 'Banyumas, 17 November 2002', 1, 'islam', 'X RPL', 'solih@gmail.com', 'Desa Glempang, Kecamatan Pekuncen, Kabupaten Banyumas, Provinsi Jawa Tengah', 'avatar2.png', 0, 100, '6283844514417');
+INSERT INTO `siswa` (`nis`, `nisn`, `nama_siswa`, `tempat_tgl_lahir`, `jenis_kelamin`, `agama`, `kelas`, `alamat_siswa`, `foto_siswa`, `lulus`, `point`, `telepon_siswa`) VALUES
+('1810867', '5645645646545', 'Ayu Kusumaningrum', 'Banyumas, 13 Mei 2003', 2, 'ISLAM', 'X TKJ C', 'kjdasjdklaldskjjl', 'Tdt7X4Gq.jpg', 0, 100, '7812738718273');
 
 -- --------------------------------------------------------
 
@@ -330,20 +362,15 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$ANMk6nxXtwdstNFV99z87.TPbe/D99V8QfZusSv/3hIjwuy8jWpC.', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1606253165, 1, 'Admin', 'istrator', NULL, NULL),
-(2, '::1', NULL, '$2y$10$7Na0wjW1nwNleszq2mUAXe1QrTSkjKgmdJX7WXDY2G3rrLeptWEre', 'githubakun686@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1603256409, 1603576528, 1, 'RIZAL', 'RAHMAN', NULL, NULL),
+(1, '127.0.0.1', 'administrator', '$2y$12$ANMk6nxXtwdstNFV99z87.TPbe/D99V8QfZusSv/3hIjwuy8jWpC.', 'admin@admin.com', NULL, '', NULL, NULL, NULL, '695f26fdcbc7f6639b3a0ba297f980c919a2bf2f', '$2y$10$9gwT7dOZax4tp..VQwLhk.b5SUMyKd2UQpdy8iABjyc8kCUh1Z71K', 1268889823, 1606724563, 1, 'Admin', 'istrator', NULL, NULL),
 (3, '::1', NULL, '$2y$10$GZmsBoLH9fgq9Y5c35pXmOj8BPvWDMzrYl6MyXXEF.wuXrNRfL4bu', 'p@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1603258118, NULL, 1, 'p', 'p', NULL, NULL),
-(4, '::1', NULL, '$2y$10$C5U30XqYXnrB.SOEANA5S.ASCzcz4GRd2yxLZyNT86HQMW5pdhtRS', 'githubakun696@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1603449323, NULL, 1, 'Ahmad', 'Solighin', NULL, NULL),
-(5, '::1', NULL, '$2y$10$DOW0x.Ek7AdDJ89Avxkp4ezaZShB9YCZd0QjUdWp7vxVVGE2UcpQ6', 'githubakun676@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1603449440, NULL, 1, 'RIZAL', 'RAHMAN', NULL, NULL),
-(6, '127.0.0.1', NULL, '$2y$10$LbR8DDkQGPMZqNnsAyYTzeFpoIZn4RBtQD17uNyBUcid5l1n5TORu', 'githubakun6861111@gmail.com', 'af662a119f12da100877', '$2y$10$Sx3JdMwXOC7qRA1mvXDbsuZrSF99ms//1LnS4TYA84culjekQ0N.i', NULL, NULL, NULL, NULL, NULL, 1603673245, NULL, 0, 'Sodikin', 'Slmaten', NULL, NULL),
-(7, '127.0.0.1', NULL, '$2y$10$yMnYlgjbv.dytulyBnQEYelzc2Q0XSboWgO4UsIakVos14jO38Md2', 'githubakun686@gmail.comasa', 'f01f1d807d5fc96c1cdc', '$2y$10$nsWR8iEcDLB4ZDj3Vh82G.peOkRipiiKuzGTgmAByMtLNcZ1I0B1i', NULL, NULL, NULL, NULL, NULL, 1603673674, NULL, 0, 'Subaru', 'Kyun', NULL, NULL),
-(8, '::1', NULL, '$2y$10$1U.9su.yyN/liortSHehGuEbjTGKciyR4EL/TDIpGzS5vGi1iCD8m', 'rizal@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1605591814, NULL, 1, 'RIZAL', 'FATHUR RAHMAN', NULL, NULL),
+(8, '::1', NULL, '$2y$10$1U.9su.yyN/liortSHehGuEbjTGKciyR4EL/TDIpGzS5vGi1iCD8m', 'rizal@gmail.com', NULL, NULL, NULL, NULL, NULL, 'e80f0d2119b9144c8020088fa7a4b111cd4e1333', '$2y$10$XLgudVO9ptz5P1hR1nsDbu9PImyGCe6FLY4UxbLGrVlikWjsclF0C', 1605591814, 1606562053, 1, 'RIZAL', 'FATHUR RAHMAN', NULL, NULL),
 (9, '::1', NULL, '$2y$10$yqYMGPjbvbVIUvNq/UBJF.yjsdQviZThU1ow5OmSY4gg7et5bGS.2', 'rifqi@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1605592082, NULL, 1, 'Muhammad Rifqi', 'Fauzi', NULL, NULL),
 (10, '::1', NULL, '$2y$10$gtbT9IxMcXUWX8ZCXnPsVuUjYdZiZljtnxgYqUkTuvpKwDp5hRw9q', 'kajurtsm@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1606094118, NULL, 0, 'KAJUR', 'TBSM', NULL, NULL),
 (11, '::1', NULL, '$2y$10$OZnGZuk4xB5EhEUMLfDnDONMg4/zYe/NNdDpyc7pV1zTl1LIedpU2', 'kajurtav@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1606094195, NULL, 0, 'KAJUR', 'TAV', NULL, NULL),
-(12, '::1', NULL, '$2y$10$AagvUNq6FhyX4ObQci94cOM1vt.xGXmjWlQd0jL6PY43HO5osVyyS', 'rizalfathurrahman023@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1606098410, 1606098712, 1, 'RIZAL FATHUR', 'RAHMAN', NULL, NULL),
-(13, '::1', NULL, '$2y$10$/gR6/g7iwLqz.Tyl7WL7redcqbGVeu2gAzL154SNhBLfIwOLQFZDG', 'solih@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1606099852, 1606206945, 1, 'SOLIH INDRA', 'RAMDANI', NULL, NULL),
-(14, '::1', NULL, '$2y$10$uMA6Ysse1bVqhDq3RBsqBOt8HEXlikDkuT4Fj0RRWh0NeSTcUO6eG', 'felix@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1606100069, NULL, 1, 'Felix', 'Irwanti', NULL, NULL);
+(13, '::1', NULL, '$2y$10$/gR6/g7iwLqz.Tyl7WL7redcqbGVeu2gAzL154SNhBLfIwOLQFZDG', 'solih@gmail.com', NULL, NULL, NULL, NULL, NULL, '0e1fb50914bd435844b7a98a28d5fe6a80581399', '$2y$10$EBSiofkQToSzZZRpoQbiQeJpPTMZcs2VKbSzwzTOxdkZ3gwxs8l1G', 1606099852, 1606560582, 1, 'SOLIH INDRA', 'RAMDANI', NULL, NULL),
+(14, '::1', NULL, '$2y$10$uMA6Ysse1bVqhDq3RBsqBOt8HEXlikDkuT4Fj0RRWh0NeSTcUO6eG', 'felix@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1606100069, NULL, 1, 'Felix', 'Irwanti', NULL, NULL),
+(15, '::1', NULL, '$2y$10$JivlTcKNlD389pwRv5pK0.3u99KzdJxxhMzoVJZdtIjbSLc2CH0Wy', 'ayu@gmail.com', NULL, NULL, NULL, NULL, NULL, '2a8017188ab14de723ec17f43094a62cb043dc19', '$2y$10$2x4kwon5.mRF/MnaEZJILuAsN4eOLZbWrxOIMWgBwvQUlNFM1st8m', 1606627784, 1606725201, 1, 'Ayu', 'Kusumaningrum', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -366,25 +393,10 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (30, 1, 3),
 (31, 1, 6),
 (32, 1, 11),
-(71, 2, 1),
-(72, 2, 2),
-(73, 2, 3),
-(74, 2, 6),
-(75, 2, 11),
-(76, 2, 13),
 (49, 3, 2),
 (50, 3, 6),
 (51, 3, 11),
 (52, 3, 14),
-(62, 4, 2),
-(63, 4, 6),
-(64, 4, 14),
-(65, 4, 15),
-(14, 5, 2),
-(66, 6, 2),
-(67, 7, 2),
-(68, 7, 3),
-(69, 7, 6),
 (105, 8, 10),
 (106, 8, 16),
 (85, 9, 6),
@@ -396,12 +408,12 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (92, 10, 16),
 (94, 11, 11),
 (95, 11, 16),
-(97, 12, 5),
-(98, 12, 16),
 (100, 13, 5),
 (101, 13, 16),
 (103, 14, 5),
-(104, 14, 16);
+(104, 14, 16),
+(108, 15, 5),
+(109, 15, 16);
 
 --
 -- Indexes for dumped tables
@@ -430,6 +442,13 @@ ALTER TABLE `guru`
 --
 ALTER TABLE `jurusan`
   ADD PRIMARY KEY (`kode_jurusan`);
+
+--
+-- Indexes for table `kelas`
+--
+ALTER TABLE `kelas`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `kelas` (`kelas`);
 
 --
 -- Indexes for table `landing_page`
@@ -522,16 +541,22 @@ ALTER TABLE `guru`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `kelas`
+--
+ALTER TABLE `kelas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `landing_page`
 --
 ALTER TABLE `landing_page`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `menu`
@@ -543,7 +568,7 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `orangtua`
 --
 ALTER TABLE `orangtua`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `profil_kesiswaan`
@@ -561,13 +586,13 @@ ALTER TABLE `struktur_organisasi`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users_groups`
 --
 ALTER TABLE `users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- Constraints for dumped tables
