@@ -46,7 +46,7 @@
            <div class="card-body ">
             <div class="d-block">
               <?php foreach ($jurusan as $j): ?>
-               <a href="<?= base_url('siswa/kelas/'.$j->kode_jurusan)  ?>"> <img id="img-kelas-siswa" src="<?= base_url('assets/img/file_kelas_icon/'.$j->kode_jurusan.".png")  ?>">
+               <a href="<?= base_url('siswa/kelas/'.$j->kode_jurusan)  ?>"> <img id="img-kelas-siswa" alt="Gambar untuk jurusan <?= $j->kode_jurusan  ?> belum ada !" src="<?= base_url('assets/img/file_kelas_icon/'.$j->kode_jurusan.".png")  ?>">
               <?php endforeach; ?>
             </div>
            </div>
