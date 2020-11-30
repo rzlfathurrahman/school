@@ -27,6 +27,9 @@
         </div>
         <!-- /.error-page -->
       <?php else: ?>
+
+      <?= $this->session->flashdata('message');  ?>
+            <?= $this->session->flashdata('pesan');  ?>
         
       <!-- Custom Tabs -->
       <div class="card">
