@@ -17,23 +17,25 @@
           </div>
           <div class="card-body">
             <?= $this->session->flashdata('message');  ?>
+            <?= $this->session->flashdata('pesan');  ?>
             <form action="<?= base_url('frontend/siswa/update')  ?>" method="post" enctype="multipart/form-data">
               <div class="row">
                 <div class="col-md-6">
                   
                   <div class="form-group">
                     <label for="nama">Nama Siswa</label>
+                    <input type="hidden" name="id_ortu" value="<?= $detail->id  ?>">
                     <input required id="nama" type="text" name="nama_siswa" value="<?= $detail->nama_siswa  ?>" readonly class="form-control">
                   </div>
 
                   <div class="form-group">
                     <label for="nis">Nomor Induk Siswa </label>
-                    <input value="<?= set_value('nis')  ?>" name="nis" required id="nis" type="number"  class="form-control" placeholder="Masukan NIS anda" readonly>
+                    <input value="<?= $detail->nis  ?>" name="nis" required id="nis" type="number"  class="form-control" placeholder="Masukan NIS anda" readonly>
                   </div>
 
                   <div class="form-group">
                     <label for="nisn">Nomor Induk Siswa Nasional </label>
-                    <input value="<?= set_value('nisn')  ?>" required type="text" class="form-control" placeholder="Masukan NISN anda" id="nisn" readonly>
+                    <input value="<?= $detail->nisn  ?>" name="nisn" required type="text" class="form-control" placeholder="Masukan NISN anda" id="nisn" readonly>
                   </div>
 
                   <div class="form-group">
