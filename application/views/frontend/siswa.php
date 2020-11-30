@@ -91,7 +91,7 @@
                           <td><?= $result->telepon_siswa  ?></td>
                         </tr>
                       </table>
-
+                      <a href="<?= base_url('frontend/siswa/edit/'.$result->nis)  ?>" class="btn btn-primary mt-2"><i class="fas fa-edit"></i> Edit Profil Saya</a>
                     </div>
                   </div>
                 </div>
