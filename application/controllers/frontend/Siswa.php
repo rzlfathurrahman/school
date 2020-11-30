@@ -132,16 +132,19 @@ class Siswa extends CI_Controller {
 		$this->load->view('templates/frontend/footer');
 	}
 
-	private function _new_img_name($foto)
+	private function _new_img_name($foto = null)
 	{
-		$this->load->helper('string');
-		//pecah gambar orangtua
-		$pecah_gambar = explode('.', $foto);
-		$nama_gambar = random_string('alnum',8);
-		$ekstensi = $pecah_gambar[1];
+		if ($foto != null) {
+			$this->load->helper('string');
+			//pecah gambar orangtua
+			$pecah_gambar = explode('.', $foto);
+			$nama_gambar = random_string('alnum',8);
+			$ekstensi = $pecah_gambar[1];
 
-		$new_img_name = $nama_gambar.".".$ekstensi;
-		return $new_img_name;
+			$new_img_name = $nama_gambar.".".$ekstensi;
+			return $new_img_name;
+		}
+		return false;
 	}
 
 	public function tambah_siswa_aksi()
@@ -289,6 +292,94 @@ class Siswa extends CI_Controller {
 		$this->load->view('templates/frontend/topbar');
 		$this->load->view('frontend/edit_siswa');
 		$this->load->view('templates/frontend/footer');
+	}
+
+	public function update()
+	{
+		// data baru
+		$nama_siswa = $this->input->post('nama_siswa');
+		$nis = $this->input->post('nis');
+		$nisn = $this->input->post('nisn');
+		$tempat_tgl_lahir = $this->input->post('tempat_tgl_lahir');
+		$jenis_kelamin = $this->input->post('jenis_kelamin');
+		$agama = $this->input->post('agama');
+		$kelas = $this->input->post('kelas');
+		$alamat_siswa = $this->input->post('alamat_siswa');
+		$foto_siswa = $_FILES['foto']['name'];
+		// var_dump($foto_siswa); exit();
+		$telepon = $this->input->post('telepon_siswa');
+		$nama_img_siswa = $this->_new_img_name($foto_siswa);
+
+		$nama_orangtua = $this->input->post('nama');
+		$telepon_orangtua = $this->input->post('telepon');
+		$alamat_orangtua = $this->input->post('alamat');
+		$is_wali = $this->input->post('is_wali');
+		$pekerjaan_orangtua = $this->input->post('pekerjaan');
+
+		// data lama
+		$siswa_old = $this->db->get_where('siswa',['nis' => $nis])->result_array();
+		$data_siswa_old = $siswa_old[0];
+		$ortu_old = $this->db->get_where('orangtua',['nis' => $nis])->result_array();
+		$data_ortu_old = $ortu_old[0];
+
+		// cek apakah memakai gambar baru / lama
+		if ($nama_img_siswa == false){
+			// jika memakai gambar lama maka tak perlu upload gambar
+			$nama_img_siswa = $data_siswa_old['foto_siswa'];
+		}else{
+			// upload gambar baru
+			$this->_do_upload($foto_siswa,$nama_img_siswa);
+			// hapus gambar lama
+			unlink('assets/img/'.$nama_foto);
+		}
+
+		$data_siswa_new = [
+			'nis' => $nis,
+			'nisn' => $nisn,
+			'nama_siswa' => $nama_siswa,
+			'tempat_tgl_lahir' => $tempat_tgl_lahir,
+			'jenis_kelamin' => $jenis_kelamin,
+			'agama' => $agama,
+			'kelas' => $kelas,
+			'alamat_siswa' => $alamat_siswa,
+			'foto_siswa' => $nama_img_siswa,
+			'lulus' => '0',
+			'point' => '100',
+			'telepon_siswa' => $telepon,
+		];
+
+		$data_ortu_new = [
+			'id' => $this->input->post('id_ortu'),
+			'nama' => $nama_orangtua,
+			'telepon' => $telepon_orangtua,
+			'alamat' => $alamat_orangtua,
+			'is_wali' => $is_wali,
+			'nis' => $nis,
+			'foto' => null ,
+			'pekerjaan' => $pekerjaan_orangtua,
+
+		];
+
+		// var_dump($data_siswa_old);
+		// var_dump($data_siswa_new);
+		//  exit();
+
+		// cek apakah data diupdate / tidak
+		if ($data_ortu_new == $data_ortu_old && $data_siswa_new == $data_siswa_old && $foto_siswa == '' ) {
+			$this->session->set_flashdata("pesan","<div class='alert alert-danger'>Tidak ada data yang diubah!</div>");	
+		}else{
+			// jika ada
+			// upload data baru
+			$this->db->where('nis', $nis);
+			$this->db->update('siswa', $data_siswa_new);
+			$this->db->where('nis', $nis);
+			$this->db->update('orangtua', $data_ortu_new);
+			// tampilkan flashdata
+			$this->session->set_flashdata("pesan","<div class='alert alert-success'>Data berhasil diupdate!</div>");	
+			
+		}
+		redirect('frontend/siswa','refresh');
+
 	}
 
 }
