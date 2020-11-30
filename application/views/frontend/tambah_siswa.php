@@ -80,7 +80,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="img-input-siswa">Foto Siswa</label><br>
+                    <label for="img-input-siswa">Foto Siswa (<span class="text-danger">Maks 1024x768 @2MB</span>)</label><br>
                     <img id="img-preview-siswa" src="<?= base_url('assets/backend/dist/img/user1-128x128.jpg')  ?>" class="img-thumbnail"><br>
                     <input id="img-input-siswa" required type="file" name="foto" class="form-control-file" onchange="img_preview_siswa()">
                   </div>
