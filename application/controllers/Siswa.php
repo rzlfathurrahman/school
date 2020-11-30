@@ -134,11 +134,15 @@ class Siswa extends CI_Controller {
 	{
 		$query = $this->db->get_where('siswa',['nis' => $nis]);
 		$query2 = $this->db->get_where('orangtua',['nis' => $nis]);
+		$foto = $this->db->query("SELECT foto_siswa FROM siswa WHERE nis = $nis")->result();
+		$nama_foto = $foto[0]->foto_siswa;
         if ($nis != null) {
             if ($query->num_rows() > 0 && $query2->num_rows() > 0 ) {
                 $this->db->where('nis', $nis);
                 $this->db->delete('siswa');
+                $this->db->where('nis', $nis);
                 $this->db->delete('orangtua');
+                unlink('assets/img/'.$nama_foto);
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data siswa berhasil dihapus.</div>');
             }elseif($query->num_rows() == 0 && $query2->num_rows() == 0){
                 $this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Data dengan nis '. $nis .' tidak ditemukan.</div>');
