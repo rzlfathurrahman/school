@@ -8,9 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- my meta components -->
-  <meta name="description" content="Jasa pembuatan website terbaik, murah, dan terpercaya. Cocok untuk yang membutuhkan memakai teknologi website sebagai pembantu pemecahan masalah.">
   <meta name="author" content="SMK MA'ARIF NU 1 AJIBARANG">
-
+  <meta name="description" content="APLIKASI KESISWAAN SMK MAARIF NU 1 AJIBATANG">
+  <meta name="keyword" content="Kesiswaan,kesiswaan smk manusa, smk manusa,kesiswaan smk manusa ajb ">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?= base_url()  ?>assets/backend/plugins/fontawesome-free/css/all.min.css">
@@ -34,5 +34,7 @@
   <!-- Select2 -->
   <link rel="stylesheet" href="<?= base_url()  ?>assets/backend/plugins/select2/css/select2.min.css">
   <link rel="stylesheet" href="<?= base_url()  ?>assets/backend/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- icon -->
+  <link rel="icon" href="<?= base_url('assets/img/logo.png')  ?>">
 </head>
 <body class="hold-transition sidebar-mini pace-primary">
