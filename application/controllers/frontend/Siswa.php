@@ -245,6 +245,52 @@ class Siswa extends CI_Controller {
 
 	}
 
+	public function edit($nis)
+	{
+		$data['halaman'] = "frontend/siswa/";
+
+		// siapkan menu
+		$data['menu'] = $this->db->get('menu')->result();
+
+		// apakah user login?
+		$data['is_login'] = $this->ion_auth->logged_in();
+
+		// siapkan data user yang aktif
+		$data['user'] = $this->session->userdata();
+		$id_user_aktif = $data['user']['user_id'];
+
+		// ambil data user aktif
+		$user = $this->ion_auth->user()->result();
+		$nama_siswa = '';
+		foreach ($user as $u) {
+			$nama_siswa = $u->first_name." ".$u->last_name;
+		}
+
+		// data kelas
+		$data['kelas'] = $this->db->get('kelas')->result();
+
+		// judul web
+		$data['judul'] = 'Edit Profil';
+
+		// ambil detail siswa
+		$query = "SELECT * FROM siswa,orangtua WHERE siswa.nis = orangtua.nis AND siswa.nama_siswa = '$nama_siswa'";
+		$detail = $this->db->query($query)->result();
+
+		// jika user belum terdaftar sebagai siswa
+		if (empty($detail)) {
+			$data['detail'] = null;
+		}else{
+			$data['detail'] = $detail[0];
+		}
+
+		// var_dump($data); exit();
+
+		$this->load->view('templates/frontend/header',$data);
+		$this->load->view('templates/frontend/topbar');
+		$this->load->view('frontend/edit_siswa');
+		$this->load->view('templates/frontend/footer');
+	}
+
 }
 
 /* End of file Siswa.php */
