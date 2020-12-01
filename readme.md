@@ -1,6 +1,23 @@
 # APlKASI KESISWAAN SMK MAARIF NU 1 AIJJBARANG
     Aplikasi ini dibuat dengan tujuan agar siswa mudah dalam memantau dan mencari informasi yang berhubungan dengan Kesiswaan. DIbangun menggunakan Codeigniter 3, Admin LTE, dan Ion Auth.
 
+**Fitur Aplikasi**
+- ***Admin***
+   - ``` Pengelolaan Landing Page ```
+   - ``` Pengelolaan Menu ```
+   - ``` Pengelolaan Akun Penguna/user ```
+   - ``` Manajemen Kesiswaan ```
+        -  ``` Profil Kesiswaan  ```
+        -  ``` Struktur Organisasi Kesiswaan  ```
+        -  ``` Pengelolaan Esktrakurikuler  ```
+        -  ``` Pengelolaan Guru ```
+        -  ``` Pengelolaan Siswa ```
+   - ``` Manajemen Jurusan ```
+        -  ``` Pengelolaan Jurusan  ```
+        -  ``` Pengelolaan Mapel  ```
+        -  ``` Pengelolaan Kelas ```
+- ***Siswa***
+
 **Framework & Library Pendukung**
 - [Codeigniter 3](https://codeigniter.com)
 - [AdminLTE 3](https://adminlte.io)
