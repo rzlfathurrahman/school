@@ -1,4 +1,4 @@
-# APlKASI KESISWAAN SMK MAARIF NU 1 AIJJBARANG
+# APlKASI KESISWAAN SMK MAARIF NU 1 AJIBARANG
     Aplikasi ini dibuat dengan tujuan agar siswa mudah dalam memantau dan mencari informasi yang berhubungan dengan Kesiswaan. DIbangun menggunakan Codeigniter 3, Admin LTE, dan Ion Auth.
 
 **Fitur Aplikasi**
