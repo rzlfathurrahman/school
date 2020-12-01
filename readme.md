@@ -17,6 +17,8 @@
         -  ``` Pengelolaan Mapel  ```
         -  ``` Pengelolaan Kelas ```
 - ***Siswa***
+	- ``` Tambah Profil  ```
+	- ``` Edit Profil ```
 
 **Framework & Library Pendukung**
 - [Codeigniter 3](https://codeigniter.com)
